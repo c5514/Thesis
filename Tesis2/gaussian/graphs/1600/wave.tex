@@ -1,0 +1,52 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{
+    compat=1.18,
+    colormap={cool}{rgb(0cm)=(0,0,1); rgb(1cm)=(1,1,1); rgb(2cm)=(1,0,0)},
+    every axis/.style={
+        axis lines=center,
+        axis line style={-stealth},
+        grid=major,
+        view={20}{30},
+        clip=false,
+        tick label style={font=\footnotesize},
+        label style={font=\small}
+    }
+}
+
+\begin{document}
+
+% For a specific time point (t=0.000)
+\begin{tikzpicture}
+	\begin{axis}[
+			width=12cm,
+			height=10cm,
+			xlabel={$z$},
+			ylabel={Re($\psi$)},
+			ylabel style={xshift=30pt, yshift=5pt},
+			zlabel={Im($\psi$)},
+			% title={$t=0.0$ s},
+			xmin=-2, xmax=15.5,   % Adjust based on your data range
+			ymin=-1.2, ymax=1.2,   % Adjust based on your data range
+			zmin=-1.2, zmax=1.2,   % Keep symmetric for better visualization
+			legend style={at={(0.6,0.9)},anchor=west}
+		]
+
+		% Real part: (x, real_part, 0)
+		\addplot3 [
+			blue,
+			thick,
+			mark=none
+		] table [x=x, y=real_part, z expr=0] {../../wave_data/t_im_re_1600.dat};
+		% \addlegendentry{Real Part}
+
+		% Imaginary part: (x, 0, imag_part)
+		\addplot3 [
+			red,
+			thick,
+			mark=none
+		] table [x=x, y expr=0, z=imag_part] {../../wave_data/t_im_re_1600.dat};
+		% \addlegendentry{Imaginary Part}
+	\end{axis}
+\end{tikzpicture}
+\end{document}

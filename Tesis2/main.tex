@@ -1,0 +1,201 @@
+\documentclass[a4paper,oneside,openright,12pt]{book}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{libertine}%scshape
+\usepackage{subcaption}%para subtitulos de imágenes
+\usepackage{caption}
+\usepackage{fancyhdr}%encabezados
+% \usepackage{bibentry}%bibliografia
+\usepackage{graphicx}%imagenes
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{svg}
+\usepackage{mathtools}
+% \usepackage{cite} % para contraer referencias
+\usepackage{vmargin}% margenes
+\usepackage{blindtext}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{chemformula}
+% \usepackage{bbm}
+\usepackage{verbatim} % comentarios
+\usepackage{hyperref}
+\usepackage{physics}
+\usepackage{tensor}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{color}
+
+\usepackage{csquotes}
+% \usepackage[style=ieee,autocite=footnote,backend=biber]{biblatex}
+% \usepackage[style=numeric,autocite=footnote,backend=biber]{biblatex}
+\usepackage[
+    backend=biber, 
+    natbib=true,
+    style=phys,
+    biblabel=brackets,
+    giveninits=true,
+    abbreviate=false,
+    doi=false, url=false, isbn=false, eprint=false,
+    block=space,
+    backref=true, backrefstyle=two,
+    maxbibnames=3,
+]{biblatex}
+\bibliography{./extra/biblio.bib}
+
+%   ── MARGENES ──────────────────────────────────────────────────────────
+\setpapersize{A4}
+\setmargins{2.5cm}       % margen izquierdo
+{1.5cm}                  % margen superior
+{16.5cm}                 % anchura del texto
+{23.42cm}                % altura del texto
+% {10pt}                   % altura de los encabezados
+{15.5pt}                   % altura de los encabezados
+{1cm}                    % espacio entre el texto y los encabezados
+{0pt}                    % altura del pie de página
+{2cm}                    % espacio entre el texto y el pie de página
+
+%   ── ENCABEZADOS ───────────────────────────────────────────────────────
+\renewcommand{\headrulewidth}{0.5pt}
+% pie de pagina
+\lfoot[]{}
+\cfoot[]{}
+\rfoot[]{}
+\renewcommand{\footrulewidth}{0pt}
+% primera pagina de un capitulo
+\fancypagestyle{plain}{
+	\fancyhead[L]{}
+	\fancyhead[C]{}
+	\fancyhead[R]{\thepage}
+	\fancyfoot[L]{}
+	\fancyfoot[C]{}
+	\fancyfoot[R]{}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{fancy}
+
+\newcommand{\1}{\mathbbm{1}}
+\newcommand{\mi}{{i\mkern1mu}}%imaginary number
+\newcommand{\up}{\ket{\uparrow}}
+\newcommand{\down}{\ket{\downarrow}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\dg}{^\circ}
+\newcommand{\surjto}{\twoheadrightarrow}
+\newcommand{\injto}{\hookrightarrow}
+\DeclareMathOperator\supp{supp}
+\DeclareMathOperator{\img}{im} % Image
+\DeclareMathOperator{\Img}{Im} % Image
+\DeclareMathOperator{\coker}{coker} % Cokernel
+\DeclareMathOperator{\Coker}{Coker} % Cokernel
+\DeclareMathOperator{\Ker}{Ker} % Kernel
+\DeclareMathOperator{\Spec}{Spec} % spectrum
+\DeclareMathOperator{\pr}{pr} % projection
+\DeclareMathOperator{\ext}{ext} % extension
+\DeclareMathOperator{\pred}{pred} % predecessor
+\DeclareMathOperator{\dom}{dom} % domain
+\DeclareMathOperator{\cod}{cod} % codomain
+\DeclareMathOperator{\ran}{ran} % range
+\DeclareMathOperator{\Hom}{Hom} % homomorphism
+\DeclareMathOperator{\Mor}{Mor} % morphisms
+\DeclareMathOperator{\End}{End} % endomorphism
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator*{\argmin}{arg min}
+\DeclareMathOperator*{\argmax}{arg max}
+\newcommand{\dang}{\measuredangle} %% Directed angle
+\newcommand{\ray}[1]{\overrightarrow{#1}}
+\newcommand{\seg}[1]{\overline{#1}}
+\newcommand{\arc}[1]{\wideparen{#1}}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\Ob}[1]{\operatorname{Ob}(\cat{#1})}
+\newcommand{\Obj}[1]{\cat{#1}_0}
+\newcommand{\cHom}[3]{\Hom_{\mathbf{#1}}(#2,#3)}
+\newcommand{\mean}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+\renewcommand{\norm}[1]{\left\lVert{#1}\right\rVert}
+
+%Para compilar solo un capítulo y trabajar más rápido.
+% \includeonly{chapters/C2.tex}
+
+
+\begin{document}
+%          ╭──────────────────────────────────────────────────────────╮
+%          │                   Inicio de documento                    │
+%          ╰──────────────────────────────────────────────────────────╯
+\include{extra/title}
+% \include{extra/agradecimiento}
+\include{extra/summary}
+% ── Table of contents ─────────────────────────────────────────────────
+\tableofcontents
+
+
+% ╭──────────────────────────────────────────────────────────╮
+% │                        CAPITULO 1                        │
+% ╰──────────────────────────────────────────────────────────╯
+\include{chapters/C1}
+
+% ── PAGINA LIBRE ──────────────────────────────────────────────────────
+\newpage
+$\ $
+\thispagestyle{empty} % para que no se numere esta pagina
+
+
+% ╭──────────────────────────────────────────────────────────╮
+% │                        CAPITULO 2                        │
+% ╰──────────────────────────────────────────────────────────╯
+\include{chapters/C2}
+
+% ── PAGINA LIBRE ──────────────────────────────────────────────────────
+\newpage
+$\ $
+\thispagestyle{empty} % para que no se numere esta pagina
+
+% ╭──────────────────────────────────────────────────────────╮
+% │                        CAPITULO 3                        │
+% ╰──────────────────────────────────────────────────────────╯
+\include{chapters/C3}
+
+% ── PAGINA LIBRE ──────────────────────────────────────────────────────
+\newpage
+$\ $
+\thispagestyle{empty} % para que no se numere esta pagina
+% ╭──────────────────────────────────────────────────────────╮
+% │                        CAPITULO 4                        │
+% ╰──────────────────────────────────────────────────────────╯
+\include{chapters/C4}
+%
+% ── PAGINA LIBRE ──────────────────────────────────────────────────────
+\newpage
+$\ $
+\thispagestyle{empty} % para que no se numere esta pagina
+
+% ╭──────────────────────────────────────────────────────────╮
+% │                      CAPITULO FINAL                      │
+% ╰──────────────────────────────────────────────────────────╯
+\include{chapters/CF}%Aquí se colocan las conclusiones
+
+% ── PAGINA LIBRE ──────────────────────────────────────────────────────
+\newpage
+$\ $
+\thispagestyle{empty} % para que no se numere esta pagina
+
+
+% ╭──────────────────────────────────────────────────────────╮
+% │                        APENDICES                         │
+% ╰──────────────────────────────────────────────────────────╯
+% \appendix
+% \include{appendix/A1}
+%\include{appendix/A2}
+
+
+% ╭──────────────────────────────────────────────────────────╮
+% │                       BIBLIOGRAFIA                       │
+% ╰──────────────────────────────────────────────────────────╯
+\nocite{*}
+\printbibliography
+\end{document}

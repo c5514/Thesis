@@ -1,0 +1,533 @@
+\chapter{Ecuación de onda relativista}\label{cap.2}
+\markboth{Ecuación de onda relativista}{Ecuación de onda relativista}
+En este capítulo se realiza un resumen de los conceptos más importantes de la mecánica cuántica no relativista y la teoría de la relatividad especial, los cuales fueron usados para la deducción de una teoría cuántica relativista. En particular, en el caso de la mecánica cuántica no relativista se discute sobre la interpretación probabilística del módulo al cuadrado de la función de onda, así como la ecuación de Schrödinger determina su evolución. Además, se dedujo la estructura del grupo de Lorentz a partir del principio de relatividad de Einstein y se definieron el momentum y energía de una partícula relativista. Por otro lado, al estudiar algunas propiedades del grupo de Lorentz vemos que este se puede separar en 4 componentes e identificamos a las transformaciones de Lorentz asociadas a la inversión temporal, inversión espacial y la inversión espacio-temporal para un espacio-tiempo 3+1 dimensional.
+
+Luego, para obtener una teoría cuántica se desarrolló un proceso para obtener la ecuación de Klein-Gordon. Finalmente, siguiendo el método de Umezawa \cite{umezawa} se obtiene una ecuación de Dirac y las propiedades de anticonmutación de las matrices $\gamma$.
+
+\section{Elementos de la mecánica cuántica no relativista} \renewcommand{\thefootnote}{\arabic{footnote}} % numeración por símbolos
+\lhead[\thepage]{\thesection. Elementos de la mecánica cuántica no relativista}
+\subsection{Descripción cuántica de un sistema físico}
+La física está basada en experimentos y el registro de los resultados de estos, de modo que en este sentido podemos afirmar que dos sistema se encuentran en el mismo estado si todos los posibles resultados para ambos son iguales. Así se puede definir matemáticamente el estado de un sistema como una entidad matemática que se relaciona con los posibles resultados. Algo que hay que notar de esta definición es dependiente de los resultados posibles de una medición. Esto motiva la definición de un observable, el cual sería aquel que relaciona al estado del sistema con un conjunto de resultados posibles.
+
+Clásicamente, el estado de un sistema, en el caso más simple, está determinado por el valor del momentum y su posición en un instante dado. Para definir un estado en la mecánica cuántica es necesario determinar las propiedades matemáticas de este. Para esto se propone el siguiente experimento, en el cual se asume que la luz tiene naturaleza corpuscular y ondulatoria, según lo propuesto por Einstein para explicar el efecto fotoeléctrico \cite{einstein1905photoelectric}. Un haz de luz pasa a través del divisor de haz (BS1) y se divide tomando los caminos mostrados en la Figura \ref{fig:mach-zender}. Se observa que el haz que pasa por el camino superior impacta con el espejo M1 para luego pasar por el desfasador (PS) y finalmente interferir en el divisor de haz (BS2) con la otra componente que fue reflejado por el espejo M2. Se considera que las longitudes de los caminos ópticos superior e inferior son los mismas, de modo que solo el desfasador influye en el tipo de interferencia que ocurre en BS2, correspondiendo $\phi = \pi$ a la interferencia destructiva y $\phi = 2\pi$ a la constructiva.
+\begin{figure}[!htttb]
+	\centering
+	\includesvg[width=0.5\textwidth]{figures/mach_zender.svg}
+	\caption{Montaje esquemático del interferómetro de Mach-Zender. Fuente: \textcite{auletta}}
+	\label{fig:mach-zender}
+\end{figure}
+
+Si solo un fotón a la vez pasa por BS1, se observa luego de realizar el experimento N veces el detector D1 habrá hecho click $N(1- \cos\phi)/2$ veces y el detector D2, $N(1 + \cos\phi)/2$. Si se remueve el divisor de haz (BS1), es seguro que el fotón pasará por el camino inferior, este estado del fotón será denotado por $\ket{\psi_l}$. De igual modo si se reemplaza el divisor de haz (BS1) por un espejo el fotón pasaría por el camino superior, denotado por $\ket{\psi_u}$. De modo que el resultado obtenido con el divisor de haz (BS1) indica que el fotón puede estar en un estado superpuesto entre ambos, es decir $c_u \ket{\psi_u} + c_l \ket{\psi_l}$. Este resultado sugiere el \emph{principio de superposición}, el cual implica que la intuición clásica de que una partícula tiene una trayectoria bien determinada no es válida cuando consideramos que tiene también un comportamiento ondulatorio.
+
+Sin embargo, podríamos considerar que la ``superposición'' de estados puede ser debido a la falta de conocimiento del camino por el que pasó el fotón. Para probar que esta suposición no es válida se usa el hecho de que cuando $\phi = 0$ el detector D1 no hará click, por lo que si se coloca un objeto entre el divisor de haz (BS1) y el espejo (M2) entonces los resultados de los detectores solo corresponderían a que el fotón tomó el camino superior, eliminando así la interferencia y permitiendo que el fotón sea detectado por D1. Entonces si el detector D1 hace click cuando $\phi = 0$ se tiene la certeza de que hay un objeto en el camino inferior. Como la interferencia se debe a la superposición de estados, obtenemos que no podemos interpretar a la superposición como la falta de conocimiento del camino tomado, pues no sería posible obtener información del objeto. Ahora habiendo descartado esa posibilidad, hay que notar también que el colocar un objeto en uno de los caminos modifica el estado del fotón, ya que destruye la superposición. Por lo que afirmamos que la medición modifica el estado del fotón, haciéndolo colapsar a uno de los estados $\ket{\psi_l}$ y $\ket{\psi_u}$. Este fenómeno es el \emph{colapso de la función de onda}, y de este se tiene que del estado obtenido luego de la medición no se puede obtener información del estado inicial de la partícula.
+
+Para seguir obteniendo las propiedades matemáticas de un estado cuántico se propone el siguiente experimento:
+\begin{figure}[!httb]
+	\centering
+	\includesvg[width=0.6\textwidth]{figures/polar_filters.svg}
+	\caption{La luz emitida por un foco, polarizada por los filtros P1 y P2. Fuente: \textcite{auletta}}
+	\label{fig:polar-filters}
+\end{figure}
+
+El foco mostrado en la Figura \ref{fig:polar-filters} emite una luz no polarizada, la cual pasa primera por el polarizador vertical P1, de modo que el estado de los fotones que pasan por esta se encuentran en el estado $\ket{\psi_v}$. Luego los fotones luego pasan por el polarizador P2 que polariza la luz en la dirección que forma un ángulo $\theta$ con la vertical. Es conocido que la intensidad de la luz polarizada será dada por la ley de Malus
+\begin{equation}
+	I_2 = I_1 \cos^2\theta
+\end{equation}
+donde $I_1$ es la intensidad de la luz que pasa por P1 y $I_2$ es la intensidad de la luz que pasa por P2. Debido al principio de superposición y que la dirección de la polarización está en un plano, el espacio vectorial al que pertenece el estado del fotón es de dimensión 2. Así el estado del fotón luego de pasar por P1 estará en el estado superpuesto
+\begin{equation}
+	\ket{\psi_v} = \cos\theta \ket{\psi_b} + \sin\theta \ket{\psi_{b_\perp}}
+\end{equation}
+donde $\ket{\psi_b}$ es el estado del fotón polarizado en la dirección de la polarización dada por P2 y $\ket{\psi_{b_\perp}}$ el estado polarizado en la dirección perpendicular.
+
+Como la intensidad de la luz que sale de P2 se relaciona con la cantidad de fotones pasan en el estado $\ket{\psi_b}$ notaremos que el cuadrado del coeficiente de $\ket{\psi_b}$ está relacionado a la probabilidad de que el fotón se encuentre en el estado $\ket{\psi_b}$, y en consecuencia el cuadrado del coeficiente del coeficiente de $\ket{\psi_{b_\perp}}$ con la probabilidad de que el fotón esté en ese estado. Hay que notar que los polarizadores fijan la luz en una determinada polarización, por lo que el acto de hacer pasar el haz de luz a través de un polarizador es una medición. De este experimento se nota que la medición está relacionada a un operador proyección que actúa en el espacio vectorial de estados, y que el módulo al cuadrado del estado se relaciona con la probabilidad de el estado se encuentre en uno de los estados $\ket{\psi_b}$ y $\ket{\psi_{b_\perp}}$.
+
+Matemáticamente se obtuvo que $\abs{\braket{\psi_b}{\psi}}^2$ es la probabilidad de obtener $1$ al aplicar el operador $\hat{P} = \ketbra{\psi_b}{\psi_b} - \ketbra{\psi_{b_\perp}}{\psi_{b_\perp}}$ en $\ket{\psi}$, y $\abs{\braket{\psi_{b_\perp}}{\psi}}^2$ es la probabilidad de obtener de obtener $-1$ al aplicarlo en $\ket{\psi}$. Así como el resultado $\pm 1$ estado asociado a la polarización en una determinada dirección, se puede decir que $\hat{P}$ es un observable relacionado a la dirección de la polarización. De este modo se obtiene que la estructura matemática del espacio de estados es un espacio de Hilbert \cite{neumann} y los observables son determinados por operadores formados por la suma de operadores proyección con el factor dado por el posible valor medido $\hat{O} = \sum_{i}o_i \hat{P}_i$, donde $o_i \in \mathbb{R}$ es uno de los posibles resultados al medir, y es real ya que en un experimento no se puede medir un número complejo. Además el estado luego de la medición es la proyección del estado $\ket{\psi}$ correspondiente al resultado obtenido de la medición, es decir que si se obtuvo $o_i$ entonces el estado luego de la medición es $\hat{P}_i \ket{\psi}$.
+
+Hay que notar que esta deducción es válida para dos posibles resultados, es decir un espacio vectorial de dimensión 2. Sin embargo, pueden haber incluso infinitas posibilidades, siendo este caso conocido como el caso continuo. En este el estado es dado por $\psi(q_1, \ldots,q_N,t)$, donde $N$ representa el número de grados de libertad de la partícula, y es un elemento de un espacio de Hilbert con norma igual a 1. Este norma es obtenida del producto interno
+\begin{equation}
+	(\psi,\phi) = \int_{\mathbb{R}^{N}}\psi(\vec{q},t)^{\ast}\phi(\vec{q},t) \dd^N q.
+\end{equation}
+Esto nos permite decir que el espacio de Hilbert mencionado es el espacio de funciones cuadrado integrables $L^2(\mathbb{R}^{N})$.\footnote{La justificación del uso de la notación de Dirac para la mecánica cuántica está dada por el teorema de Riesz y el teorema de Stone - von Neumann, esto siguiendo lo desarrollado en \textcite{hall}.}
+
+La definición de observable es dada por un operador autoadjunto que actúa sobre el espacio de Hilbert. Se impone que sea un operador autoadjunto ya que por el teorema espectral sus autovalores serán reales, siendo estos interpretados como los posibles resultados de la medición. Por ejemplo, si se considera el observable $\hat{A}$, para que $a$ sea un posible resultado de la medición debe satisfacer la ecuación de autovalores:
+\begin{equation}
+	\hat{A} \psi_a(\vec{q}, t) = a \psi_a(\vec{q}, t)
+\end{equation}
+y $\psi_a(\vec{q},t)$ será el estado luego de la medición si se obtiene $a$. Además si el estado antes de la medición es dado por $\psi(\vec{q},t)$, entonces
+\begin{equation}
+	p(a) = \abs{(\psi_a,\psi)}^2
+\end{equation}
+es la probabilidad de obtener $a$ al medir el observable $\hat{A}$.
+
+Evidentemente esta definición se obtiene de manera directa de lo propuesto previamente para un espacio de Hilbert finito-dimensional. Sin embargo, esto no es tan sencillo cuando se trata de un espacio de Hilbert de dimensión infinita \footnote{Uno de los primeros problemas que surgen es la definición de un operador autoadjunto, en especial cuando el operador es no acotado. Esto modifica directamente al teorema espectral y sus consecuencias, como es visto en \textcite{hall}}.Debido a la complejidad de este caso, a partir de ahora se asume que los resultados obtenidos para un espacio de Hilbert finito-dimensional son válidos para el caso infinito-dimensional.
+
+Habiendo definido un observable en la mecánica cuántica se vuelve al problema de la determinación del estado de una partícula a partir de los resultados obtenidos al medir un observable. En general, la medición de un solo observable no basta para determinar el estado de una partícula, por esto es necesario encontrar la mayor cantidad de observables que permitan distinguir si dos partículas son las mismas. Para esto notamos que una propiedad de los operadores autoadjuntos es que si dos operadores $\hat{A}$ y $\hat{B}$ conmutan entonces existe una base ortonormal formada por sus autovectores que los diagonaliza. De este modo si los operadores son no degenerados, la base ortonormal de autovectores será dada por $\left\{\psi_{a,b}(\vec{q},t)\right\}_{a,b}$, por lo que si luego de la medición del observable $\hat{A}$ se obtuvo como resultado $a$, el estado inmediatamente después de la medición será $\psi_{a,b}(\vec{q},t)$, garantizando que al medir el observable $\hat{B}$ el resultado obtenido sea $b$. De este modo si dos observables conmutan es posible hallar parte de la información del estado de la partícula, por esto son llamados \emph{observables compatibles}.
+
+Sin embargo, aunque por el teorema espectral es posible identificar a cada autovector con su autovalor correspondiente, esto no es posible para el caso de un operador degenerado ya que para un autovalor pueden estar asociados uno o más autovectores. Una forma de solucionar este problema es que se considere un conjunto de observables compatibles, de este modo se espera poder distinguir entre dos estados. La existencia de este conjunto se debe a que si no fuera posible encontrar tal conjunto de observables, no se podría distinguir entre dos estados. Este conjunto es llamado \emph{conjunto completo de observables compatibles}.
+\subsection{Ecuación de Schrödinger}
+Previamente se vio que la función de onda representa el estado de un sistema, esta junto a la base obtenida del teorema espectral determina los posibles resultados que se pueden obtener al medir un observable y sus probabilidades respectivas. Sin embargo, otra cuestión de importancia es determinar la evolución de los resultados obtenidos, ya que cuando se realiza un experimento en un laboratorio este se hace en distintos instantes de tiempo, por lo que los resultados obtenidos dependen de la evolución de los resultados. La evolución de estos resultados está directamente relacionada al observable en cuestión y la función de onda del sistema, en nuestro caso una partícula, por lo que es necesario hallar la ecuación que determina la evolución de la función de onda.
+
+Para esto se usa como punto de partida la hipótesis de Louis de Broglie, en la cual propone que a una partícula de cualquier masa está asociada una función de onda tal que el número de onda se relaciona con el momentum de la partícula por medio de
+\begin{equation}
+	\vec{k} = \vec{p}/\hbar,\label{eq:deBroglie1}
+\end{equation}
+y la relación entre la frecuencia angular y la energía de la partícula está dada por
+\begin{equation}
+	\omega = E/\hbar.\label{eq:deBroglie2}
+\end{equation}
+La importancia de la hipótesis de de Broglie es que propone el comportamiento ondulatorio de las partículas, en contraste con lo considerado previamente, donde se considera el comportamiento corpuscular de la luz. De este modo se tiene la llamada \emph{dualidad onda-partícula}, la cual permite realizar los experimento mostrados previamente para la luz y deducir la estructura matemática del espacio de estados.
+
+Considerando una partícula en un movimiento unidimensional, la relación entre el momentum y la energía está dado por
+\begin{equation}
+	E = \frac{p^2}{2m},
+\end{equation}
+de lo que se obtiene al usar \eqref{eq:deBroglie1} y \eqref{eq:deBroglie2} que
+\begin{equation}
+	\omega = \frac{\hbar}{2m}k^2.\label{eq:dispersionEq}
+\end{equation}
+Considerando la onda plana
+\begin{equation}
+	\psi(x,t) = C e^{i (k x - \omega t)}
+\end{equation}
+se tiene que
+\begin{equation}
+	\frac{\partial^2}{\partial x^2} \psi(x,t) = -k^2\psi(x,t)\quad \text{y}\quad\frac{\partial}{\partial t}\psi(x,t) = -i \omega \psi(x,t).
+\end{equation}
+De modo que al usar la ecuación de dispersión \eqref{eq:dispersionEq} se obtiene si
+\begin{equation}
+	i\hbar \frac{\partial}{\partial t}\psi(\vec{x},t) = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\psi(x,t).
+\end{equation}
+A partir de esta ecuación, conocida como la ecuación de Schrödinger para una partícula libre con movimiento unidimensional, se puede derivar la ecuación de dispersión para el caso de una partícula libre.
+
+La generalización para el caso tridimensional se consigue de forma directa, considerando la onda plana
+\begin{equation}
+	\psi(\vec{x},t) = C i^{i(\vec{k}\cdot \vec{x} - \omega t)},
+\end{equation}
+de la que se obtienen las relaciones:
+\begin{equation}
+	\laplacian \psi(\vec{x},t) = - \abs{\vec{k}\,}^2 \psi(\vec{x},t), \quad \frac{\partial}{\partial t}\psi(\vec{x},t) = -i\omega \psi(\vec{x},t).
+\end{equation}
+Por lo que la ecuación de Schrödinger para una partícula libre es
+\begin{equation}
+	i\hbar \frac{\partial }{\partial t}\psi(\vec{x},t) = -\frac{\hbar^2}{2m}\laplacian \psi(\vec{x},t).
+\end{equation}
+En el caso de una partícula en un potencial, la relación entre la energía y el momentum está dada por
+\begin{equation}
+	E = \frac{\abs{\vec{p}\,}^2}{2m} + V(\vec{x}).
+\end{equation}
+Por lo que la ecuación de Schrödinger será dada por
+\begin{equation}
+	i\hbar \frac{\partial }{\partial t}\psi(\vec{x},t) = -\frac{\hbar^2}{2m}\laplacian \psi(\vec{x},t) + V(\vec{x})\psi(\vec{x},t).
+\end{equation}
+De este modo se ha obtenido la ecuación de Schrödinger como una ecuación que permite derivar la relación de dispersión. Además, siendo esta lineal, un estado dado por una combinación lineal de ondas planas también satisfará la ecuación de Schrödinger.
+\section{Transformaciones relativistas} \renewcommand{\thefootnote}{\arabic{footnote}} % numeración por símbolos
+\lhead[\thepage]{\thesection. Transformaciones relativistas}
+\subsection{Postulados de la relatividad especial}
+Antes de estudiar las transformaciones relativistas mostraremos algunos de los postulados y algunas consecuencias de la mecánica de Newton-Galileo. Esta mecánica parte de asumir que el tiempo es absoluto, y es determinada por las leyes de Newton. 
+
+Un concepto usado para estudiar las leyes de la mecánica es el de sistema de referencia. Un sistema de referencia es una asignación coordenadas a un determinado evento, estas dadas por $(t,x_1,x_2,x_3)$. Habiendo definido un sistema de referencia se enuncian las leyes de Newton:
+\begin{itemize}
+  \item \emph{Primera ley:} ``Un objeto se mueve con una velocidad constante a menos que la fuerza resultante que actúa sobre este sea diferente de cero.''\\
+    En general, es complicado determinar todas las fuerzas, con sus magnitudes y direcciones, que actúan sobre un cuerpo. Esta ley permite determinar si hay una fuerza resultante en el cuerpo.
+  \item \emph{Segunda ley:} ``La razón de cambio del momento es igual a la fuerza resultante que actúa sobre el cuerpo.''\\
+    Un resultado de esta ley es que cualquier sistema de referencia para el cual la aceleración sea la misma estará relacionado a una misma fuerza resultante, es decir que habrá una equivalencia entre estos sistemas de referencia. Por lo que junto a la primera ley se puede identificar una colección de sistemas de referencia para los cuales un cuerpo se mueve a velocidad constante, estos sistemas de referencia son llamados \emph{sistemas de referencia inerciales}.\\
+    Además, de esta se obtiene para una partícula determina que la masa (inercial) es el factor de proporción enter la fuerza resultante y la aceleración. En otras palabras, el valor de la masa determina que tan fácil es poder acelerar un objeto, en el sentido de que para una misma fuerza un objeto con una masa menor se moverá con una aceleración mayor a un objeto con masa mayor.
+  \item \emph{Tercera ley:} ``Dados dos cuerpos $A$ y $B$, si $A$ ejerce una fuerza sobre $B$ entonces $B$ ejerce una fuerza de magnitud igual y dirección opuesta sobre $A$.''\\
+    Esta ley implica que el sistema formado por los cuerpos $A$ y $B$ conservará el momentum cuando $A$ ejerza una fuerza sobre $B$, y viceversa. Así el comportamiento de las partes de un sistema no afectará al movimiento del sistema al ser considerado como una partícula, es decir el movimiento del sistema es independiente de sus constituyentes.
+\end{itemize}
+
+Al momento de analizar la segunda ley se mencionó una equivalencia entre sistemas de referencia pero no se determinó la forma que deben las transformaciones de coordenadas que definen estos clases de equivalencia. En la mecánica de Newton-Galileo estas transformación de coordenadas son dadas por las transformaciones de Galileo:
+\begin{equation}
+	t' = t,\quad x_1' = x_1 - v_1t,\quad x_2'=x_2 - v_2t,\quad x_3' = x_3 -v_3t
+\end{equation}
+donde $(v_1,v_2,v_3)$ son las componentes de la velocidad relativa entre estos observadores. Entonces los sistemas de referencia inerciales son aquellos que mediante una transformación de Galileo se relacionan al sistema de referencia donde la partícula donde ninguna fuerza actúa está en reposo. Además como las transformaciones de Galileo mantienen el tiempo invariante, entonces si dos eventos son simultáneos para un sistema de referencia inercial entonces también lo serán para otro sistema de referencia inercial. 
+%TODO: Comentar sobre las consecuencias en mec. cuántica y citar el apéndice correspondiente. \ref{aped.A}
+
+En el apéndice \ref{aped.A} se obtuvo que la función de onda de una partícula libre en dos sistemas de referencia diferentes está dada por
+\begin{equation}
+	\psi'(\vec{x}\,',t') = e^{\frac{i}{\hbar}\left(m\vec{v}\cdot \vec{x}\,' - \frac{1}{2}m \vec{v}\,^2 t'\right)}\psi(\vec{x},t).
+\end{equation}
+Por lo que la densidad de probabilidad no varía. Además, los valores medios del momentum en ambos sistemas de referencia se relacionan de forma similar al caso clásico:
+\begin{equation}
+	\left\langle \hat{\vec{p}}\right\rangle = m \vec{v} + \left\langle \hat{\vec{p}}\right\rangle.
+\end{equation}
+
+Un resultado obtenido de la mecánica de Newton-Galileo es que no hay una velocidad absoluta, es decir que siempre será posible mediante una transformación de Galileo convertir la velocidad de un evento en cero. Este resultado resultó ser incompatible con lo obtenido por Michelson y Morley en 1881 \cite{michelson1881relative}. Esto llevó a Einstein en 1905 a enunciar los postulados de la relatividad especial \cite{einstein1905electrodynamics_english}:
+\begin{itemize}
+	\item \emph{Primer postulado: }Todas las leyes de la naturaleza son idénticas en todos los sistemas de referencia inerciales. En otras palabras las ecuaciones que describen las leyes de la naturaleza son invariantes con respecto de un cambio de transformaciones de coordenadas entre sistemas de referencia inerciales.
+	\item \emph{Segundo postulado: }La rapidez de la luz en el vacío es el mismo para distintos sistemas de referencia inerciales.
+\end{itemize}
+El segundo postulado es modifica la forma en como se definen los sistemas inerciales, pues las transformaciones que definen esta equivalencia ya no pueden las transformaciones de Galileo, las cuales son incompatibles con el segundo postulado. De esto, como se verá  en la siguiente subsección, se obtiene que el tiempo ya no es absoluto como se había asumido en la mecánica de Newton-Galileo. De este modo la segunda de ley de Newton deja de ser válida en la mecánica de Einstein-Poincaré, pues depende del tiempo absoluto al determinar la razón de cambio.
+
+\subsection{Métrica y transformaciones de Lorentz}
+Antes de determinar la forma de las transformaciones que definen la equivalencia en sistemas de referencia inerciales es necesario ser más preciso con la definición de un evento. Un evento será definido como un porción del espacio-tiempo, pues todo evento ocupa un determinado espacio. Matemáticamente, estos parámetros pueden ser ignorados y se puede tratar a un evento como si fuera un punto del espacio-tiempo, es decir que será caracterizado por las coordenadas $(x,y,z,t)$. De esta definición se sigue que la evolución de un evento en el tiempo, por ejemplo el movimiento de una partícula, formará una línea en el espacio-tiempo llamada \emph{línea de mundo}.
+
+Habiendo definido que es un evento, se determina la relación que deben tener sus coordenadas de modo que se satisfaga el segundo postulado de la relatividad espacial, el cual es el único que determina la relación entre las coordenadas espaciales y temporal de un determinado evento. Si consideramos que respecto del sistema de referencia de un observador $O$ se emite un haz de luz, entonces en un intervalo de tiempo $\triangle t$ la distancia recorrida por un frente de onda del haz debe satisfacer
+\begin{equation}
+	(\triangle x)^2 + (\triangle y)^2 + (\triangle z)^2 = (c\triangle t)^2.
+\end{equation}
+De igual forma para un observador $O'$ se debe satisfacer esto. Entonces si definimos la variación de longitud como
+\begin{equation}
+	\triangle s^2 = (c\triangle t)^2 - (\triangle x)^2 - (\triangle y)^2 - (\triangle z)^2,
+\end{equation}
+la invarianza de la rapidez de la luz es equivalente a decir que de $\triangle s^2 =0$ se obtiene $\triangle s'^2=0$.
+
+Ahora si asumimos que las transformaciones de coordenadas son lineales entonces en coordenadas naturales se tiene que
+\begin{equation}
+	\triangle s'^2 = \sum_{\alpha=0}^3 \sum_{\beta=0}^3 M_{\alpha\beta}(\triangle x^\alpha)(\triangle x^\beta),
+\end{equation}
+donde $M_{\alpha,\beta} = M_{\beta,\alpha}$. Considerando el caso particular en el que $\triangle s^2=0$ se tiene que
+\begin{equation}
+	\triangle s'^2 = M_{00}\sum_{i=1}^3(\triangle x^i)^2 + 2\left(\sum_{i=1}^3M_{0i }\triangle x^i\right)\left(\sum_{i=1}^3(\triangle x^i)^2\right)^{1/2} + \sum_{i=1}^3\sum_{j=1}^3\triangle x^i\triangle x^j =0.
+\end{equation}
+De esto se obtiene que
+\begin{equation}
+	M_{0i}=0\quad \text{y}\quad M_{ij}=-M_{00}\delta_{ij},
+\end{equation}
+por lo que para el caso general se tiene
+\begin{equation}
+	\triangle s'^2 = -M_{00}\triangle s^2.
+\end{equation}
+Nótese que $M_{00} = M_{00}(\vec{v})$, es decir que depende de la velocidad relativa entre los observador a los que corresponden los sistemas de referencia inerciales. Ahora supongamos los sistemas de referencia $O$, $O_1$ y $O_2$ de modo que el observador en $O_1$ se mueve con una velocidad $\vec{v}_1$ respecto de $O$ y el observador $O_2$ con velocidad $\vec{v}_2$ respecto de $O$. Por lo que se tiene que
+\begin{equation}
+	\frac{\triangle s_1^2}{\triangle s^2} = -M_{00}(\vec{v}_1)\quad \text{y}\quad \frac{\triangle s_2^2}{\triangle s^2} = -M_{00}(\vec{v}_2),
+\end{equation}
+entonces
+\begin{equation}
+	\frac{\triangle s_1^2}{\triangle s_2^2} = \frac{M_{00}(\vec{v}_1)}{M_{00}(\vec{v}_2)}.
+\end{equation}
+Pero al realizar el cambio de coordenadas entre $O_1$ y $O_2$ se tiene que $\triangle s_1^2 = -M_{00}(\vec{v}_1-\vec{v}_2)\triangle s_2^2$, esto implica que
+\begin{equation}
+	\frac{M_{00}(\vec{v}_1)}{M_{00}(\vec{v}_2)} = - M_{00}(\vec{v}_1 - \vec{v}_2).\label{eq:similarity}
+\end{equation}
+Sin embargo el lado derecho de \eqref{eq:similarity} depende del ángulo entre $\vec{v}_1$ y $\vec{v}_2$ y el lado izquierdo no, por lo que el factor $M_{00}$ debe ser una constante. Al reemplazar esto en \eqref{eq:similarity} se obtiene que
+\begin{equation}
+	\triangle s^2 = \triangle s'^2\label{eq:lorentzinvariance}
+\end{equation}
+para una transformaciones de coordenadas.
+
+Matemáticamente el espacio-tiempo descrito por la mecánica de Einstein-Poincaré es un espacio de Minkowski con la métrica
+\begin{equation}
+	a \cdot b = a^0b^0 - a^1b^1 -a^2b^2 -a^3b^3.
+\end{equation}
+Usando el tensor métrico $g^{\mu\nu}$ que tiene las propiedades
+\begin{equation}
+	g^{\mu\nu}a_\nu = a^\mu,\quad g_{\mu\nu}a^\nu = a_\mu,
+\end{equation}
+el producto de Minkwoski se puede expresar como
+\begin{equation}
+	a \cdot b = g^{\mu\nu}a^\mu b_\nu.
+\end{equation}
+Siguiendo esta notación de índices, las transformaciones de coordenadas que definen los sistemas de referencia inerciales serán dadas por
+\begin{equation}
+	x^{\mu} \to x'^{\rho}=\tensor{\Lambda}{^\rho_\mu} x^{\mu} + a^{\rho},
+\end{equation}
+y debido \eqref{eq:lorentzinvariance} se debe cumplir que
+\begin{equation}
+	\begin{aligned}[b]
+		\triangle x^{\mu}\tensor{g}{_\mu_\nu}\triangle x^{\nu} & = \triangle x'^{\rho}\tensor{g}{_\rho_\sigma}\triangle x'^{\sigma} = \tensor{\Lambda}{^\rho_\mu} \triangle x^{\mu}\tensor{g}{_\rho_\sigma}\tensor{\Lambda}{^\sigma_\nu}\triangle x^{\nu} \\
+		\tensor{g}{_\mu_\nu}                                   & = \tensor{\Lambda}{^\rho_\mu}\tensor{g}{_\rho_\sigma}\tensor{\Lambda}{^\sigma_\nu}
+	\end{aligned}.\label{eq:lorentztrans1}
+\end{equation}
+De este modo estas transformaciones cumplen con la relación
+\begin{equation}
+	\Lambda^{T}g\Lambda = g
+\end{equation}
+siendo los elementos de matriz dados por $\tensor{\Lambda}{^\mu_\nu}$.
+El conjunto de las transformaciones de Lorentz es un grupo, llamado \emph{grupo de Lorentz}, ya que por definición estas son invertibles, y para dos de estas $\Lambda$, $\bar{\Lambda}$ se cumple que
+\begin{equation}
+	\bar{\Lambda}^T\Lambda^{T}g\Lambda \bar{\Lambda} = \bar{\Lambda}^{T}g\bar{\Lambda} = g,
+\end{equation}
+es decir que $\Lambda \bar{\Lambda}$ es una transformación de Lorentz.
+
+El grupo de Lorentz se puede definir como
+\begin{equation}
+	\mathfrak{L} = O(1,3) = \left\{\Lambda \in \mathcal{M}_{4\times4}(\mathbb{R})\mid \Lambda^{T}g\Lambda = g\right\}.
+\end{equation}
+Podemos notar que debido las propiedades del determinante de una matriz,
+\begin{equation}
+	\text{det}(AB) = \text{det}(A)\text{det}(B)\hspace{1.5cm}\text{y}\hspace{1.5cm}\text{det}(A) = \text{det}(A^T),
+\end{equation}
+cuando $\Lambda \in O(1,3)$ se tiene que
+\begin{equation}
+	\text{det}(\Lambda^T) \text{det}(g) \text{det}(\Lambda)  = \text{det}(g) \quad \Longrightarrow\quad  \text{det}(\Lambda)^2= 1
+\end{equation}
+Por lo que podemos separar los elementos de $\mathfrak{L}$ en dos conjuntos
+\begin{align}
+	\mathfrak{L}_+ & = SO(1,3) = \left\{\Lambda \in \mathcal{M}_{4 \times 4}(\mathbb{R}) \mid \Lambda^{T}g\Lambda = g \wedge \text{det}(\Lambda) =1\right\} \\
+	\mathfrak{L}_- & = \left\{\Lambda \in \mathcal{M}_{4 \times 4}(\mathbb{R}) \mid \Lambda^{T}g\Lambda = g \wedge \text{det}(\Lambda) =-1\right\}.
+\end{align}
+Sin embargo, solo el primero puede tener la estructura de un grupo ya que el determinante de la matriz identidad es igual a 1. Este es conocido como el \emph{grupo especial de Lorentz} o \emph{grupo propio de Lorentz}.
+
+Por otro lado, al fijar $\mu= \nu = 0$ en \eqref{eq:lorentztrans1} se obtiene que
+\begin{equation}
+	(\tensor{\Lambda}{^0_0})^2 - \sum_i(\tensor{\Lambda}{^i_0})^2 = 1\label{eq:relaorth1}
+\end{equation}
+Esto implica que $\abs{\tensor{\Lambda}{^0_0}}\geq 1$, por lo que al igual que para el caso de la determinante se pueden clasificar los elementos de $O(1,3)$ en dos tipos: 
+\begin{align}
+	\mathfrak{L}^\uparrow &  = O(1,3)^+= \left\{\Lambda \in \mathcal{M}_{4 \times 4}(\mathbb{R}) \mid \Lambda^{T}g\Lambda = g \wedge \tensor{\Lambda}{^0_0}\geq 1\right\} \\
+	\mathfrak{L}_\downarrow & = \left\{\Lambda \in \mathcal{M}_{4 \times 4}(\mathbb{R}) \mid \Lambda^{T}g\Lambda = g \wedge \tensor{\Lambda}{^0_0}\leq -1\right\}.
+\end{align}
+Y solo uno de estos puede formar un grupo, pues la identidad satisface $\tensor{\Lambda}{^0_0} =1$. 
+
+De la intersección de los subgrupos $\mathcal{L}_+$ y $\mathcal{L}^\uparrow$ se puede formar el \emph{grupo de Lorentz ortocrono y propio}, denotado por $\mathfrak{L}_+^{\uparrow}$ o $SO^+(1,3)$.
+\begin{equation}
+	\mathfrak{L}_+^{\uparrow} = SO^+(1,3) = \left\{\Lambda \in O(1,3) \mid \text{det}(\Lambda) = 1 \wedge \tensor{\Lambda}{^0_0}\geq 1\right\}.
+\end{equation}
+Una de las razones por la que este grupo es especial es debido a que es una componente conexa de la variedad definida por el grupo de Lorentz y contiene a la identidad, por lo que es posible definir transformaciones infinitesimales\footnote{La demostración de que el grupo de Lorentz forma una variedad y que el subgrupo $\mathcal{L}_+^{\uparrow}$ es una componente conexa de esta se encuentra en \textcite{cobos_zara}}.
+
+Algunos elementos de $\mathfrak{L}_-^{\uparrow}$ son:
+\begin{equation}
+	\begin{aligned}[c]
+		\mathcal{P}_1 = \begin{pmatrix}
+			                1 & 0  & 0 & 0 \\
+			                0 & -1 & 0 & 0 \\
+			                0 & 0  & 1 & 0 \\
+			                0 & 0  & 0 & 1
+		                \end{pmatrix}, &  & \mathcal{P}_2 = \begin{pmatrix}
+			                                                   1 & 0 & 0  & 0 \\
+			                                                   0 & 1 & 0  & 0 \\
+			                                                   0 & 0 & -1 & 0 \\
+			                                                   0 & 0 & 0  & 1
+		                                                   \end{pmatrix},   \\
+		\mathcal{P}_3 = \begin{pmatrix}
+			                1 & 0 & 0 & 0  \\
+			                0 & 1 & 0 & 0  \\
+			                0 & 0 & 1 & 0  \\
+			                0 & 0 & 0 & -1
+		                \end{pmatrix}, &  & \mathcal{P}_4 = \begin{pmatrix}
+			                                                   1 & 0  & 0  & 0  \\
+			                                                   0 & -1 & 0  & 0  \\
+			                                                   0 & 0  & -1 & 0  \\
+			                                                   0 & 0  & 0  & -1
+		                                                   \end{pmatrix},
+	\end{aligned}
+\end{equation}
+donde las matrices $\mathcal{P}_1$, $\mathcal{P}_2$ y $\mathcal{P}_3$ corresponden a la inversión de uno de los ejes espaciales, y la matriz $\mathcal{P}_4$ a la inversión de todos los ejes espaciales o la inversión de uno de los ejes con la rotación en $\pi$ rad respecto del plano formado por los otros ejes. Es decir que esta transformaciones invierten la orientación de las coordenada espaciales.
+De forma similar la matriz
+\begin{equation}
+	\mathcal{T} = \begin{pmatrix}
+		-1 & 0 & 0 & 0 \\
+		0  & 1 & 0 & 0 \\
+		0  & 0 & 1 & 0 \\
+		0  & 0 & 0 & 1
+	\end{pmatrix},
+\end{equation}
+elemento de $\mathfrak{L}^\downarrow_-$, cuyo cuadrado es la identidad, corresponde a la inversión temporal.
+Por último se eligen los elementos de $\mathfrak{L}_+^{\downarrow}$ iguales a los productos de $\mathcal{P}_i\mathcal{T}$, los cuales se relacionan con una inversión espacio-temporal.
+
+Así, al usar los resultados obtenidos en el apéndice \ref{aped.C}, la unión disjunta de los cocojuntos izquierdos del grupo de Lorentz se puede expresar como
+\begin{equation}
+	\mathfrak{L}_+^{\uparrow}\uplus \mathcal{P}_i\mathfrak{L}_{+}^{\uparrow} \uplus \mathcal{T}\mathfrak{L}_+^{\uparrow}\uplus \mathcal{P}_i \mathcal{T}\mathfrak{L}_+^{\uparrow}.
+\end{equation}
+Así las transformaciones de inversión temporal y espacial, conocidas como \emph{transformaciones de Lorentz discretas}, determinan junto a los elementos del grupo de Lorentz ortocrono y propio a todas las transformaciones de Lorentz posibles.
+
+Una consecuencia directa de las transformaciones de Lorentz es que el tiempo no es absoluto, pues a diferencia de la mecánica de Newton-Galileo donde el tiempo es invariante frente a cambios de referencia inerciales, en este caso el tiempo participa en el cambio de coordenada junto a las coordenadas espaciales. Esto también implica que dos eventos son simultáneos para un observador no son necesariamente simultáneos para otro observador inercial.
+Esta diferencia con la mecánica de Newton-Galileo hace que para medir el tiempo se deba elegir un determinado sistema de referencia. El \emph{tiempo propio} de un objeto móvil es aquel medido en el sistema de referencia para el que el objeto no se mueve. De este obtenemos que si un reloj está presente en dos eventos $E_1$ y $E_2$ mide $\vec{x}_1 = \vec{x}_2$, por lo que $(\triangle s)^2 = (c \triangle t)^2$. Entonces, el tiempo medido por este reloj se relaciona con la variación de longitud por $\triangle s = c \triangle \tau$, es decir que el tiempo propio es el mismo para distintos sistemas de referencia y distintos observadores inerciales pueden obtener este a partir de mediciones en sus respectivos sistemas de referencia. Así, el tiempo propio es una buena medición del tiempo.
+
+Supongamos que el objeto se mueve con velocidad constante en el eje $x$, entonces la distancia recorrida por este en dos puntos en el espacio-tiempo es $\triangle x$ y de esta definimos la cuadrivelocidad como
+\begin{align}
+	u_x & = \frac{\triangle x}{c \triangle \tau} = \frac{\triangle x}{\sqrt{(c \triangle t)^2 - (\triangle x)^2}} = \frac{\triangle x}{c \triangle t \sqrt{1 - \left(\frac{\triangle x}{c \triangle t}\right)^2}} \\
+	u_t & = \frac{c \triangle t}{c \triangle \tau} = \frac{c \triangle t}{\sqrt{(c \triangle t)^2 - (\triangle x)^2}} = \frac{1}{\sqrt{1 - \left(\frac{\triangle x}{c \triangle t}\right)^2}}
+\end{align}
+y las componentes del cuadrimomento como
+\begin{equation}
+	p_x = mc u_x = \frac{mv_x}{\sqrt{1 - \left(\frac{v_x}{c}\right)^2}} ,\quad	p_t = mc u_t = \frac{mc}{\sqrt{1 - \left(\frac{v_x}{c}\right)^2}}.
+\end{equation}
+Podemos notar que el límite $v_x\ll c$ el cuadrimomento es igual al momentum $mv_x$ y
+\begin{equation}
+	p_t \approx mc\left(1 + \frac{1}{2}\left(\frac{v_x}{c}\right)^2\right) = mc + \frac{(mv_x)^2}{2mc},
+\end{equation}
+es decir que $cp_t - mc^2$ es la energía cinética $E$. Por lo que
+\begin{equation}
+	\left(\frac{E}{c}\right)^2 = \frac{mc}{1 - \left(\frac{v_x}{c}\right)^2}\quad y\quad p^2 = p_x^2= \frac{m^2v_x^2}{1 - \left(\frac{v_x}{c}\right)^2}
+\end{equation}
+entonces
+\begin{equation}
+	E^2 = c^2 p^2 + m^2 c^4.
+\end{equation}
+De este modo se ha obtenido que la relación entre la energía cinética y el momentum es diferente a lo obtenido de la mecánica de Newton-Galileo. Esta relación será importante al tratar de encontrar una ecuación de onda relativista en la siguiente sección.
+\section{Ecuaciones de onda relativistas} \renewcommand{\thefootnote}{\arabic{footnote}} % numeración por símbolos
+\lhead[\thepage]{\thesection. Ecuaciones de onda relativistas}
+En la sección anterior se vio que la ecuación de Schrödinger no es invariante frente a las transformaciones de Lorentz, por lo que es necesario encontrar una ecuación que sí lo sea. Para esto mediante el uso de los operadores momentum y energía usados en la mecánica cuántica no relativista hallamos la ecuación de Klein-Gordon y estudiamos sus soluciones. Luego, imponiendo que toda ecuación relativista debe ser llevada una expresión similar a la ecuación de Klein-Gordon derivamos la ecuación de Dirac y la relación de anticonmutación de la matrices $\gamma$.
+\subsection{Ecuación de Klein-Gordon}
+Si asignamos al momento lineal y la energía los operadores
+\begin{equation}
+	p_x \rightarrow -i\hbar\frac{\partial}{\partial x},\quad p_x \rightarrow -i\hbar\frac{\partial}{\partial x},\quad p_x \rightarrow -i\hbar\frac{\partial}{\partial x}\quad \text{y}\quad E\rightarrow i\hbar\frac{\partial }{\partial t}
+\end{equation}
+podemos notar que de la ecuación que relaciona energía y momentum para una partícula libre clásica
+\begin{equation}
+	E = \frac{p^2}{2m}
+\end{equation}
+se obtiene la ecuación de Schrödinger para una partícula libre
+\begin{equation}
+	i\hbar\frac{\partial }{\partial t}\phi = -\frac{\hbar^2}{2m}\laplacian \phi.
+\end{equation}
+Entonces podemos esperar obtener una ecuación relativista a partir de esta correspondencia de operadores y la ecuación relativista
+\begin{equation}
+	E^2 = \vec{p}\,^2c^2 + m^2 c^4,
+\end{equation}
+donde $m$ es la masa en reposo de la partícula.
+La ecuación obtenida es
+\begin{equation}
+	-\hbar^2\frac{\partial^2}{\partial^2 t}\phi = \left(-\hbar^2 c^2 \laplacian + m^2c^4\right)\phi
+\end{equation}
+y es la conocida \emph{ecuación de Klein-Gordon}. Podemos expresar esta como
+\begin{equation}
+	(\hbar^2c^2 \square + m^2c^4)\phi = 0\label{eq:kleingordon}
+\end{equation}
+donde las coordenadas en el espacio de Minkowski son $(ct, x, y, z)\equiv (x^0, x^1, x^2, x^3)$ y $\square \equiv \partial^2_0 - \laplacian$.
+
+Para verificar que la ecuación de Klein-Gordon es Lorentz-covariante se introducen dos sistemas coordenados relacionados por
+\begin{equation}
+	x'^\mu = \tensor{\Lambda}{^\mu_\nu}x^\nu,
+\end{equation}
+por lo que
+\begin{equation}
+	\partial_{\mu} = \frac{\partial x'^\nu}{\partial x^\mu}\frac{\partial }{\partial x'^\nu} = \tensor{\Lambda}{^\nu_\mu}\partial'_{\nu}.
+\end{equation}
+Entonces
+\begin{equation}
+	\left(\hbar^2c^2\partial^{\mu}\partial_{\mu} + m^2c^4\right)\phi(x) = \left(\hbar^2c^2\tensor{\Lambda}{^\nu_\mu}g^{\mu\sigma}\tensor{\Lambda}{^\rho_\sigma}\partial'_{\nu}\partial'_{\rho} + m^2c^4\right)\phi(\Lambda^{-1}x')
+\end{equation}
+y usando \eqref{eq:lorentztrans1} se reduce a
+\begin{equation}
+	\begin{aligned}[b]
+		\left(\hbar^2c^2\partial^{\mu}\partial_{\mu} + m^2c^4\right)\phi(x) & = \left(\hbar^2c^2g^{\nu\rho}\partial'_{\nu}\partial'_{\rho} + m^2c^4\right)\phi(\Lambda^{-1}x') \\
+		                                                                    & =\left(\hbar^2c^2\partial'_{\nu}\partial'^{\nu} + m^2c^4\right)\phi(\Lambda^{-1}x').
+	\end{aligned}
+\end{equation}
+De este modo se ha verificado que la ecuación de Klein-Gordon es Lorentz-covariante.
+
+Notamos que la ecuación de Klein-Gordon tiene como soluciones a las ondas planas
+\begin{equation}
+	\phi_p^{\pm}(\vec{x},t) = N e^{\frac{i}{\hbar}(\vec{p}\cdot \vec{x}\mp Et)},
+\end{equation}
+donde $E>0$, por lo que la solución general será dada por 
+\begin{equation}
+	\phi(x) = \frac{1}{(2\pi \hbar)^{3/2}}\int \left[e^{ \frac{i}{\hbar}(\vec{p}\cdot \vec{x} - Et)}\tilde{\phi}^+\left(\frac{E}{c},\vec{p}\right) + e^{ \frac{i}{\hbar}(\vec{p}\cdot \vec{x} + Et)}\tilde{\phi}^-\left(\frac{E}{c}, - \vec{p}\right)\right]\dd^4 p.
+\end{equation}
+Esta integral puede ser divida en dos integrales
+\begin{equation}
+	\phi(x) = \frac{1}{(2\pi \hbar)^{3/2}}\left[\int e^{ \frac{i}{\hbar}(\vec{p}\cdot \vec{x} - Et)}\tilde{\phi}^+\left(\frac{E}{c},\vec{p}\right)\dd^4 p + \int e^{ \frac{i}{\hbar}(\vec{p}\cdot \vec{x} + Et)}\tilde{\phi}^-\left(\frac{E}{c}, - \vec{p}\right)\dd^4 p\right]
+\end{equation}
+y haciendo el cambio de variable $\vec{p}\to - \vec{p}$ para la segunda integral se obtiene
+\begin{equation}
+	\phi(x) = \frac{1}{(2\pi \hbar)^{3/2}}\int \left[e^{- i p \cdot x/\hbar}\tilde{\phi}^+(p) + e^{i p \cdot x/\hbar}\tilde{\phi}^-(p)\right] \dd^4 p \label{eq:KGgenSol}
+\end{equation}
+donde $p\cdot x \equiv p^0 x^0 - \vec{p}\cdot \vec{x}$. Reemplazando esta expresión en la ecuación de Klein-Gordon se obtiene
+\begin{equation}
+	\frac{1}{(2\pi \hbar)^{3/2}}\int (-c^2p^2 + m^2c^4)\left[e^{- ip\cdot x/\hbar}\tilde{\phi}^+(p) + e^{ip\cdot x/\hbar}\tilde{\phi}^-(p)\right] \dd^4 p = 0.
+\end{equation}
+Para que la transformación de Fourier sea única se debe cumplir que $(-c^2p^2 + m^2c^4)\tilde{\phi}^\pm(p) = 0$, lo que implica que
+\begin{equation}
+	\tilde{\phi}^\pm(p) = \delta(-c^2p^2 + m^2c^4)\tilde{a}^\pm(p)\label{eq:KGgenFourier}
+\end{equation}
+donde $a^{\pm}(p)$ es una función arbitraria.
+Ahora expresamos la distribución Delta de Dirac como
+\begin{equation}
+	\delta(-c^2 p^2 + m^2c^4) = \delta(\vec{p}\,^2c^2+ m^2c^4 - E^2)
+\end{equation}
+de la definición de la distribución obtenemos
+\begin{equation}
+	\delta(-c^2 p^2 + m^2c^4) = \frac{\delta(\sqrt{\vec{p}\,^2c^2 + m^2c^4} - E) + \delta(\sqrt{\vec{p}\,^2c^2 + m^2c^4} + E)}{2\sqrt{\vec{p}\,^2c^2 + m^2c^4}}.
+\end{equation}
+Reemplazando en \eqref{eq:KGgenSol} y \eqref{eq:KGgenFourier}, y definiendo
+\begin{equation}
+	a^\pm(p) = \frac{1}{\sqrt{2E}}\tilde{a}^\pm(p)
+\end{equation}
+se obtiene
+\begin{equation}
+	\phi(x) = \frac{1}{(2\pi \hbar)^{3/2}\sqrt{2E}}\int \left[e^{-ip\cdot x/\hbar}a^+(p) + e^{i p\cdot x/\hbar}a^-(p)\right]\dd^3 p.\label{eq:KGgenSol2}
+\end{equation}
+Para interpretar estas soluciones aplicamos el operador energía a las soluciones de onda plana 
+\begin{equation}
+	\hat{E}\phi_p^{\pm}(\vec{x},t) = i\hbar \frac{\partial }{\partial t}\left[N e^{\frac{i}{\hbar}(\vec{p}\cdot \vec{x} \mp Et)}\right] = \pm E\phi_p^{\pm}(\vec{x},t)
+\end{equation}
+y el operador momentum
+\begin{equation}
+	\hat{P}_i \phi^\pm_p(\vec{x},t) = -i\hbar \frac{\partial}{\partial x^i}\left[N e^{\frac{i}{\hbar}(\vec{p}\cdot \vec{x} - Et)}\right] = p_i \phi^\pm_p(\vec{x},t).
+\end{equation}
+De esto obtenemos que para un determinado momentum existen dos posibles valores de energía, una energía positiva y otra negativa. Y se puede notar que al hallar la conjugada de una las soluciones de onda plana se obtiene una solución de onda plana con energía con signo opuesto a la anterior. 
+\subsection{Ecuación de Dirac}\label{ssec:ecuación_Dirac}
+Para hallar la ecuación de Dirac se usará el método propuesto por \textcite{umezawa}. En este se propone que toda ecuación de onda para funciones de onda $\phi_\alpha$ está dada por 
+\begin{equation}
+	\Lambda_{\alpha\beta}(\partial)\phi_\beta(x) = 0\label{eq:geneRel}
+\end{equation}
+o equivalentemente
+\begin{equation}
+	\Lambda(\partial) \phi(x) = 0,
+\end{equation}
+donde $\phi(x) = (\phi_1, \ldots , \phi_n)^{T}$. Y para que sea invariante frente a transformaciones de Lorentz, debe poder transformarse a una ecuación con una forma similar a la ecuación de Klein-Gordon \eqref{eq:kleingordon}, la cual es una ecuación relativista para una partícula libre. Esto implica que debe existir un operador 
+\begin{equation}
+	d(\partial) = \alpha + \alpha^\mu\partial_\mu + \ldots + \alpha^{\mu_1\mu_2\ldots\mu_l}\partial_{\mu_1}\ldots\partial_{\mu_l} + \ldots
+\end{equation}
+tal que
+\begin{equation}
+	d(\partial)\Lambda(\partial)\phi(x) = (\hbar^2c^2 \square + m^2c^4)I \phi(x) = 0.
+\end{equation}
+Esto es equivalente a
+\begin{equation}
+	d(\partial)\Lambda(\partial) = (\hbar^2c^2 \square + m^2c^4)I.\label{eq:KGcondition}
+\end{equation}
+El máximo orden de derivación de $d(\partial)$ es llamado \emph{orden}. Entonces si $d(\partial)$ es de orden $b$ se debe cumplir que
+\begin{equation}
+	\alpha^{\mu_1 \ldots \mu_l} = 0
+\end{equation}
+para $l > b$.
+
+Expresando la ecuación de onda relativista como un conjunto de ecuaciones diferenciales de primer orden se tiene
+\begin{equation}
+	(\varrho^\mu\partial_\mu - mc\omega)\phi(x) = 0\label{eq:firstgen}
+\end{equation}
+como este es un caso particular de \eqref{eq:geneRel} se tiene que
+\begin{equation}
+	(\alpha + \alpha^\mu\partial_\mu + \ldots + \alpha^{\mu_1\mu_2\ldots\mu_l}\partial_{\mu_1}\ldots\partial_{\mu_l} + \ldots)(\varrho^\mu\partial_\mu - mc\omega) = (\hbar^2c^2 \square + m^2c^4)I
+\end{equation}
+Entonces $-mc\alpha\omega = m^2c^4 I$, lo que implica que $\omega$ es una matriz invertible. Así es posible expresar \eqref{eq:firstgen} como
+\begin{equation}
+	(\omega^\mu\partial_\mu - mc)\phi(x) = 0
+\end{equation}
+donde $\omega^\mu = \omega^{-1}\varrho^\mu$. Este resultado nos permite asumir siempre que $\Lambda = \omega^\mu\partial_\mu - mc$ cuando expresamos la ecuación de onda relativista como un conjunto de ecuaciones diferenciales de primer orden.
+
+Ahora si $d(\partial)$ es un operador diferencial de primer orden
+\begin{equation}
+  d(\partial) = \alpha + \alpha^\mu\partial_\mu\label{eq:difOperator}
+\end{equation}
+para $\Lambda = \beta^\mu\partial_\mu - mc$ se obtiene que
+\begin{equation}
+	\begin{aligned}[b]
+		(\alpha + \alpha^\mu\partial_\mu)(\omega^\nu\partial_\nu - mc)                                                      & = (\hbar^2c^2 \square + m^2c^4) I                           \\
+		\alpha\omega^\nu\partial_\nu - \alpha mc + \alpha^\mu\omega^\nu\partial_\mu\partial_\nu - \alpha^\mu mc\partial_\mu & = \hbar^2c^2\partial_0^2 - \hbar^2c^2\partial^2_i + m^2c^4.
+	\end{aligned}
+\end{equation}
+Así para $\mu\neq\nu$ se tiene
+\begin{equation}
+	\begin{aligned}[c]
+		-\alpha mc = m^2 c^4I,           & \quad\alpha\omega^\mu - \alpha^\mu cm=0, & \quad\alpha^\mu\omega^\nu + \alpha^\nu\omega^\mu = 0, \\
+		\alpha^0\omega^0 = \hbar^2c^2 I, & \quad\alpha^i\omega^i = -\hbar^2c^2 I,
+	\end{aligned}
+\end{equation}
+entonces
+\begin{equation}
+	\alpha^\mu = -c^2\omega^\mu,\quad \omega^\mu\omega^\nu + \omega^\nu\omega^\mu = 0,\quad (\omega^0)^2 = - \hbar^2I,\quad (\omega^i)^2 = \hbar^2I.
+\end{equation}
+Si definimos $\gamma^\mu \equiv \frac{-i}{\hbar}\omega^\mu$ se obtiene que la ecuación
+\begin{equation}
+	\left({i\hbar}\gamma^\mu\partial_\mu - mc\right)\phi(x) = 0\label{eq:dirac}
+\end{equation}
+satisface la condición de Klein-Gordon si se cumple
+\begin{equation}
+	\gamma^\mu\gamma^\nu + \gamma^\nu\gamma^\mu = 2g^{\mu\nu}\label{eq:gammamatrices}
+\end{equation}
+A su vez el operador diferencial de \eqref{eq:difOperator} es 
+\begin{equation}
+	d(\partial) = -c^2(i\hbar\gamma^\mu\partial_\mu + mcI).
+\end{equation}
+Ahora identificamos que la ecuación \eqref{eq:dirac} es la \emph{ecuación de Dirac} y la ecuación \eqref{eq:gammamatrices} expresa las reglas de anticonmutación de las matrices gamma.
+
+Al igual que en el caso de la ecuación de Klein-Gordon podemos expresar la ecuación de Dirac en unidades naturales ($c=\hbar=1$)
+\begin{equation}
+	(i\gamma^\mu\partial_\mu - m)\phi = 0 ,
+\end{equation}
+esto se hace ya que esta expresión será usada en los capítulos posteriores.

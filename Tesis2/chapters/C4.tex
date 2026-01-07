@@ -1,0 +1,351 @@
+\chapter{Oscilación de estados de sabor}\label{cap.4}
+\markboth{Oscilación de estados de sabor}{Oscilación de estados de sabor}
+En este capítulo se propone una estructura matemática que permite describir el fenómeno de la oscilación de sabor, pero para el contexto de los estados descritos por la teoría cuántica no relativista y la de Klein-Gordon. Luego, se estudia la oscilación de estados de sabor en ambos casos.
+
+Se obtiene que los estados de sabor se forman como una combinación lineal de estados de masa correspondientes, de modo que la diferencia en las masas genera el fenómeno de la oscilación de estados de sabor.
+
+En el caso de la teoría cuántica no relativista, se considera inicialmente una función de onda plana como aquella que define los estados de masa, y se obtiene que la probabilidad de transición tiene forma sinusoidal con un periodo que depende de la diferencia de los inversos de las masas. Luego, se consideran paquetes de onda gaussianos en lugar de funciones de onda planas, obteniéndose que la probabilidad de transición tiene un término de amortiguamiento, el cual hace que, para un intervalo de tiempo suficientemente largo, la probabilidad de transición entre estados de sabor tienda a un valor fijo. Además, el periodo de la probabilidad de transición cambia, adquiriendo una forma más compleja.
+
+En el caso relativista, al considerar funciones de onda plana, se obtiene nuevamente que la probabilidad de transición tiene forma sinusoidal, con la diferencia de que el periodo depende de la diferencia de los cuadrados de las masas. Para considerar paquetes de onda gaussianos, se propone que el estado inicial de la partícula está dado por una combinación lineal de los estados de masa dados por funciones de onda plana. Luego, para resolver la integral que expresa la probabilidad de transición, se considera la aproximación realizada en el capítulo anterior, de modo que se puedan ignorar los términos de densidad negativa y que la integral tome la forma de una suma de integrales de funciones gaussianas. Con esto se obtiene la probabilidad de transición entre estados de sabor considerando paquetes de onda gaussianos, la cual también tiene un término de amortiguamiento.
+\section{Espacio de estados de sabor}
+Además de la masa, en la física de partículas existe otra propiedad intrínseca asociada a los neutrinos, esta es el sabor. En este sentido, al tratar dos propiedades intrínsecas de una partícula se debe tener una estructura matemática que las comprenda.
+
+Una forma en la que se puede incorporar una nueva propiedad intrínseca externa a la teoría, agregando un grado de libertad, tal como y se hace al incorporar el espín en la mecánica cuántica no relativista. Para el caso de los espacios de estados en el caso de las soluciones de la ecuación de Schrödinger y de Klein-Gordon, denotado por $E_m$, esto es expresado como:
+\begin{equation}
+	E_m \otimes (U_\alpha \oplus U_\beta)
+\end{equation}
+donde $U_\alpha$ y $U_\beta$ denotan los espacios de sabor $\alpha$ y $\beta$. Sin embargo, como se está considerando una partícula libre, esta formulación impide la transición de un estado de sabor a otro, haciendo que el sabor no cambie. Esto haría que la teoría no permite explicar el fenómeno de la oscilación de sabores.
+
+Sin embargo, como se vio en el capítulo \ref{cap.2}, no es posible una transición de un estado a otro sin la interacción con un objeto externo. Por lo que para que haya una transición de una propiedad intrínseca es necesario que este cambio esté relacionado con otra propiedad intrínseca. En este caso, se considera la masa. De este, al denotar los espacios de estados para masas $m_1$ y $m_2$ como $E_{m_1}$ y $E_{m_2}$, respectivamente. El nuevo espacio de estados será dado por:
+\begin{equation}
+	E_{m_1} \otimes E_{m_2}.
+\end{equation}
+Y los estados de sabor definirán dos subespacios de este que sean diferentes de $E_{m_1}$ y $E_{m_2}$. Esto garantiza la oscilación entre estados de sabor sin interacción con un campo externo.
+\section{Oscilación sabor-masa en el marco no relativista}\renewcommand{\thefootnote}{\arabic{footnote}} % numeración por símbolos
+\lhead[\thepage]{\thesection. Oscilación sabor-masa en el marco no relativista}
+\subsection{Estados de sabor y oscilación de ondas planas}
+Usualmente la masa al ser una propiedad intrínseca de una partícula no tiene asociada un observable, sin embargo si se considera que hay otra propiedad intrínseca que no es simultánea con esta, es necesario definir estados de masa. Esto ocurre cuando se considera estados de sabor, el cual en el caso más simple hay dos posibles estados de sabor que serían una superposición de dos estados de masa para garantizar que el espacio tenga dimensión. Si se consideran las funciones de onda plana con un momento $p$, los estados de sabor serán dados por
+\begin{equation}
+	\ket{\nu_\alpha,p} = \cos\theta \ket{m_1,p} + \sin\theta \ket{m_2,p},\label{eq:flavourSchrPlane1}
+\end{equation}
+y
+\begin{equation}
+	\ket{\nu_\beta,p} = -\sin\theta \ket{m_1,p} + \cos\theta \ket{m_2,p},\label{eq:flavourSchrPlane2}
+\end{equation}
+donde $\ket{m_1,p}$ y $\ket{m_2,p}$ representan los estados de masa junto a las funciones de onda plana.
+
+Si inicialmente el estado de la partícula es $\ket{\nu_\alpha,p}$, entonces en un instante $t$ el estado de la partícula será
+\begin{equation}
+	\ket{\nu(t)} = \cos\theta e^{-\frac{i}{\hbar}E_1t}\ket{m_1,p} + \sin\theta e^{-\frac{i}{\hbar}E_2t} \ket{m_2,p}.\label{eq:Schr_evol_flavour_state}
+\end{equation}
+Como los estados de masa se pueden expresar en función de los estados de sabor
+\begin{equation}
+	\begin{aligned}[b]
+		\ket{m_1,p} & = \cos\theta \ket{\nu_\alpha,p} - \sin\theta \ket{\nu_\beta,p}, \\
+		\ket{m_2,p} & = \sin\theta \ket{\nu_\alpha,p} + \cos\theta \ket{\nu_\beta,p},
+	\end{aligned}\label{eq:mass_states_schr}
+\end{equation}
+entonces el estado de la partícula en $t$ se puede expresar como
+\begin{equation}
+	\ket{\nu(t)} = (\cos ^2\theta e^{-\frac{i}{\hbar}E_1t} + \sin^2\theta e^{-\frac{i}{\hbar}E_2t})\ket{\nu_1,p} + \sin\theta \cos\theta (e^{-\frac{i}{\hbar}E_2t} - e^{-\frac{i}{\hbar}E_1t})\ket{\nu_2,p}.
+\end{equation}
+Se puede notar que como se había mencionado, si el estado es una combinación lineal de los estados de masa es posible que hayan transiciones a otros estados sin la necesidad de realizar una medición. Las probabilidades de que la partícula sea encontrada en el estado de sabor $\ket{\nu_\beta,p}$ es
+\begin{equation}
+	P_{\alpha\to \beta} = \abs{\braket{\nu_\beta,p}{\nu(t)}}^2 =\sin^2\theta \cos ^2\theta (2 - 2 \cos(E_1 - E_2)\frac{t}{\hbar})\label{eq:Schr_prob_flavor_1}
+\end{equation}
+y la probabilidad de que esté en el estado $\ket{\nu_\alpha,p}$ es
+\begin{equation}
+	P_{\alpha\to \alpha} = \abs{\braket{\nu_\alpha,p}{\nu(t)}}^2= \cos^4\theta + \sin^4\theta + 2\sin^2\theta \cos^2\theta \cos(E_1-E_2)\frac{t}{\hbar} \label{eq:Schr_prob_flavor_2}
+\end{equation}
+Pero como para una función de onda plana se cumple que $E = p^2/2m$ y $\sin^2\theta + \cos^2\theta = 1$ entonces
+\begin{align}
+	P_{\alpha\to\beta}    & = \sin^22\theta \sin^2\left[\frac{p^2t}{4\hbar}\left(\frac{1}{m_1} - \frac{1}{m_2}\right)\right],     \\
+	P_{\alpha \to \alpha} & = 1 - \sin^22\theta \sin^2\left[\frac{p^2}{4\hbar}t\left(\frac{1}{m_1} - \frac{1}{m_2}\right)\right].
+\end{align}
+Aquí notamos que la probabilidad de transición al depender de un función seno, permitirá una oscilación entre dos distintos estados de sabor. Además, se nota que no dependen de la posición de la partícula, esto se debe a que las funciones de onda plana están dispersadas de forma uniforme en todo el espacio de posiciones. Aunque hay que recordar que esta no es una solución de la ecuación de Schrödinger sino que es una aproximación del estado de la partícula con un momentum con incertidumbre muy pequeña.
+
+A continuación se muestra las gráficas de las probabilidades obtenidas
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./osc_schr/wave_packet/wave_packet2.pdf}
+		\caption{Probabilidad $P_{\alpha \to\alpha}$ vs $t$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./osc_schr/wave_packet/wave_packet.pdf}
+		\caption{Probabilidad $P_{\alpha \to\beta}$ vs $t$}
+	\end{subfigure}
+	\caption{Probabilidad de encontrar a una partícula en los estados de sabor $\alpha$ y $\beta$, para valores de masa $m_1=1.0$ y $m_2=2.0$, desviación estándar de la distribución de momentos $\sigma_p = 0,25$, y ángulo de mixtura $\theta =0.5\text{ rad}$, en unidades naturales.}
+\end{figure}
+
+\subsection{Estados de sabor y oscilación de ondas gaussianas}
+Ahora vamos a considerar un paquete de onda gaussiana, para esto es necesario hallar como se representará el estado de una partícula con dos posibles estados de sabor. Recordemos que en las ecuaciones \eqref{eq:flavourSchrPlane1} y \eqref{eq:flavourSchrPlane2} se muestran los estados de sabor correspondientes a las funciones de onda plana, pero un paquete de onda gaussiano se puede representar como una combinación lineal de estas, por lo que una partícula en el estado de sabor $\alpha$ será dada por
+\begin{equation}
+	\ket{\nu_\alpha} = \int_{-\infty}^{\infty}f(p)\ket{\nu_\alpha,p} \dd p
+\end{equation}
+y una en el estado de sabor $\beta$ será
+\begin{equation}
+	\ket{\nu_\beta} = \int_{-\infty}^{\infty}f(p)\ket{\nu_\beta,p} \dd p,
+\end{equation}
+donde la funciones $f(p)$ es la función gaussiana en el espacio de momentos, es decir
+\begin{equation}
+	f(p) = \frac{1}{(2\pi)^{1/4}\sqrt{\sigma_p}} \exp{-\frac{(p-p_{0})^2}{4 \sigma_p^2}}.
+\end{equation}
+
+Si asumimos que la partícula en el instante $t=0$ se encuentra en el estado de sabor $\alpha$ y es descrita por una función gaussiana, es decir:
+\begin{equation}
+	\ket{\nu(0)} = \int_{-\infty}^{\infty}f(p)\ket{\nu_\alpha,p} \dd p = \int_{-\infty}^{\infty}f(p)\left[\cos\theta \ket{m_1,p} + \sin\theta \ket{m_2,p}\right] \dd p
+\end{equation}
+donde $f(p)$ es el mismo que en \eqref{eq:gaussian_momentum}, luego de un intervalo de tiempo $t$, su estado será:
+\begin{equation}
+	\ket{\nu(t)} = \int_{-\infty}^{\infty}f(p)\left[\cos\theta e^{-\frac{i}{\hbar}E_1t}\ket{m_1,p} + \sin\theta e^{-\frac{i}{\hbar}E_2t}\ket{m_2,p}\right] \dd p.
+\end{equation}
+Y usando \eqref{eq:mass_states_schr} se obtiene que
+\begin{equation}
+	\begin{aligned}[b]
+		\ket{\nu(t)} & = \int_{-\infty}^{\infty}f(p)\left[\cos^2\theta e^{-\frac{i}{\hbar}E_1t} + \sin^2\theta e^{-\frac{i}{\hbar}E_2t}\right]\ket{\nu_\alpha,p}. \dd p \\
+		             & \quad + \int_{-\infty}^{\infty}f(p)\cos\theta \sin\theta \left[-e^{\frac{i}{\hbar}E_1t} + e^{\frac{i}{\hbar}E_2t}\right]\ket{\nu_\beta,p} \dd p.
+	\end{aligned}
+\end{equation}
+Entonces la probabilidad de la partícula se encuentre en el estado de sabor $\alpha$ en el instante $t$ será:
+\begin{equation}
+	\begin{aligned}[b]
+		P_{\alpha \to \alpha}(t) & = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\abs{f(p)}^2\left[\cos^2\theta e^{\frac{i}{\hbar}\frac{k^2}{2m_1}t} + \sin^2\theta e^{\frac{i}{\hbar}\frac{k^2}{2m_2}t}\right]    \\
+		                         & \quad \times \left[\cos^2\theta e^{-\frac{i}{\hbar}\frac{p^2}{2m_1}t} + \sin^2\theta e^{-\frac{i}{\hbar}\frac{p^2}{2m_2}t}\right]\braket{\nu_\alpha,k}{\nu_\alpha,p} \dd k \dd p.
+	\end{aligned}
+\end{equation}
+Para resolver esta integral usamos \eqref{eq:flavourSchrPlane1}, \eqref{eq:flavourSchrPlane2} y la propiedad $\braket{m_i,k}{m_j,p} = \delta_{ij}\delta(k-p)$, de modo que:
+\begin{equation}
+	\abs{\braket{\nu_\alpha,k}{\nu_\alpha,p}}^2 = \cos^2\theta \delta(k-p) + \sin^2\theta \delta(k-p) = \delta(k-p),
+\end{equation}
+por lo que la expresión anterior se reduce a:
+\begin{equation}
+	\begin{aligned}[b]
+		P_{\alpha \to \alpha}(t) & = \int_{-\infty}^{\infty}\abs{f(p)}^2\bigg\{\cos^{4}\theta + \sin^4\theta +\sin^2\theta \cos^2\theta e^{\frac{i}{\hbar}\left(\frac{p^2}{2m_1} - \frac{p^2}{2m_2}\right)t} \\
+		                         & \quad + \sin^2\theta \cos^2\theta e^{\frac{i}{\hbar}\left(\frac{p^2}{2m_2} - \frac{p^2}{2m_1}\right)t}\bigg\} \dd p                                                       \\
+		                         & = 1 - \sin^2\theta \cos^2\theta \left[2 - 2 \Re\int_{-\infty}^{\infty}\abs{f(p)}^2 e^{\frac{it}{\hbar}\left(\frac{1}{2m_1} - \frac{1}{2m_2}\right)p^2} \dd p\right].
+	\end{aligned}
+\end{equation}
+De forma similar se procede para hallar la probabilidad de que la partícula esté en el estado de sabor $\beta$ en el instante $t$:
+\begin{equation}
+	P_{\alpha \to \beta} = \sin^2\theta \cos^2\theta \left[2 - 2 \Re\int_{-\infty}^{\infty}\abs{f(p)}^2 e^{\frac{it}{\hbar}\left(\frac{1}{2m_1} - \frac{1}{2m_2}\right)p^2} \dd p\right].
+\end{equation}
+Notamos que para hallar ambas probabilidades es necesario resolver la misma integral:
+\begin{equation}
+	\begin{aligned}[b]
+		I & = \frac{1}{\sigma_p\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-\frac{(p-p_0)^2}{2\sigma_p^2}}e^{\frac{it}{2\hbar}\left(\frac{1}{m_1} - \frac{1}{m_2}\right)p^2} \dd p                                                                            \\
+		  & = \frac{1}{\sigma_p\sqrt{2\pi}}\int_{-\infty}^{\infty}\exp\Bigg\{- p^2\left[\frac{1}{2\sigma_p^2} - \frac{it}{2\hbar}\left(\frac{1}{m_1} - \frac{1}{m_2}\right)\right] + \frac{p p_0}{\sigma_p^2} - \frac{p_0^2}{2\sigma_p^2} \Bigg\}\dd p,
+	\end{aligned}
+\end{equation}
+para la cual se usará la relación \eqref{eq:special_integral_gaussian}
+\begin{equation}
+	\begin{aligned}[b]
+		I & =\frac{1}{\sigma_p\sqrt{2\pi}} \sqrt{\frac{\pi}{\frac{1}{2\sigma_p^2} - \frac{it}{2\hbar}\left(\frac{1}{m_1} - \frac{1}{m_2}\right)}}\exp{\frac{p_0^2}{4\sigma_p^4 } \frac{1}{\frac{1}{2\sigma_p^2} - \frac{it}{2\hbar}\left(\frac{1}{m_1} - \frac{1}{m_2}\right)} - \frac{p_0^2}{2\sigma_p^2}} \\
+		  & = \frac{1}{\sigma_p \sqrt{2\sqrt{\frac{1}{4\sigma_p^4} + \frac{t^2}{4\hbar^2}\left(\frac{1}{m_1} - \frac{1}{m_2}\right)^2}}} \exp{\frac{i}{2} \arctan\left[\frac{t\sigma_p^2}{\hbar}\left(\frac{1}{m_1} - \frac{1}{m_2}\right)\right]}                                                          \\
+		  & \quad \times \exp{\frac{p_0^2}{4\sigma_p^4}\frac{1}{\frac{1}{4\sigma_j^4} + \frac{t^2}{4\hbar^2}\left(\frac{1}{m_1} - \frac{1}{m_2}\right)^2 } \left(\frac{1}{2\sigma_p^2} + \frac{it}{2\hbar}\left(\frac{1}{m_1} - \frac{1}{m_2}\right)\right) - \frac{p_0^2}{2\sigma_p^2}}
+	\end{aligned}
+\end{equation}
+De este modo
+\begin{equation}
+	\begin{aligned}[b]
+		P_{\alpha \to \beta} & = 2 \sin^2\theta \cos^2\theta \Bigg[1 - \frac{1}{\sigma_p \sqrt{2\sqrt{\frac{1}{4\sigma_p^4} + \frac{t^2}{4\hbar^2}\left(\frac{1}{m_1} - \frac{1}{m_2}\right)^2}}} \exp{-\frac{\frac{p_0^2t^2}{8\hbar^2\sigma_p^2}\left(\frac{1}{m_1} - \frac{1}{m_2}\right)^2}{\frac{1}{4\sigma_p^4} + \frac{t^2}{4\hbar^2}\left(\frac{1}{m_1} - \frac{1}{m_2}\right)^2 }} \\
+		                     & \quad \times\cos\left(\frac{1}{2} \arctan\left[\frac{t\sigma_p^2}{\hbar}\left(\frac{1}{m_1} - \frac{1}{m_2}\right)\right] + \frac{p_0^2t}{8\hbar\sigma_p^4}\frac{1}{\frac{1}{4\sigma_p^4} + \frac{t^2}{4\hbar^2}\left(\frac{1}{m_1} - \frac{1}{m_2}\right)^2} \left(\frac{1}{m_1} - \frac{1}{m_2}\right)\right) \Bigg]
+	\end{aligned}
+\end{equation}
+Al graficar las probabilidades obtenidas se observa que a medida que el valor de $\sigma_p$ disminuye, los gráficos se asemejan más a los obtenidos para una onda plana, y cuando aumenta la probabilidad tiende a una asíntota horizontal, cuyo valor depende el ángulo $\theta$. Esto se debe a que:
+\begin{equation}
+	\lim_{t \to \infty}P_{\alpha \to\beta}(t) = 2\sin^2\theta \cos^2\theta.
+\end{equation}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./osc_schr/gaussian_osc/localized_x/alpha_beta.pdf}
+		\caption{Probabilidad $P_{\alpha \to\beta}$ vs $t$ para $\sigma_p=0.7$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./osc_schr/gaussian_osc/intermediate/alpha_beta.pdf}
+		\caption{Probabilidad $P_{\alpha \to\beta}$ vs $t$ para $\sigma_p=0.25$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./osc_schr/gaussian_osc/localized_p/alpha_beta.pdf}
+		\caption{Probabilidad $P_{\alpha \to\beta}$ vs $t$ para $\sigma_p=0.007$}
+	\end{subfigure}
+	\caption{Probabilidad de encontrar a una partícula descrita por una paquete de onda gaussiano en los estados de sabor $\alpha$ y $\beta$, para valores de masa $m_1=1.0$ y $m_2=2.0$, y ángulo de mixtura $\theta=0.5\text{ rad}$, en unidades naturales}
+\end{figure}
+
+\section{Oscilación sabor-masa en el marco relativista}\renewcommand{\thefootnote}{\arabic{footnote}} % numeración por símbolos
+\lhead[\thepage]{\thesection. Oscilación sabor-masa en el marco relativista}
+\subsection{Estados de sabor y oscilación de ondas planas}
+Para hallar la oscilación de estados de sabor de una partícula relativista, consideramos solo las soluciones de la ecuación de Klein-Gordon con energía positiva. Así, si se tiene que la partícula se encuentra inicialmente en un estado de sabor $\alpha$, formado por una combinación lineal de estados de masa correspondientes a las funciones de onda plana, se tendrá que este será dado por
+\begin{equation}
+	\ket{\nu_\alpha,p} = \cos\theta \ket{m_1,p} + \sin\theta \ket{m_2,p}\label{eq:dirac_flavour_rep_plane}
+\end{equation}
+donde $\ket{m_i,p}$ denota a la onda plana $e^{-\frac{\mi}{\hbar}(Et -pz)}$ correspondiente a la masa $m_i$.
+
+Como se están considerando solo soluciones con energía positiva, luego de un intervalo de  tiempo $t$, el estado de la partícula será
+\begin{equation}
+	\ket{\nu(t)} = \cos\theta e^{-\frac{i}{\hbar}E_1 t}\ket{m_1,p} + \sin\theta e^{-\frac{i}{\hbar}E_2t}\ket{m_2,p},
+\end{equation}
+donde
+\begin{equation}
+	E^2_k = p^2c^2 + m_k^2 c^4\label{eq:dispersion_energy}
+\end{equation}
+parar $k=1,2$.
+Notamos que este estado tiene una forma similar al obtenido para el caso de la ecuación de Schrödinger \eqref{eq:Schr_evol_flavour_state}, con la diferencia de la relación entre $E_k$, $m$ y $p$. Por esto la probabilidad de que la partícula sea encontrada en un instante $t$ en el estado de sabor $\beta$, obtenida de \eqref{eq:Schr_prob_flavor_1} es
+\begin{equation}
+	P_{\alpha \to \beta} = \sin^2 2\theta \sin^2\left[\frac{t}{2\hbar}(E_1-E_2)\right],
+\end{equation}
+y de que esté en el estado de sabor $\alpha$, obtenida de \eqref{eq:Schr_prob_flavor_2}, es
+\begin{equation}
+	P_{\alpha \to \alpha} = 1 - \sin^2 2\theta \sin^2\left[\frac{t}{2\hbar}(E_1 - E_2)\right].
+\end{equation}
+Debido a que el factor que depende de la diferencia de energías está elevado al cuadrado, estas soluciones son válidas también para las funciones de onda plana de energía negativa. Además, este resultado también es válido para las funciones de onda plana como soluciones de la ecuación de Klein-Gordon, pues en estas no se tiene un factor espinorial sino un escalar, haciendo así válida la representación usada en \eqref{eq:dirac_flavour_rep_plane} para las soluciones de la ecuación de Klein-Gordon.
+
+Antes de reemplazar \eqref{eq:dispersion_energy} en estas relaciones, se considerarán partículas ultrarelativistas, es decir $m \ll \abs{\vb{p}}$, por lo que la siguiente aproximación es válida:
+\begin{equation}
+	E_k = pc \left(1 + \frac{m_k^2 c^4}{p^2c^2}\right)^{1/2} = pc + \frac{m_k^2 c^3}{2p}
+\end{equation}
+Entonces las probabilidades obtenidas previamente serán expresadas como
+\begin{align}
+	P_{\alpha\to\beta}  & = \sin^22\theta \sin^2\left(\frac{m_1^2 - m_2^2}{4p\hbar}c^3t\right),     \\
+	P_{\alpha\to\alpha} & = 1 - \sin^22\theta \sin^2\left(\frac{m_1^2 - m_2^2}{4p\hbar}c^3t\right).
+\end{align}
+Notamos en las figuras \ref{fig:prob_alp_alp_KG} y \ref{fig:prob_alp_bet_KG} que el patrón de oscilación es similar al obtenido para el caso de la ecuación de Schrödinger, con la diferencia del periodo de oscilación. Esto se debe a que a diferencia de lo obtenido para la ecuación de Schrödinger, las masas aparecen como una diferencia de cuadrados en lugar de una diferencia de sus inversas.
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./osc_KG/wave_packet/wave_packet2.pdf}
+		\caption{Probabilidad $P_{\alpha \to\alpha}$ vs $t$}
+		\label{fig:prob_alp_alp_KG}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./osc_KG/wave_packet/wave_packet.pdf}
+		\caption{Probabilidad $P_{\alpha \to\beta}$ vs $t$}
+		\label{fig:prob_alp_bet_KG}
+	\end{subfigure}
+	\caption{Probabilidad de encontrar a una partícula en los estados de sabor $\alpha$ y $\beta$ para estados de masa proporcionales a las funciones de onda plana para la ecuación de Klein-Gordon,y valores de masa $m_1=1.0$ y $m_2=2.0$, y ángulo de mixtura $\theta=0.5\text{ rad}$, en unidades naturales.}
+\end{figure}
+
+\subsection{Estados de sabor y oscilación de ondas gaussianas}
+Si consideramos paquetes de onda gaussianos, para el caso de las soluciones de la ecuación de Klein-Gordon se sigue un procedimiento similar al usado para el caso de las soluciones de la ecuación de Schrödinger, es decir que si en $t=0$ el estado inicial es
+\begin{equation}
+	\ket{\nu(0)} = \int_{-\infty}^{\infty}f(p) \left[\cos\theta \ket{m_1,p} + \sin\theta \ket{m_2,p}\right]\dd p.
+\end{equation}
+Entonces, en el instante $t$, el estado de la partícula será
+\begin{equation}
+	\begin{aligned}[b]
+		\ket{\nu(t)} & = \int_{-\infty}^{\infty}f(p)\left[\cos^2\theta e^{-\frac{i}{\hbar}E_1t} + \sin^2\theta e^{-\frac{i}{\hbar}E_2t}\right]\ket{\nu_\alpha,p}. \dd p \\
+		             & \quad + \int_{-\infty}^{\infty}f(p)\cos\theta \sin\theta \left[-e^{\frac{i}{\hbar}E_1t} + e^{\frac{i}{\hbar}E_2t}\right]\ket{\nu_\beta,p} \dd p,
+	\end{aligned}
+\end{equation}
+donde $E_i = \sqrt{p^2c^2 + m_i^2c^4}$. De esta forma, y siguiendo el mismo procedimiento usado para la ecuación de Schrödinger, se obtiene que
+\begin{equation}
+	\begin{aligned}[b]
+		P_{\alpha \to \alpha}(t) & = 1 - \sin^2\theta \cos^2\theta \left[2 - 2 \Re\int_{-\infty}^{\infty}\abs{f(p)}^2 e^{\frac{it}{\hbar}(E_1 - E_2)} \dd p\right].\label{eq:KG_osc_prob1}
+	\end{aligned}
+\end{equation}
+De forma similar se procede para hallar la probabilidad de que la partícula esté en el estado de sabor $\beta$ en el instante $t$:
+\begin{equation}
+	P_{\alpha \to \beta}(t) = \sin^2\theta \cos^2\theta \left[2 - 2 \Re\int_{-\infty}^{\infty}\abs{f(p)}^2 e^{\frac{it}{\hbar}(E_1 - E_2)} \dd p\right].\label{eq:KG_osc_prob2}
+\end{equation}
+Para resolver \eqref{eq:KG_osc_prob1} y \eqref{eq:KG_osc_prob2}, es necesario resolver una integral que al igual que para cuando hallamos el paquete de onda gaussiano para la ecuación de Klein-Gordon tendremos que usar la aproximación \eqref{eq:KG_expanded_energy}. De este modo
+\begin{equation}
+	E_i = E_{0,i} \left[1 + \frac{p_0c^2}{E_{0,i}^2}(p-p_0) + \frac{m_i^2c^6}{2E_{0,i}^4}(p-p_0)^2\right],
+\end{equation}
+donde
+\begin{equation}
+	E_{0,i} = \sqrt{p_0^2c^2 + m_i^2c^4}.
+\end{equation}
+De este modo, tenemos que resolver la integral
+\begin{equation}
+	\begin{aligned}[b]
+		\frac{e^{\frac{it}{\hbar}(E_{0,1} - E_{0,2})}}{\sqrt{2\pi}\sigma_p} \int_{-\infty}^{\infty} \exp\bigg\{- \frac{(p-p_0)^2}{2\sigma_p^2} + \frac{it}{\hbar}\left[\frac{p_0c^2}{E_{0,1}}(p-p_0) + \frac{m_1^2c^6}{2E_{0,1}^3}(p-p_0)^2\right] \\
+		- \frac{it}{\hbar}\left[\frac{p_0c^2}{E_{0,2}}(p-p_0) + \frac{m_2^2c^6}{2E_{0,2}^3}(p-p_0)^2\right]\bigg\}\dd p.
+	\end{aligned}
+\end{equation}
+Y al realizar el cambio de variable $\kappa = p - p_0$ se expresa como:
+\begin{equation}
+	\frac{e^{\frac{it}{\hbar}(E_{0,1} - E_{0,2})}}{\sqrt{2\pi}\sigma_p} \int_{-\infty}^{\infty}\exp{-\left[\frac{1}{\sigma_p^2} - \frac{it}{\hbar}\frac{m_1^2c^6}{2E_{0,1}^3} + \frac{it}{\hbar}\frac{m_2^2c^6}{2E_{0,2}^3}\right]\kappa^2 + \frac{it}{\hbar}\left[\frac{p_0c^2}{E_{0,1}} - \frac{p_0c^2}{E_{0,2}}\right]\kappa} \dd \kappa.
+\end{equation}
+Entonces al usar \eqref{eq:special_integral_gaussian} se obtiene que
+\begin{equation}
+	\begin{aligned}[b]
+		\int_{-\infty}^{\infty}\abs{f(p)}^2e^{\frac{it}{\hbar}(E_1-E_2)} \dd p & = \frac{e^{\frac{it}{\hbar}(E_{0,1} - E_{0,2})}}{\sqrt{2\pi}\sigma_p} \sqrt{\frac{\pi}{\frac{1}{\sigma_p^2} - \frac{it}{\hbar}\frac{m_1^2c^6}{2E_{0,1}^3} + \frac{it}{\hbar}\frac{m_2^2c^6}{2E_{0,2}^3}}}                                  \\
+		                                                                       & \quad \times\exp{-\frac{\frac{t^2p_0^2c^4}{\hbar^2}\left(\frac{1}{E_{0,1}} - \frac{1}{E_{0,2}}\right)^2}{4\left(\frac{1}{\sigma_p^2} - \frac{it}{\hbar}\frac{m_1^2c^6}{2E_{0,1}^3} + \frac{it}{\hbar}\frac{m_2^2c^6}{2E_{0,2}^3}\right)}}.
+	\end{aligned}
+\end{equation}
+Su parte real es
+\begin{equation}
+	\begin{aligned}[b]
+		\Re \int_{-\infty}^{\infty}\abs{f(p)}^2e^{\frac{it}{\hbar}(E_1-E_2)} \dd p & =\frac{1}{\sqrt{2\sqrt{\frac{1}{\sigma_p^4} - \frac{t^2}{\hbar^2}\left(\frac{m_1^2c^6}{2E_{0,1}^3} - \frac{m_2^2c^6}{2E_{0,2}^3}\right)^2 }}\sigma_p}                                                                                                                            \\
+		                                                                           & \quad \times\exp{-\frac{\frac{t^2p_0^2c^4}{\hbar^2}\left(\frac{1}{E_{0,1}} - \frac{1}{E_{0,2}}\right)^2}{4\sigma_p^2\left(\frac{1}{\sigma_p^4} - \frac{t^2}{\hbar^2}\left(\frac{m_1^2c^6}{2E_{0,1}^3} - \frac{m_2^2c^6}{2E_{0,2}^3}\right)^2 \right)}}                           \\
+		                                                                           & \quad\times\cos\Bigg\{\frac{t}{\hbar}\left(E_{0,1}-E_{0,2} +\frac{\frac{m_1^2c^6}{2E_{0,1}^3} - \frac{m_2^2c^6}{2E_{0,2}^3}}{4\sigma_p^2\left(\frac{1}{\sigma_p^4} - \frac{t^2}{\hbar^2}\left(\frac{m_1^2c^6}{2E_{0,1}^3} - \frac{m_2^2c^6}{2E_{0,2}^3}\right)^2 \right)}\right)
+		\\
+		                                                                           & \hspace{2cm} - \frac{1}{2}\arctan\left[\frac{t\sigma_p^2}{\hbar}\left(\frac{m_1^2c^6}{2E_{0,1}^3} - \frac{m_2^2c^6}{2E_{0,2}^3}\right)\right]\Bigg\}
+	\end{aligned}
+\end{equation}
+Al reemplazar este resultado en \eqref{eq:KG_osc_prob2} se obtiene la probabilidad de transición:
+\begin{equation}
+	\begin{aligned}[b]
+		P_{\alpha \to \beta}(t) = & 2\sin^2\theta \cos^2\theta \Bigg[1 -  \frac{1}{\sqrt{2\sqrt{\frac{1}{\sigma_p^4} - \frac{t^2}{\hbar^2}\left(\frac{m_1^2c^6}{2E_{0,1}^3} - \frac{m_2^2c^6}{2E_{0,2}^3}\right)^2 }}\sigma_p}                                                                                       \\
+		                          & \quad \times\exp{-\frac{\frac{t^2p_0^2c^4}{\hbar^2}\left(\frac{1}{E_{0,1}} - \frac{1}{E_{0,2}}\right)^2}{4\sigma_p^2\left(\frac{1}{\sigma_p^4} - \frac{t^2}{\hbar^2}\left(\frac{m_1^2c^6}{2E_{0,1}^3} - \frac{m_2^2c^6}{2E_{0,2}^3}\right)^2 \right)}}                           \\
+		                          & \quad\times\cos\Bigg\{\frac{t}{\hbar}\left(E_{0,1}-E_{0,2} +\frac{\frac{m_1^2c^6}{2E_{0,1}^3} - \frac{m_2^2c^6}{2E_{0,2}^3}}{4\sigma_p^2\left(\frac{1}{\sigma_p^4} - \frac{t^2}{\hbar^2}\left(\frac{m_1^2c^6}{2E_{0,1}^3} - \frac{m_2^2c^6}{2E_{0,2}^3}\right)^2 \right)}\right)
+		\\
+		                          & \hspace{2cm} - \frac{1}{2}\arctan\left[\frac{t\sigma_p^2}{\hbar}\left(\frac{m_1^2c^6}{2E_{0,1}^3} - \frac{m_2^2c^6}{2E_{0,2}^3}\right)\right]\Bigg\}\Bigg].\label{eq:KG_osc_prob_transi}
+	\end{aligned}
+\end{equation}
+En las figuras \ref{fig:gaussian_KG_prob_osc} y \ref{fig:gaussian_KG_prob_osc_prop_1_5} se muestran la evolución de la probabilidad de transición del sabor $\alpha$ al sabor $\beta$, para dos proporciones distintas entre las masas de los estados de masa. En estas se observa que la $P_{\alpha \to \beta}$ disminuye, esto debido exponencial en \eqref{eq:KG_osc_prob_transi}, y tiende a:
+\begin{equation}
+	\lim_{t \to \infty}P_{\alpha \to \beta}(t) = 2 \sin^2\theta \cos^2\theta.
+\end{equation}
+Esto significa que un intervalo de tiempo suficientemente largo se pueden ignorar los efectos al considerar un paquete de onda relativista, pero lo que no se puede despreciar es el efecto de considerar el paquete de onda gaussiano.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./osc_KG/gaussian/m_prop_1_2/sigma_p_big/gaussian_osc.pdf}
+		\caption{Probabilidad $P_{\alpha \to\beta}$ vs $t$ para $\sigma_p = 0.7$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./osc_KG/gaussian/m_prop_1_2/sigma_p_mid/gaussian_osc.pdf}
+		\caption{Probabilidad $P_{\alpha \to\beta}$ vs $t$ para $\sigma_p = 0.25$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./osc_KG/gaussian/m_prop_1_2/sigma_p_small/gaussian_osc.pdf}
+		\caption{Probabilidad $P_{\alpha \to\beta}$ vs $t$ para $\sigma_p = 0.25$}
+	\end{subfigure}
+	\caption{Probabilidad de encontrar a una partícula descrita por una paquete de onda gaussiano relativista escalar en los estados de sabor $\alpha$ y $\beta$ para masas $m_1=1.0$ y $m_2=2.0$, y ángulo de mixtura $\theta =0.5\text{ rad}$, en unidades naturales}
+	\label{fig:gaussian_KG_prob_osc}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./osc_KG/gaussian/m_prop_1_5/sigma_p_big/gaussian_osc.pdf}
+		\caption{Probabilidad $P_{\alpha \to\beta}$ vs $t$ para $\sigma_p = 0.7$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./osc_KG/gaussian/m_prop_1_5/sigma_p_mid/gaussian_osc.pdf}
+		\caption{Probabilidad $P_{\alpha \to\beta}$ vs $t$ para $\sigma_p=0.25$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.9\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./osc_KG/gaussian/m_prop_1_5/sigma_p_small/gaussian_osc.pdf}
+		\caption{Probabilidad $P_{\alpha \to\beta}$ vs $t$ para $\sigma_p=0.007$}
+	\end{subfigure}
+	\caption{Probabilidad de encontrar a una partícula descrita por una paquete de onda gaussiano relativista escalar en los estados de sabor $\alpha$ y $\beta$ para masas $m_1=1.0$ y $m_2=5.0$, y ángulo de mixtura $\theta =0.5\text{ rad}$, en unidades naturales}
+	\label{fig:gaussian_KG_prob_osc_prop_1_5}
+\end{figure}

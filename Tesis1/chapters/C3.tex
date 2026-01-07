@@ -1,0 +1,737 @@
+\chapter{Generadores e invariantes relativistas}\label{cap.3}
+\markboth{Generadores e invariantes relativistas}{Generadores e invariantes relativistas}
+En este capítulo se estudian los generadores de los grupos de Lorentz y Poincaré; en particular, se determina el álgebra de los generadores al considerar la representación de una transformación infinitesimal y la propiedades de la representación de un grupo. Además, a partir de estos generadores se construyen nuevos generadores que se identifican con el momento angular de la partícula. 
+
+Por otro lado, se definen los operadores $P^2$ y $W^2$, y se calculan los conmutadores entre ellos y los generadores del grupo de Poincaré. A partir de estos resultados se deduce que estos operadores son invariantes frente a las transformaciones de Poincaré. Finalmente, al expresarlos en función de los operadores de momento angular se encuentra una interpretación física, y junto con los generadores de las traslaciones y la componente $W^0$ permiten caracterizar completamente a una partícula.
+\section{Generadores del grupo de Lorentz} \renewcommand{\thefootnote}{\arabic{footnote}} % numeración por símbolos
+\lhead[\thepage]{\thesection. Generadores del grupo de Lorentz}
+
+\subsection{Transformaciones de Lorentz infinitesimales}
+En el capítulo anterior se obtuvo que las transformaciones de Lorentz ortocronas y propias son definidas como los elementos del grupo
+\begin{equation}
+	\mathfrak{L}_+^{\uparrow} = SO^+(1,n) = \left\{\Lambda \in O(1,n) \mid \text{det}(\Lambda) = 1 \wedge \tensor{\Lambda}{^0_0}\geq 1\right\}.
+\end{equation}
+Además junto a las transformaciones discretas generan el grupo de Lorentz.
+
+Una propiedad de los elementos del grupo $\mathfrak{L}^\uparrow_+$ es que al incluir a la identidad se pueden definir transformaciones infinitesimales dadas por
+\begin{equation}
+	\tensor{\Lambda}{^\mu_\nu} = \tensor{\delta}{^\mu_\nu} + \varepsilon\tensor{w}{^\mu_\nu}\label{eq:infinitesimalLorentz}
+\end{equation}
+donde $\varepsilon$ es un infinitesimal.
+
+Reemplazando en \eqref{eq:lorentztrans1} se obtiene
+\begin{equation}
+	\begin{aligned}[b]
+		\tensor{g}{_\mu_\nu}(\tensor{\delta}{^\mu_\rho} + \varepsilon\tensor{w}{^\mu_\rho})(\tensor{\delta}{^\nu_\rho} + \varepsilon\tensor{w}{^\nu_\sigma})                                                                                                                                                                             & = \tensor{g}{_\rho_\sigma}  \\
+		\tensor{g}{_\mu_\nu}\tensor{\delta}{^\mu_\rho}\tensor{\delta}{^\nu_\sigma} + \varepsilon\tensor{g}{_\mu_\nu}\tensor{\delta}{^\mu_\rho}\tensor{w}{^\nu_\sigma} + \varepsilon\tensor{g}{_\mu_\nu}\tensor{w}{^\mu_\rho}\tensor{\delta}{^\nu_\sigma} + \varepsilon^2\tensor{g}{_\mu_\nu}\tensor{w}{^\mu_\rho}\tensor{w}{^\nu_\sigma} & = \tensor{g}{_\rho_\sigma}  \\
+		\tensor{g}{_\rho_\sigma} + \varepsilon\tensor{g}{_\rho_\nu}\tensor{w}{^\nu_\sigma} + \varepsilon^2\tensor{g}{_\mu_\nu}\tensor{w}{^\mu_\rho}\tensor{w}{^\nu_\sigma}                                                                                                                                                               & = \tensor{g}{_\rho_\sigma}.
+	\end{aligned}
+\end{equation}
+De modo que al definir
+\begin{equation}
+	\tensor{w}{_\sigma_\rho} \equiv \tensor{g}{_\mu_\sigma}\tensor{w}{^\mu_\rho}
+\end{equation}
+se obtiene que
+\begin{equation}
+	\tensor{w}{_\rho_\sigma} = -\tensor{w}{_\sigma_\rho}.\label{eq:wAntisymmetric}
+\end{equation}
+Entonces la matriz $ w = ( \tensor{w}{_\sigma_\rho})$ es antisimétrica.
+
+La igualdad \eqref{eq:lorentztrans1} genera un sistema de 16 ecuaciones entre los elementos de $\mathcal{L}$. Sin embargo, debido a que $\tensor{g}{_\mu_\nu} = \tensor{g}{_\nu_\mu}$, para $\mu,\nu \neq 0$ se tiene que las ecuaciones
+\begin{equation}
+	\tensor{g}{_\mu_\nu} = \tensor{\Lambda}{^\rho_\mu} \tensor{g}{_\rho_\sigma}\tensor{\Lambda}{^\sigma_\nu}\quad \text{y}\quad \tensor{g}{_\nu_\mu} = \tensor{\Lambda}{^\rho_\nu} \tensor{g}{_\rho_\sigma}\tensor{\Lambda}{^\sigma_\mu}
+\end{equation}
+son iguales, es decir que solo hay 10 ecuaciones independientes. Como las transformaciones $\Lambda$ son matrices $4\times 4$ tienen 16 parámetros pero por la restricción mencionada se obtiene que tiene dimensión 6.
+\subsection{Generadores del grupo de Lorentz}
+Podemos definir una representación del grupo de Lorentz ortocrono y propio como $\mathcal{D} \colon \mathfrak{L}_+^{\uparrow}\to \text{Aut}(V)$, donde $V$ es un espacio vectorial y Aut(V) denota al conjunto de los automorfimos de $V$.
+
+Por la definición de una representación de un grupo se cumple que para dos elementos $\Lambda_1,\Lambda_2$ del grupo de Lorentz se tiene que
+\begin{equation}
+	\mathcal{D}(\Lambda_1)\mathcal{D}(\Lambda_2) = \mathcal{D}(\Lambda_2\Lambda_1).
+\end{equation}
+Una consecuencia directa de esto es
+\begin{equation}
+	\mathcal{D}(I) = \mathbbm{1},
+\end{equation}
+donde $\mathbbm{1}$ es el operador identidad y
+\begin{equation}
+	\mathcal{D}(\Lambda^{-1})\mathcal{D}(\Lambda) = \mathcal{D}(I) = \mathbbm{1} \quad \Longrightarrow\quad \mathcal{D}(\Lambda)^{-1} = \mathcal{D}(\Lambda^{-1}).
+\end{equation}
+Para una transformación de Lorentz infinitesimal \eqref{eq:infinitesimalLorentz} este resultado implica que
+\begin{equation}
+	\mathcal{D}^{-1}(I + \varepsilon\omega ) = \mathcal{D}(I - \varepsilon\omega).
+\end{equation}
+Podemos asumir que la aplicación de $\mathcal{D}$ es la transformación infinitesimal es
+\begin{equation}
+	\mathcal{D}(I + \varepsilon\omega) = \mathbbm{1} + \frac{i}{2}\varepsilon\omega_{\mu\nu}J^{\mu\nu},
+\end{equation}
+donde $J^{\mu\nu}$ es un operador.
+Debido a que $\omega$ es antisimétrico por \eqref{eq:wAntisymmetric} tenemos que
+\begin{equation}
+	\frac{i}{2}\varepsilon\tensor{J}{^\mu^\nu}\tensor{\omega}{_\mu_\nu} + \frac{i}{2}\varepsilon\tensor{J}{^\nu^\mu}\tensor{\omega}{_\nu_\mu} = \frac{i}{2}\varepsilon(\tensor{J}{^\mu^\nu} - \tensor{J}{^\nu^\mu})\tensor{\omega}{_\mu_\nu}.
+\end{equation}
+Esto nos permite afirmar siempre que $J^{\mu\nu} = - J^{\nu\mu}$, ya que de lo contrario podemos definir los operadores $\bar{J}^{\mu\nu} \equiv \frac{1}{2}(J^{\mu\nu} - J^{\nu\mu})$, para los cuales sí se cumple esta condición.
+
+Además si consideramos que los operadores $J^{\mu\nu}$ son hermíticos obtenemos de
+\begin{equation}
+	\mathcal{D}(I + \varepsilon\omega)^\dagger = \mathbbm{1} -\frac{i}{2}\varepsilon\omega_{\mu\nu}J^{\mu\nu} = \mathcal{D}(I -\varepsilon\omega) = \mathcal{D}^{-1}(I + \varepsilon\omega),
+\end{equation}
+es decir que la representación $\mathcal{D}$ es unitaria.
+
+Sean las transformaciones de Lorentz $\Lambda$ y $I + \varepsilon\omega'$ entonces
+\begin{equation}
+	\begin{aligned}[b]
+		\mathcal{D}(\Lambda)^{-1}\mathcal{D}(I+\varepsilon\omega')\mathcal{D}(\Lambda)                                           & = \mathcal{D}(\Lambda^{-1}(I + \varepsilon\omega')\Lambda)                                                                         \\
+		\mathcal{D}^{-1}(\Lambda)\left(\mathbbm{1} + \frac{i}{2}\varepsilon\omega'_{\mu\nu}J^{\mu\nu}\right)\mathcal{D}(\Lambda) & = \mathcal{D}(I + \varepsilon \Lambda^{-1}\omega'\Lambda)                                                                          \\
+		\mathbbm{1} + \frac{i}{2}\varepsilon \mathcal{D}^{-1}(\Lambda)\omega'_{\mu\nu}J^{\mu\nu}\mathcal{D}(\Lambda)             & = \mathbbm{1} + \frac{i}{2}\varepsilon\left[\Lambda^{-1}\omega'\Lambda\right]_{\rho\sigma}J^{\rho\sigma}\label{eq:lorentzAlgcalc1}
+	\end{aligned}
+\end{equation}
+Para reducir esta expresión es necesario expresar $\Lambda^{-1}$ en función de $\Lambda$. Esto se puede obtener a partir de la definición de los elementos del grupo de Lorentz
+\begin{equation}
+	g^{\alpha\rho}\tensor{\Lambda}{^\mu_\rho}g_{\mu\nu}\tensor{\Lambda}{^\nu_\sigma} = g^{\alpha\rho}g_{\rho\sigma}= \delta^\alpha_\sigma,
+\end{equation}
+la cual implica que
+\begin{equation}
+	\tensor{(\Lambda^{-1})}{^\alpha_\nu} = g^{\alpha\rho}\tensor{\Lambda}{^\mu_\rho}g_{\mu\nu}.
+\end{equation}
+De este modo se obtiene que
+\begin{equation}
+	\begin{aligned}[b]
+		\left[\Lambda^{-1}\omega\Lambda\right]_{\rho\sigma} & = g_{\rho\gamma}\tensor{\left[\Lambda^{-1}\omega\Lambda\right]}{^\gamma_\sigma} = g_{\rho\gamma}\tensor{(\Lambda^{-1})}{^\gamma_\beta}\tensor{\omega}{^\beta_\nu}\tensor{\Lambda}{^\nu_\sigma} \\
+		                                                    & = g_{\rho\gamma}g^{\gamma\alpha}\tensor{\Lambda}{^\mu_\alpha}g_{\mu\beta}\tensor{\omega}{^\beta_\nu}\tensor{\Lambda}{^\nu_\sigma}                                                              \\
+		                                                    & = \delta^{\alpha}_\rho\tensor{\Lambda}{^\mu_\alpha}\tensor{\omega}{_\mu_\nu}\tensor{\Lambda}{^\nu_\sigma}                                                                                      \\
+		                                                    & = \tensor{\Lambda}{^\mu_\rho}\tensor{\Lambda}{^\nu_\sigma}\tensor{\omega}{_\mu_\nu}\label{ap:subindex1}
+	\end{aligned}
+\end{equation}
+Por lo que al reemplazar esta expresión en \eqref{eq:lorentzAlgcalc1} se obtiene
+\begin{equation}
+		\mathbbm{1} + \frac{i}{2}\varepsilon\mathcal{D}(\Lambda)^{-1}\omega'_{\mu\nu}J^{\mu\nu}\mathcal{D}(\Lambda) = \mathbbm{1} + \frac{i}{2}\varepsilon\tensor{\Lambda}{^\mu_\rho}\tensor{\Lambda}{^\nu_\sigma}\omega'_{\mu\nu}J^{\rho\sigma}.
+\end{equation}
+Luego,
+\begin{equation}
+		\mathcal{D}(\Lambda)^{-1}\omega'_{\mu\nu}J^{\mu\nu}\mathcal{D}(\Lambda) = \tensor{\Lambda}{^\mu_\rho}\tensor{\Lambda}{^\nu_\sigma}\omega'_{\mu\nu}J^{\rho\sigma},
+\end{equation}
+es decir,
+\begin{equation}
+		\mathcal{D}(\Lambda)^{-1}J^{\mu\nu}\mathcal{D}(\Lambda) = \tensor{\Lambda}{^\mu_\rho}\tensor{\Lambda}{^\nu_\sigma}J^{\rho\sigma}.
+\end{equation}
+Considerando que $\Lambda$ es una transformación de Lorentz infinitesimal dada por $ I + \varepsilon\omega$:
+\begin{equation}
+	\begin{aligned}[b]
+		\left(\mathbbm{1} - \frac{i}{2}\varepsilon \omega_{\alpha\gamma}J^{\alpha\gamma}\right)J^{\mu\nu}\left(\mathbbm{1}+ \frac{i}{2}\varepsilon \omega_{\rho\sigma}J^{\rho\sigma}\right) & = (\tensor{\delta}{^\mu_\rho} +\varepsilon\tensor{\omega}{^\mu_\rho})(\tensor{\delta}{^\nu_\sigma}+\varepsilon\tensor{\omega}{^\nu_\sigma})J^{\rho\sigma}                                                                                   \\
+		J^{\mu\nu} - \frac{i}{2}\varepsilon \omega_{\alpha\gamma}J^{\alpha\gamma}J^{\mu\nu} + \frac{i}{2}\varepsilon\omega_{\rho\sigma}J^{\mu\nu}J^{\rho\sigma}                             & = \tensor{\delta}{^\mu_\rho}\tensor{\delta}{^\nu_\sigma}J^{\rho\sigma} + \varepsilon \tensor{\delta}{^\nu_\sigma}\tensor{\omega}{^\mu_\rho}J^{\rho\sigma} + \varepsilon\tensor{\delta}{^\mu_\rho}\tensor{\omega}{^\nu_\sigma}J^{\rho\sigma} \\
+		J^{\mu\nu} - \frac{i}{2}\varepsilon \omega_{\alpha\gamma}J^{\alpha\gamma}J^{\mu\nu} + \frac{i}{2}\varepsilon\omega_{\rho\sigma}J^{\mu\nu}J^{\rho\sigma}                             & = J^{\mu\nu} + \varepsilon \tensor{\omega}{^\mu_\rho}J^{\rho\nu} + \varepsilon\tensor{\omega}{^\nu_\sigma}J^{\mu\sigma}.
+	\end{aligned}
+\end{equation}
+Usando $\tensor{\omega}{^\mu_\nu} = \tensor{g}{^\mu^\sigma}\tensor{\omega}{_\sigma_\nu}$ y simplificando la expresión anterior se obtiene
+\begin{equation}
+	\begin{aligned}[b]
+		\left[J^{\mu\nu},J^{\alpha\gamma}\right]\tensor{\omega}{_\alpha_\gamma} & = -2i \tensor{\omega}{^\mu_\rho}J^{\rho\nu} - 2i \tensor{\omega}{^\nu_\sigma}J^{\mu\sigma}                                                                                                                                                                                                   \\
+		                                                                        & = 2i \tensor{g}{^\mu^\sigma}\tensor{\omega}{_\sigma_\rho}J^{\nu\rho} - 2i\tensor{g}{^\nu^\rho}\tensor{\omega}{_\rho_\sigma}J^{\mu\sigma}                                                                                                                                                     \\
+		                                                                        & = i \tensor{g}{^\mu^\alpha}\tensor{\omega}{_\alpha_\gamma}J^{\nu\gamma} + i\tensor{g}{^\mu^\gamma}\tensor{\omega}{_\gamma_\alpha}J^{\nu\alpha} - i\tensor{g}{^\nu^\alpha}\tensor{\omega}{_\alpha_\gamma}J^{\mu\gamma} - i\tensor{g}{^\nu^\gamma}\tensor{\omega}{_\gamma_\alpha}J^{\mu\alpha} \\
+		                                                                        & =i\left(\tensor{g}{^\mu^\alpha}J^{\nu\gamma} - \tensor{g}{^\mu^\gamma}J^{\nu\alpha} - \tensor{g}{^\nu^\alpha}J^{\mu\gamma} + \tensor{g}{^\nu^\gamma}J^{\mu\alpha}\right)\tensor{\omega}{_\alpha_\gamma}
+	\end{aligned}
+\end{equation}
+entonces
+\begin{equation}
+	\left[J^{\mu\nu},J^{\alpha\gamma}\right] = i\left(\tensor{g}{^\mu^\alpha}J^{\nu\gamma} - \tensor{g}{^\mu^\gamma}J^{\nu\alpha} - \tensor{g}{^\nu^\alpha}J^{\mu\gamma} + \tensor{g}{^\nu^\gamma}J^{\mu\alpha}\right).\label{eq:conmutationJ}
+\end{equation}
+Así se ha obtenido el álgebra de los generadores del grupo de Lorentz.
+
+\subsection{Momento angular}
+Debido a la antisimetría en los índices de los generadores $J^{\mu\nu}$, solo hay seis generadores para la representación $\mathcal{D}$ del grupo de Lorentz:
+\begin{equation}
+	(J^{\mu\nu}) \equiv \begin{pmatrix}
+		0       & J^{01}  & J^{02}  & J^{03} \\
+		-J^{01} & 0       & J^{12}  & J^{13} \\
+		-J^{02} & -J^{12} & 0       & J^{23} \\
+		-J^{03} & -J^{13} & -J^{23} & 0
+	\end{pmatrix}.
+\end{equation}
+A partir de estos se pueden definir los operadores:
+\begin{equation}
+	J^{k} \equiv - \frac{1}{2}\sum_{j,l}\epsilon^{kjl}J^{jl}\label{eq:J^kdefinition}
+\end{equation}
+y
+\begin{equation}
+	K^{k} \equiv J^{0k},\label{eq:K^kdefinition}
+\end{equation}
+donde $j,k,l \in \left\{1,2,3\right\}$.
+Debido a que los operadores $K^k$ relacionan la coordenada temporal con una espacial, estos son llamados operadores \emph{boost}.
+
+Para hallar el álgebra de este nuevo conjunto de operadores del grupo de Lorentz se usa el álgebra de los antiguos operadores \eqref{eq:conmutationJ}. Para este fin es de utilidad expresar los antiguos generadores en función de los nuevos. La relación entre $K^k$ y los antiguos operadores está dada explícitamente en su definición, pero este no es caso para $J^k$. Por esto se realiza el siguiente cálculo:
+\begin{equation}
+	\begin{aligned}[b]
+		J^{kj} & = \frac{i}{2}(J^{kj} - J^{jk}) = \frac{i}{2}\sum_{mn}\left(\delta^{km}\delta^{jn} - \delta^{kn}\delta^{jm}\right)J^{mn} \\
+		       & = \frac{i}{2}\sum_{mnl}\epsilon^{kjl}\epsilon^{mnl}J^{mn}
+		= -i\sum_{l}\epsilon^{kjl}\left(-\frac{1}{2}\sum_{mn}\epsilon^{lmn}J^{mn}\right)                                                 \\
+		       & = -i\sum_l\epsilon^{kjl}J^{l}.\label{eq:Jkjproperty}
+	\end{aligned}
+\end{equation}
+Entonces se procede a hallar el álgebra entre los generadores $J^k$:
+\begin{equation}
+	\begin{aligned}[b]
+		\left[J^{k},J^{j}\right] & = \left[\frac{-1}{2}\sum_{mn}\epsilon^{kmn}J^{mn}, \frac{-1}{2}\sum_{pq}\epsilon^{jpq}J^{pq}\right]
+		= \frac{1}{4}\sum_{mnpq}\epsilon^{kmn}\epsilon^{jpq}\left[J^{mn}, J^{pq}\right]                                                            \\
+		                         & = \frac{i}{4}\sum_{mnpq}\epsilon^{kmn}\epsilon^{jpq}(J^{mp}g^{nq} - J^{np}g^{mq} - J^{mq}g^{np} + J^{nq}g^{mp}) \\
+	\end{aligned}
+\end{equation}
+como se evaluan solo los valores espaciales, $g^{mn} = -\delta^{mn}$:
+\begin{equation}
+	\begin{aligned}[b]
+		\left[J^k, J^j\right] & = \frac{-i}{4}\sum_{mnpq}\epsilon^{kmn}\epsilon^{jpq}(J^{mp}\delta^{nq} - J^{np}\delta^{mq} - J^{mq}\delta^{np} + J^{nq}\delta^{mp})                                                                                 \\
+		                      & = -\frac{i}{4}\left(\sum_{mnp}\epsilon^{kmn}\epsilon^{jpn}J^{mp} - \sum_{mnp}\epsilon^{kmn}\epsilon^{jmp}J^{np} - \sum_{mnq}\epsilon^{kmn}\epsilon^{jnq}J^{mq} + \sum_{mnq}\epsilon^{kmn}\epsilon^{jmq}J^{nq}\right).
+	\end{aligned}
+\end{equation}
+Reasignando índices y usando la antisimetría de $\epsilon^{\mu\nu\rho\sigma}$ y $J^{\rho\sigma}$ se reduce a
+\begin{equation}
+	\begin{aligned}[b]
+		\left[J^k, J^j\right] & = -i\sum_{mnp}\epsilon^{knm}\epsilon^{jpm}J^{np}
+		= -i\sum_{np}(\delta^{kj}\delta^{np} - \delta^{kp}\delta^{nj})J^{np}
+		= iJ^{jk}.
+	\end{aligned}
+\end{equation}
+Finalmente, por la ecuación \eqref{eq:Jkjproperty} se obtiene que
+\begin{equation}
+	\left[J^k,J^j\right] = i\sum_l \epsilon^{kjl}J^{l}.
+\end{equation}
+De este resultado se obtiene que los generadores $J^k$ tienen el misma álgebra que el momento angular definido en mecánica cuántica no relativista. Sin embargo, esta relación no es suficiente para dar un interpretación a estos generadores, pues en la mecánica cuántica no relativista son conocidos tres operadores que satisfacen está álgebra, siendo estos el momento angular orbital, el momento angular intrínseco o espín, y el momento angular total.
+
+Siguiendo con la búsqueda del álgebra de los generadores $\left\{J^k,K^j\right\}_{j,k}$, ahora se calcula el conmutador entre $K^k$ y $K^j$:
+\begin{equation}
+	\left[K^{k} , K^{j}\right]  = [J^{0k},J^{0j}] =  iJ^{kj}
+	\stackrel{(\ref{eq:Jkjproperty})}{=} -i\sum_l \epsilon^{kjl}J^{l}
+\end{equation}
+Y el conmutador entre $J^k$ y $K^j$:
+\begin{equation}
+	\begin{aligned}[b]
+		\left[J^{k},K^{j}\right] & = -\frac{1}{2}\sum_{mn}\epsilon^{kmn}\left[J^{mn},J^{0j}\right]                                             \\
+		                         & = \frac{-i}{2}\sum_{mn}\epsilon^{kmn}\left(J^{m0}g^{nj} - J^{n0}g^{mj} - J^{mj}g^{n0} + J^{nj}g^{m0}\right) \\
+		                         & = \frac{i}{2}\sum_{mn}\epsilon^{kmn}\left(K^{m}g^{nj} - K^{n}g^{mj}\right).
+	\end{aligned}
+\end{equation}
+Intercambiando índices se obtiene
+\begin{equation}
+	\begin{aligned}[b]
+		\left[J^k, K^j\right] & = \frac{i}{2}\left[\sum_{mn}\epsilon^{kmn}K^{m}g^{nj} - \sum_{nm}\epsilon^{knm}K^{m}g^{nj}\right] \\
+		                      & = i\sum_{m}\epsilon^{kjm}K^{m}.
+	\end{aligned}
+\end{equation}
+De este modo se han obtenido las álgebras de los nuevos generadores del grupo de Lorentz. Además se ha hecho evidente que los operadores $J^k$ forman un álgebra cerrada pero los operadores \emph{boost} no.
+
+Continuando con la discusión de la interpretación de los generadores $J^k$, supongamos que $\psi(x)$ es una solución de \eqref{eq:geneRel}, es decir que es un campo de $n$ componentes. Una transformación de Lorentz $\Lambda$ actúa sobre esta como
+\begin{equation}
+	\psi(x) \longmapsto \psi'(x') = \mathcal{S}(\Lambda)\psi(x),\label{eq:representationS}
+\end{equation}
+donde $\mathcal{S}(\Lambda) \in \mathcal{M}_{4 \times 4}(\mathbb{C})$.
+
+Si la transformación de Lorentz es infinitesimal obtenemos
+\begin{equation}
+	\mathcal{S}(I + \varepsilon\omega) = \mathbbm{1} + \frac{i}{2}\varepsilon\omega_{\mu\nu}S^{\mu\nu}
+\end{equation}
+Podemos relacionar este operador con la representación del grupo de Lorentz $\mathcal{D}$ mediante sus aplicaciones en el campo $\psi(x)$, esto es
+\begin{equation}
+	\begin{aligned}[b]
+		\psi'(x')                    & = \mathcal{S}(\Lambda)\psi(x)              \\
+		\mathcal{D}(\Lambda)\psi(x') & = \mathcal{S}(\Lambda)\psi(\Lambda^{-1}x')
+	\end{aligned}
+\end{equation}
+Para una transformación infinitesimal
+\begin{equation}
+	\begin{aligned}[b]
+		\left(\mathbbm{1} + \frac{i}{2}\varepsilon\omega_{\mu\nu}J^{\mu\nu}\right)\psi(x') & = \left(\mathbbm{1} + \frac{i}{2}\varepsilon\omega_{\mu\nu}S^{\mu\nu}\right)\psi(x' - \varepsilon\omega x')                                                                                        \\
+		                                                                                   & = \left(\mathbbm{1} + \frac{i}{2}\varepsilon\omega_{\mu\nu}S^{\mu\nu}\right)\left(\mathbbm{1} + \frac{1}{2}\varepsilon\omega_{\mu\nu}(x^{\mu}\partial^{\nu} - x^{\nu}\partial^{\mu})\right)\psi(x) \\
+		                                                                                   & = \left(\mathbbm{1} + \frac{i}{2}\varepsilon\omega_{\mu\nu}\left[-i(x^{\mu}\partial^\nu - x^{\nu}\partial^\mu) + S^{\mu\nu}\right]\right)\psi(x)
+	\end{aligned}
+\end{equation}
+entonces
+\begin{equation}
+	J^{\mu\nu} = -i(x^{\mu}\partial^\nu - x^{\nu}\partial^\mu) + S^{\mu\nu}.
+\end{equation}
+Así, al definir
+\begin{equation}
+	L^{\mu\nu} \equiv -i(x^{\mu}\partial^\nu - x^{\nu}\partial^\mu)
+\end{equation}
+podemos expresar los generadores de la representación $\mathcal{D}$ como
+\begin{equation}
+	J^{\mu\nu} = L^{\mu\nu} + S^{\mu\nu}.\label{eq:JSL2index}
+\end{equation}
+Evidentemente $L^{\mu\nu}$ es antisimétrico en sus índices, por lo que definimos
+\begin{equation}
+	L^{k} \equiv -\frac{1}{2}\sum_{j,l}\epsilon^{kjl}L^{jl}.
+\end{equation}
+En consecuencia, $S^k$ también es antisimétrico en sus índices, así se define de manera análoga a
+\begin{equation}
+  S^{k} \equiv -\frac{1}{2}\sum_{j,l}\epsilon^{kjl}S^{jl}.\label{eq:spinComp}
+\end{equation}
+
+De estas definiciones se obtiene que
+\begin{align}
+	L^1 & = -L^{23} = i(x^2\partial^3 - x^3\partial^2),  \\
+	L^2 & = -L^{31} = i(x^3\partial^1 - x^1\partial^3),  \\
+	L^3 & = - L^{12} = i(x^1\partial^2 - x^2\partial^1).
+\end{align}
+Evidentemente estos generadores son las componentes del operador momento angular orbital usado en la mecánica cuántica no relativista. Por consiguiente, satisfacen el álgebra
+\begin{equation}
+	\left[L^k,L^j\right] = i \sum_{l}\epsilon^{kjl}L^l.
+\end{equation}
+Luego, de la relación \eqref{eq:JSL2index} se obtiene que
+\begin{equation}
+	\begin{aligned}[b]
+		S^k & = -\frac{1}{2}\sum_{j,l}\epsilon^{kjl}\left(J^{jl}-L^{jl}\right)                          \\
+		    & = -\frac{1}{2}\sum_{j,l}\epsilon^{kjl}J^{jl} + \frac{1}{2}\sum_{j,l}\epsilon^{kjl}L^{jl},
+	\end{aligned}
+\end{equation}
+por lo que los generadores $S^k$ se relacionan con $J^k$ y $P^k$ por
+\begin{equation}
+  J^k = L^k + S^k,\label{eq:angularMomentum}
+\end{equation}
+y como $L^k$ y $S^j$ conmutan para cualquier $j,k \in \left\{1,2,3\right\}$, esto debido a que $S^k$ no depende de las coordenadas espacio-temporales, se obtiene de las álgebras de $J^k$ y $L^k$ que
+\begin{equation}
+	\begin{aligned}[b]
+		\left[J^k,J^j\right]        & = \left[L^k,L^j\right] + \left[S^k,S^j\right]         \\
+		i \sum_{l}\epsilon^{kjl}J^l & = i \sum_{l}\epsilon^{kjl}L^l + \left[S^k,S^j\right],
+	\end{aligned}
+\end{equation}
+entonces
+\begin{equation}
+	\left[S^k,S^j\right] = i \sum_{l}\epsilon^{kjl}S^l.
+\end{equation}
+De este modo se ha encontrado que los generadores $S^k$ satisfacen el mismo álgebra que las componentes del operador momento angular. Por esto y la ecuación \eqref{eq:angularMomentum} se espera que $S^k$ sea una de las componentes del operador espín, y por ende $J^k$ sería una de las componentes del momento angular total.
+\section{Generadores del grupo de Poincaré} \renewcommand{\thefootnote}{\arabic{footnote}} % numeración por símbolos
+\lhead[\thepage]{\thesection. Generadores del grupo de Poincaré}
+
+\subsection{Transformación de Poincaré}
+Hasta ahora se habían considerado transformaciones de Lorentz sin traslaciones, las transformaciones de coordenadas formadas por una transformación de Lorentz con una traslación espacio-tiempo
+\begin{equation}
+	x^{\mu}\to x'^{\mu} = \tensor{\Lambda}{^\mu_\nu}x^{\nu} + a^{\mu}
+\end{equation}
+son conocidas como las transformaciones de Poincaré. La importancia de las transformaciones de Poincaré es debido a que estas representan el cambio de referencia más general que sigue los postulados de la relatividad, por ende los fenómenos físicos deben ser invariantes frente a estas transformaciones.
+
+Al ser el producto semidirecto del grupo de Lorentz $\mathfrak{L}$ y del grupo de traslaciones $\mathfrak{T}$, el conjunto de las transformaciones de Poincaré tiene la estructura de un grupo, el llamado \emph{grupo de Poincaré}. Y sus elementos serán denotados por $(\Lambda,a)$, de modo que la operación de composición en esta notación es
+\begin{equation}
+	(\Lambda',a')(\Lambda,a) = (\Lambda'\Lambda, \Lambda'a + a').
+\end{equation}
+Ahora podemos hallar la inversa de $(\Lambda,a)$ en esta notación donde el elemento neutro sería denotado por $(I,0)$:
+\begin{equation}
+	(\Lambda',a')(\Lambda,a) = (\Lambda'\Lambda, \Lambda'a + a') = (I,0).
+\end{equation}
+Entonces $(\Lambda,a)^{-1}$ es representado por $(\Lambda^{-1}, -\Lambda^{-1}a)$. En particular, para una transformación infinitesimal $(I + \varepsilon\omega, \varepsilon b)$, cuyas componentes son
+\begin{equation}
+	\left(\tensor{\delta}{^\mu_\nu} + \varepsilon\tensor{\omega}{^\mu_\nu}, \varepsilon b^\mu\right)
+\end{equation}
+donde $\varepsilon$ es un infinitesimal, su inversa es denotada por $(I - \varepsilon\omega, -\varepsilon b)$.
+\subsection{Generadores del grupo de Poincaré}
+
+Si $\mathcal{D}(\Lambda,a)$ denota la aplicación de una representación $\mathcal{D}$ del grupo de Poincaré sobre la transformación $(\Lambda,a)$, tenemos similar al caso de la representación del grupo de Lorentz que
+\begin{equation}
+	\psi' = \mathcal{D}(\Lambda,a)\psi
+\end{equation}
+y
+\begin{equation}
+	\mathcal{D}(\Lambda,a)^{-1} = \mathcal{D}(\Lambda^{-1},-a).
+\end{equation}
+Entonces la aplicación de la representación $\mathcal{D}$ sobre esta transformación es
+\begin{equation}
+	\mathcal{D}(I + \varepsilon\omega, \varepsilon b) = \mathbbm{1} + \frac{i}{2}\varepsilon\omega_{\mu\nu}J^{\mu\nu} - i\varepsilon b_\mu P^{\mu}
+\end{equation}
+y sobre su inversa es
+\begin{equation}
+	\mathcal{D}^{-1}(I + \varepsilon\omega, \varepsilon b) = \mathcal{D}(I - \varepsilon\omega, -\varepsilon b) = \mathbbm{1} - \frac{i}{2}\varepsilon\omega_{\mu\nu}J^{\mu\nu} + i\varepsilon b_\mu P^{\mu}.
+\end{equation}
+Siguiendo un procedimiento similar al caso de las transformaciones de Lorentz se obtiene el álgebra de los operadores del grupo de Poincaré. Para esto se desarrolla:
+\begin{equation}
+	\begin{aligned}[b]
+		\left[\Lambda^{-1}(\omega a+ b)\right]_\alpha & = g_{\alpha\beta}\left[\Lambda^{-1}(\omega a + b)\right]^\beta                                                                                                                                   \\
+		                                              & = g_{\alpha\beta}\tensor{(\Lambda^{-1})}{^\beta_\mu}\tensor{\omega}{^\mu_\nu}a^{\nu} + g_{\alpha\beta}\tensor{(\Lambda^{-1})}{^\beta_\gamma}b^{\gamma}                                           \\
+		                                              & = g_{\alpha\beta}g^{\beta\rho}\tensor{\Lambda}{^\sigma_\rho}g_{\sigma\mu}\tensor{\omega}{^\mu_\nu}a^{\nu} + g_{\alpha\beta}g^{\beta\sigma}\tensor{\Lambda}{^\rho_\sigma}g_{\rho\gamma}b^{\gamma} \\
+		                                              & = \delta^{\rho}_\alpha \tensor{\Lambda}{^\sigma_\rho}\omega_{\sigma\nu}a^{\nu} + \delta^\sigma_\alpha \tensor{\Lambda}{^\rho_\sigma}g_{\rho\gamma}b^{\gamma}                                     \\
+		                                              & = \tensor{\Lambda}{^\sigma_\alpha}\omega_{\sigma\nu}a^{\nu} + \tensor{\Lambda}{^\rho_\alpha}b_\rho\label{ap:subindex2}
+	\end{aligned}
+\end{equation}
+Entonces al usar la propiedad de composición de las representaciones del grupo de Poincaré se obtiene que
+\begin{equation}
+	\begin{aligned}[b]
+		\mathcal{D}^{-1}(\Lambda,a)\mathcal{D}(I + \varepsilon \omega',\varepsilon b')\mathcal{D}(\Lambda,a) & = \mathcal{D}((\Lambda,a)^{-1}(I + \varepsilon\omega',\varepsilon b')(\Lambda,a))                                                                                                                                                            \\
+		                                                                                                     & = \mathcal{D}((\Lambda^{-1},-\Lambda^{-1}a)(I + \varepsilon\omega',\varepsilon b')(\Lambda,a))                                                                                                                                               \\
+		                                                                                                     & = \mathcal{D}(I + \varepsilon\Lambda^{-1}\omega\Lambda, \varepsilon\Lambda^{-1}(\omega a + b))                                                                                                                                               \\
+		                                                                                                     & = \mathbbm{1} + \frac{i}{2}\varepsilon\left[\Lambda^{-1}\omega\Lambda\right]_{\rho\sigma}J^{\rho\sigma} - i\varepsilon\left[\Lambda^{-1}(\omega a+b)\right]_\alpha P^{\alpha}                                                                \\
+		                                                                                                     & = \mathbbm{1} + \frac{i}{2}\varepsilon\tensor{\Lambda}{^\mu_\rho}\tensor{\Lambda}{^\nu_\sigma}\omega_{\mu\nu}J^{\rho\sigma} - i\varepsilon(\tensor{\Lambda}{^\mu_\alpha}\omega_{\mu\nu}a^\nu + \tensor{\Lambda}{^\mu_\alpha}b_\mu)P^{\alpha} \\
+		                                                                                                     & = \mathbbm{1} + \frac{i}{2}\varepsilon \omega_{\mu\nu}(\tensor{\Lambda}{^\mu_\rho}\tensor{\Lambda}{^\nu_\sigma}J^{\rho\sigma} - 2\tensor{\Lambda}{^\mu_\alpha}a^{\nu}P^{\alpha}) - i\varepsilon b_\mu\tensor{\Lambda}{^\mu_\alpha}P^{\alpha},
+	\end{aligned}
+\end{equation}
+y de la expansión de una transformación infinitesimal del grupo de Poincaré que
+\begin{equation}
+	\begin{aligned}[b]
+		\mathcal{D}^{-1}(\Lambda,a)\mathcal{D}(I + \varepsilon \omega',\varepsilon b')\mathcal{D}(\Lambda,a) & = \mathcal{D}^{-1}(\Lambda,a)\left(\mathbbm{1} + \frac{i}{2}\varepsilon \omega'_{\rho\sigma}J^{\rho\sigma} - i\varepsilon b'_\mu P^{\mu}\right)\mathcal{D}(\Lambda,a) \\
+		                                                                                                     & =\mathbbm{1} + \frac{i}{2}\varepsilon \mathcal{D}^{-1}(\Lambda,a)\omega_{\mu\nu}J^{\mu\nu}\mathcal{D}(\Lambda,a)                                                      \\
+		                                                                                                     & \quad - i\varepsilon \mathcal{D}^{-1}(\Lambda,a)b_\mu P^{\mu}\mathcal{D}(\Lambda,a)
+	\end{aligned}
+\end{equation}
+Al comparar estas dos expresiones se obtienen las ecuaciones
+\begin{equation}
+	\mathcal{D}^{-1}(\Lambda,a)J^{\mu\nu}\mathcal{D}(\Lambda,a) = \tensor{\Lambda}{^\mu_\rho}\tensor{\Lambda}{^\nu_\sigma}J^{\rho\sigma} - 2\tensor{\Lambda}{^\mu_\alpha}a^{\nu}P^{\alpha}\label{eq:PoincaréCondition1}
+\end{equation}
+y
+\begin{equation}
+	\mathcal{D}^{-1}(\Lambda,a)P^{\mu}\mathcal{D}(\Lambda,a) = \tensor{\Lambda}{^\mu_\alpha}P^\alpha.\label{eq:PoincaréCondition2}
+\end{equation}
+En analogía con las transformaciones de Lorentz se considera que $(\Lambda,a)$  es una transformación infinitesimal, es decir que esta formada por la composición de una transformación de Lorentz infinitesimal $I + \varepsilon \omega$ y una traslación infinitesimal $\varepsilon b$. De este modo se obtiene para el lado izquierdo de \eqref{eq:PoincaréCondition1} que
+\begin{equation}
+	\begin{aligned}[b]
+		\mathcal{D}^{-1}(\Lambda, a)J^{\mu\nu}\mathcal{D}(\Lambda,a) & = \left(\mathbbm{1} - \frac{i\varepsilon}{2}\omega_{\alpha\beta}J^{\alpha\beta} + i\varepsilon b_\sigma P^{\sigma}\right)J^{\mu\nu}\left(\mathbbm{1} + \frac{i\varepsilon}{2}\omega_{\gamma\rho}J^{\gamma\rho} - i\varepsilon b_\rho P^{\rho}\right) \\
+		                                                             & = J^{\mu\nu} - \frac{i\varepsilon}{2}\omega_{\alpha\beta}J^{\alpha\beta}J^{\mu\nu} + i\varepsilon b_\sigma P^\sigma J^{\mu\nu} + \frac{i\varepsilon}{2}\omega_{\gamma\rho}J^{\mu\nu}J^{\gamma\rho} - i\varepsilon b_\rho J^{\mu\nu}P^{\rho}          \\
+		                                                             & = J^{\mu\nu} + \frac{i\varepsilon}{2}\omega_{\alpha\beta}\left[J^{\mu\nu},J^{\alpha\beta}\right] + i\varepsilon b_\sigma\left[P^{\sigma},J^{\mu\nu}\right]
+	\end{aligned}
+\end{equation}
+y para el lado derecho
+\begin{equation}
+	\begin{aligned}[b]
+		\mathcal{D}^{-1}(\Lambda,a)J^{\mu\nu}\mathcal{D}(\Lambda,a) & = (\delta^\mu_\rho + \varepsilon\tensor{\omega}{^\mu_\rho})(\delta^\nu_\sigma + \varepsilon\tensor{\omega}{^\nu_\sigma}J^{\rho\sigma}) - 2(\delta^\mu_\alpha + \varepsilon\tensor{\omega}{^\mu_\alpha})\varepsilon b^{\nu}P^{\alpha} \\
+		                                                            & = J^{\mu\nu} + \varepsilon \tensor{\omega}{^\mu_\rho}J^{\rho\nu} + \varepsilon \tensor{\omega}{^\nu_\sigma}J^{\mu\sigma} - 2\varepsilon b^{\nu}P^{\mu}                                                                               \\
+		                                                            & = J^{\mu\nu} + \varepsilon g^{\mu\alpha}\omega_{\alpha\rho}J^{\rho\nu} + \varepsilon g^{\nu\beta}\omega_{\beta\sigma}J^{\mu\sigma} - 2\varepsilon g^{\nu\sigma}b_\sigma P^{\mu}                                                      \\
+		                                                            & = J^{\mu\nu} + \varepsilon \omega_{\alpha\beta}(g^{\mu\alpha}J^{\beta\nu} + g^{\nu\alpha}J^{\mu\beta}) - 2\varepsilon g^{\nu\sigma}b_\sigma P^{\mu}.
+	\end{aligned}
+\end{equation}
+De los que se obtienen las relaciones:
+\begin{equation}
+	\left[P^{\sigma},J^{\mu\nu}\right] = 2i g^{\nu\sigma}P^{\mu}.\label{ap:commJP1}
+\end{equation}
+y
+\begin{equation}
+		\left[J^{\mu\nu},J^{\alpha\beta}\right]\omega_{\alpha\beta} = -2i(g^{\mu\alpha}J^{\beta\nu} + g^{\nu\alpha}J^{\mu\beta})\omega_{\alpha\beta},
+\end{equation}
+usando la antisimetría en los índices de $J^{\mu\nu}$ se obtiene
+\begin{equation}
+   \left[J^{\mu\nu},J^{\alpha\beta}\right]\omega_{\alpha\beta} = i(g^{\mu\alpha}J^{\nu\beta}\omega_{\alpha\beta} - g^{\mu\alpha}J^{\beta\nu}\omega_{\alpha\beta} - g^{\nu\alpha}J^{\mu\beta}\omega_{\alpha\beta} + g^{\nu\alpha}J^{\beta\mu}\omega_{\alpha\beta}),
+\end{equation}
+entonces al intercambiar los índices $\alpha$ y $\beta$, y de la antisimetría de $\omega_{\mu\nu}$ se obtiene que
+\begin{equation}
+   \left[J^{\mu\nu},J^{\alpha\beta}\right] = i(g^{\mu\alpha}J^{\nu\beta} - g^{\mu\beta}J^{\nu\alpha} - g^{\nu\alpha}J^{\mu\beta} + g^{\nu\alpha}J^{\mu\alpha}).
+\end{equation}
+Además, del lado izquierdo de la ecuación \eqref{eq:PoincaréCondition2} se obtiene que
+\begin{equation}
+	\begin{aligned}[b]
+		\mathcal{D}^{-1}(\Lambda,a)P^{\mu}\mathcal{D}(\Lambda,a) & = \left(\mathbbm{1} - \frac{i\varepsilon}{2}\omega_{\rho\sigma}J^{\rho\sigma} + i\varepsilon b_{\sigma}P^{\sigma}\right)P^{\mu}\left(\mathbbm{1} + \frac{i\varepsilon}{2}\omega_{\gamma\beta}J^{\gamma\beta} - i\varepsilon b_{\nu}P^{\nu}\right) \\
+		                                                         & = P^{\mu} - \frac{i\varepsilon}{2}\omega_{\rho\sigma}J^{\rho\sigma}P^{\mu} + i\varepsilon b_{\sigma}P^{\sigma}P^{\mu} + \frac{i\varepsilon}{2}\omega_{\gamma\beta}P^\mu J^{\gamma\beta} - i\varepsilon b_\nu P^{\mu}P^{\nu}                       \\
+		                                                         & = P^{\mu} + \frac{i\varepsilon}{2}\omega_{\rho\sigma}\left[P^{\mu},J^{\rho\sigma}\right] + i\varepsilon b_\nu\left[P^\nu, P^\mu\right]
+	\end{aligned}
+\end{equation}
+y del lado derecho
+\begin{equation}
+	\begin{aligned}[b]
+		\mathcal{D}^{-1}(\Lambda,a)P^{\mu}\mathcal{D}(\Lambda,a) & = (\delta^\mu_\alpha + \varepsilon\tensor{\omega}{^\mu_\alpha})P^{\alpha} \\
+		                                                         & = P^{\mu} + \varepsilon g^{\mu\beta}\omega_{\beta\alpha}P^{\alpha}.
+	\end{aligned}
+\end{equation}
+Entonces
+\begin{equation}
+	\left[P^{\nu},P^{\mu}\right] = 0
+\end{equation}
+y
+\begin{equation}
+	\left[P^{\mu},J^{\rho\sigma}\right] = -2i g^{\mu\rho}P^\sigma.\label{ap:commJP2}
+\end{equation}
+De estos resultados se nota que se obtuvieron dos resultados distintos \eqref{ap:commJP1} y \eqref{ap:commJP2} para el conmutador de los generadores $P^\sigma$ y $J^{\mu\nu}$. Para demostrar que ambas representaciones son iguales, se usa el hecho de que $J^{\mu\nu}$ es antisimétrico en sus índices, por lo que partiendo de \eqref{ap:commJP1} se obtiene
+\begin{equation}
+	\begin{aligned}[b]
+		\left[P^{\sigma},J^{\mu\nu}\right] & = \frac{1}{2}\left(\left[P^\sigma, J^{\mu\nu}\right] - \left[P^{\sigma},J^{\nu\mu}\right]\right) \\
+		                                   & = ig^{\nu\sigma}P^{\mu} - i g^{\mu\sigma}P^{\nu}.
+	\end{aligned}
+\end{equation}
+Si el punto de partida fuera \eqref{ap:commJP2} se obtiene
+\begin{equation}
+	\begin{aligned}[b]
+		\left[P^{\sigma},J^{\mu\nu}\right] & = \frac{1}{2}\left(\left[P^\sigma, J^{\mu\nu}\right] - \left[P^{\sigma},J^{\nu\mu}\right]\right) \\
+		                                   & = - i g^{\mu\sigma}P^{\nu} + ig^{\nu\sigma}P^{\mu}.
+	\end{aligned}
+\end{equation}
+Así se ha demostrado la equivalencia entre estas expresiones.
+De este modo se han hallado las álgebras del grupo de Poincaré
+\begin{align}
+  \left[J^{\mu\nu},J^{\rho\sigma}\right] & = i(J^{\mu\rho}g^{\nu\sigma} - J^{\nu\rho}g^{\mu\sigma} - J^{\mu\sigma}g^{\nu\rho} + J^{\nu\sigma}g^{\mu\rho}), \\
+  \left[P^{\mu},J^{\rho\sigma}\right]    & = i(P^{\rho}g^{\mu\sigma} - P^{\sigma}g^{\mu\rho}),                                                           \label{eq:algGenPoin2}  \\
+	\left[P^{\mu},P^{\rho}\right]          & = 0.
+\end{align}
+Se puede notar que el álgebra de los operadores $J^{\mu\nu}$ es cerrada, al igual que el álgebra de los generadores $P^\mu$, pero no se puede separar el grupo de Poincaré en los grupos formados por ambos generadores independientemente, pues estos no conmutan.
+
+
+De forma análoga a como se hizo para los generadores del grupo de Lorentz se definen $J^{k}$ y $K^{k}$, es decir que estos están dados por 
+\begin{equation}
+   J^k \equiv -\frac{1}{2}\sum_{j,l}\epsilon^{kjl}J^{jl}\quad \text{y}\quad K^k \equiv J^{0k}.
+\end{equation}
+Estos generadores siguen el mismo álgebra hallada en la sección anterior, pues son los generadores del grupo de Lorentz. Para hallar el álgebra de los nuevos generadores del grupo de Poincaré se necesitan hallar los conmutadores entre los operadores momento angular y boost, y los generadores del grupo de traslaciones. Así los conmutadores entre $J^{k}$ y $P^\mu$ son:
+\begin{equation}
+	\begin{aligned}[b]
+		\left[J^{k},P^{j}\right] & = -\frac{1}{2}\sum_{m,n}\epsilon^{kmn}\left[J^{mn},P^j\right] = -\frac{1}{2}\sum_{m,n}i\epsilon^{kmn}(P^ng^{jm} - P^mg^{jn})                        \\
+		                         & = \frac{1}{2}\left(-\sum_{n,m}i\epsilon^{knm}P^{m}g^{jn} + \sum_{m,n}i\epsilon^{kmn}P^{m}g^{jn}\right) = -\sum_{m,n}i\epsilon^{kmn}P^{m}\delta^{jn} \\
+		                         & = i \sum_{m}\epsilon^{kjm}P^{m},
+	\end{aligned}
+\end{equation}
+y
+\begin{equation}
+	\left[J^{k},P^0\right] = -\frac{1}{2}\sum_{m,n}\epsilon^{kmn}\left[J^{mn},P^0\right] = -\frac{1}{2}\sum_{m,n}i\epsilon^{kmn}(P^ng^{0m} - P^mg^{0n}) = 0.
+\end{equation}
+Los conmutadores entre $K^k$ y $P^j$ son:
+\begin{equation}
+	\left[K^{k},P^{j}\right] = \left[J^{0k},P^j\right] = i(P^kg^{j0} - P^0g^{jk}) = iP^0\delta^{jk},
+\end{equation}
+y entre $K^k$ y $P^0$:
+\begin{equation}
+	\left[K^k,P^0\right] = \left[J^{0k}, P^0\right] =  i(P^kg^{00} - P^0g^{0k}) = iP^k.
+\end{equation}
+Ahora de forma análoga al caso del grupo de Lorentz, se define $\mathcal{S}(\Lambda)$ como
+\begin{equation}
+	\psi'(x') \equiv \mathcal{S}(\Lambda)\psi(x). 
+\end{equation}
+De esta definición se obtiene
+\begin{equation}
+   \mathcal{D}(\Lambda,a)\psi(x') = \mathcal{S}(\Lambda)\psi(\Lambda^{-1}(x'-a)),
+\end{equation}
+y evaluando para una transformación infinitesimal $(I + \varepsilon\omega,\varepsilon b)$ tenemos
+\begin{equation}
+	\begin{aligned}[b]
+		\left(\mathbbm{1} + \frac{i}{2}\varepsilon\omega_{\mu\nu}J^{\mu\nu}\right)\psi(x') & = 	\left(\mathbbm{1} + \frac{i}{2}\varepsilon\omega_{\mu\nu}S^{\mu\nu}\right)\psi((I - \varepsilon\omega)(x' - \varepsilon b)) \\
+		                                                                                   & = \left(\mathbbm{1} + \frac{i}{2}\varepsilon\omega_{\mu\nu}S^{\mu\nu}\right)\psi(x' - \varepsilon(\omega x' +  b)),
+	\end{aligned}
+\end{equation}
+de modo que al usar la expansión de Taylor se obtiene
+\begin{equation}
+	\begin{aligned}[b]
+		\left(\mathbbm{1} + \frac{i}{2}\varepsilon\omega_{\mu\nu}J^{\mu\nu}\right)\psi(x') & = \left(\mathbbm{1} + \frac{i}{2}\varepsilon\omega_{\mu\nu}S^{\mu\nu}\right)\left(\mathbbm{1} + \frac{\varepsilon}{2}\omega_{\mu\nu}(x^{\mu}\partial^\nu - x^\nu\partial^\mu) + \varepsilon b_\mu\partial^\mu\right)\psi(x') & \\
+		                                                                                   & = 		\left(\mathbbm{1} + \frac{i}{2}\varepsilon\omega_{\mu\nu}\left[- i(x^\mu\partial^\nu - x^\nu\partial^\mu) + S^{\mu\nu}\right] + \varepsilon b_\mu\partial^\mu\right)\psi(x').
+	\end{aligned}
+\end{equation}
+De esta relación se observa que los generadores $J^{\mu\nu}$ y $S^{\mu\nu}$ se relacionan de la misma forma que para el grupo de Lorentz, es decir:
+\begin{equation}
+	J^{\mu\nu} = -i(x^\mu\partial^\nu - x^\nu\partial^\mu) + S^{\mu\nu}.
+\end{equation}
+Además los generadores de las traslaciones son representados por
+\begin{equation}
+	P^{\mu} = i\partial^\mu,
+\end{equation}
+lo cual concuerda con la definición de los operadores momentum y energía.
+\subsection{Invariantes relativistas}
+De los generadores de las traslaciones se define el operador
+\begin{equation}
+	P^2 \equiv P_\mu P^\mu,
+\end{equation}
+el cual recordando que la ecuación relativista se representa por una ecuación similar a la ecuación de Klein-Gordon \eqref{eq:kleingordon}, tiene como autovalor al cuadrado de la masa de una partícula $m$. Además, ya que no existen partículas con masa negativa podemos asociar al operador $P^2$ con la masa de una partícula.
+
+Evidentemente el operador $P^2$ conmuta con los generadores $P^\mu$, pero esto no es tan sencillo al evaluar la conmutación con los generadores $J^{\mu\nu}$. Para hallar esta relación usamos la propiedad
+\begin{equation}
+	\left[AB,C\right] = A\left[B,C\right] + \left[A,C\right]B
+\end{equation}
+y el álgebra de los generadores \eqref{eq:algGenPoin2}. Así
+\begin{equation}
+	\begin{aligned}[b]
+		\left[P^2, J^{\mu\nu}\right] & = P_\sigma\left[P^\sigma,J^{\mu\nu}\right] + \left[P^\sigma,J^{\mu\nu}\right]P_\sigma                         \\
+		                             & = iP_\sigma(P^\mu g^{\sigma\nu} - P^\nu g^{\sigma\mu}) + i(P^\mu g^{\sigma\nu} - P^\nu g^{\sigma\mu})P_\sigma,
+	\end{aligned}
+\end{equation}
+y al usar la relación de conmutación de los generadores $P^\mu$, por ende de $P_\mu$, se reduce a
+\begin{equation}
+	\begin{aligned}[b]
+		\left[P^2, J^{\mu\nu}\right] & = 2iP_\sigma P^\mu g^{\sigma\nu} - 2iP_\sigma P^\nu g^{\sigma\mu} \\
+		                             & = 2i \left[P^\nu,P^\mu\right]                                     \\
+		                             & = 0.
+	\end{aligned}
+\end{equation}
+Con esto se ha comprobado que el operador de masa $P^2$ conmuta con todos los generadores del grupo de Poincaré, por lo que es un operador de Casimir.
+
+Ahora se define el cuadrivector de Pauli-Lubanski \footnote{Asumiremos que el símbolo de Levi-Civita para 4 índices es tal que $\epsilon^{0123} = 1$, por ende $\epsilon_{0123} = - \epsilon^{0123}$.}
+
+\begin{equation}
+	W_{\mu}\equiv \frac{1}{2}\epsilon_{\mu\nu\rho\sigma}J^{\nu\rho}P^{\sigma},
+\end{equation}
+y al aplicar $g^{\alpha\mu}$ se obtiene
+\begin{equation}
+	W^\alpha = g^{\alpha\mu}W_{\mu} = \frac{1}{2}g^{\alpha\mu}\epsilon_{\mu\nu\rho\sigma}J^{\nu\rho}P^{\sigma}.
+\end{equation}
+Habiendo hecho esto, se define el operador $W^2$ como
+\begin{equation}
+	W^2 \equiv W_\mu W^\mu
+\end{equation}
+De igual forma que para el operador $P^2$ se busca determinar que este commuta con los generadores del grupo de Poincaré para determinar si es un operador de Casimir. Para esto se calcula primero el conmutador entre $W^\alpha$ y los generadores $P^\beta$ y $J^{\mu\nu}$:
+\begin{equation}
+	\begin{aligned}[b]
+		\left[W^\alpha,P^\beta\right] & = \frac{1}{2}g^{\alpha\mu}\epsilon_{\mu\nu\rho\sigma}\left[J^{\nu\rho}P^{\sigma},P^{\beta}\right]                                                             \\
+		                              & = \frac{1}{2}g^{\alpha\mu}\epsilon_{\mu\nu\rho\sigma}\left(J^{\nu\rho}\left[P^{\sigma},P^{\beta}\right] - \left[P^{\beta},J^{\nu\rho}\right]P^{\sigma}\right) \\
+		                              & = -\frac{i}{2}g^{\alpha\mu}\epsilon_{\mu\nu\rho\sigma}\left(P^{\nu}g^{\beta\rho} - P^{\rho}g^{\beta\nu}\right)P^{\sigma}
+	\end{aligned}
+\end{equation}
+Haciendo un cambio de los índices $\rho \to\nu$ y $\nu\to\rho$ para el segundo término del lado derecho se obtiene
+\begin{equation}
+	\begin{aligned}[b]
+		\left[W^\alpha, P^\beta\right] & =-\frac{i}{2}g^{\alpha\mu}(\epsilon_{\mu\nu\rho\sigma}P^\nu g^{\beta\rho}P^\sigma - \epsilon_{\mu\rho\nu\sigma}P^\nu g^{\beta\rho}P^\sigma)\\
+                                   & = -\frac{i}{2}g^{\alpha\mu}\epsilon_{\mu\nu\rho\sigma}g^{\beta\rho}\left[P^\nu,P^\sigma\right] = 0.
+	\end{aligned}
+\end{equation}
+Con este resultado se puede hallar que 
+\begin{equation}
+	\begin{aligned}[b]
+		\left[W^2, P^\beta\right] & = \left[W_\mu W^\mu, P^\beta\right] = W_\mu\left[W^\mu,P^\beta\right] + \left[W_\mu,P^\beta\right]W^\mu \\
+		                      & = W_\mu\left[W^\mu,P^\beta\right] + g_{\mu\alpha}\left[W^\alpha,P^\beta\right]W^\mu                 \\
+		                      & =0.
+	\end{aligned}
+\end{equation}
+y
+\begin{equation}
+	\begin{aligned}[b]
+		\left[W^2,P^2\right] & = \left[W_\mu W^\mu, P_\nu P^\nu\right]                                                                                                                      \\
+		                     & = W_\mu\left[W^\mu,P_\nu\right]P^\nu + \left[W_\mu,P_\nu\right]W^\mu P^\nu + P_\nu W_\mu\left[W^\mu,P^\nu\right] + P_\nu\left[W_\mu,P^\nu\right]W^\mu        \\
+		                     & = g_{\nu\rho}W_\mu\left[W^\mu,P^\rho\right]P^\nu + g_{\mu\sigma}g_{\nu\gamma}\left[W^\sigma,P^\gamma\right]W^\mu P^\nu + P_\nu W_\mu\left[W^\mu,P^\nu\right] \\
+		                     & \quad + g_{\mu\varrho}P_\nu\left[W^\varrho,P^\nu\right]W^\mu\\
+                         & = 0.
+	\end{aligned}
+\end{equation}
+Luego de haber hallado que $W^2$ conmuta con los generadores de las traslaciones, queda verificar si este conmuta con los generadores $J^{\mu\nu}$. Para esto se sigue el procedimiento dado en \textcite{rischke2021symmetries}. En este se define el operador antisimétrico
+\begin{equation}
+  \tilde{J}_{\mu\nu} = \frac{1}{2}\epsilon_{\mu\nu\rho\sigma}J^{\rho\sigma}.
+\end{equation}
+Este nuevo operador permite expresar el operador de Pauli-Lubanski como
+\begin{equation}
+   \begin{aligned}[b]
+     P^\nu\tilde{J}_{\mu\nu} & = \frac{1}{2}\epsilon_{\mu\nu\rho\sigma}P^\nu J^{\rho\sigma}\\
+                             & = \frac{1}{2}\epsilon_{\mu\nu\rho\sigma}\bigg(J^{\rho\sigma}P^\nu + \left[P^\nu,J^{\rho\sigma}\right]\bigg)\\
+                             & = W_\mu + \frac{i}{2}\epsilon_{\mu\nu\rho\sigma}(g^{\nu\rho}P^\sigma - g^{\nu\sigma}P^\rho) = W_\mu.\label{eq:LubanskiAndOp}
+   \end{aligned}
+\end{equation}
+Además, usando la identidad \footnote{
+Debido a la antisimetría de $\epsilon_{\mu\nu\rho\sigma}$ se tiene que sigue la regla de contracción
+\begin{equation}
+   \epsilon^{\mu\nu\alpha\beta}\epsilon_{\mu\tau\rho\sigma} = \tensor{g}{^\nu_\tau}(\tensor{g}{^\alpha_\sigma}\tensor{g}{^\beta_\rho} - \tensor{g}{^\alpha_\rho}\tensor{g}{^\beta_\sigma}) + \tensor{g}{^\nu_\rho}(\tensor{g}{^\alpha_\tau}\tensor{g}{^\beta_\sigma} - \tensor{g}{^\alpha_\sigma}\tensor{g}{^\beta_\tau}) + \tensor{g}{^\nu_\sigma}(\tensor{g}{^\alpha_\rho}\tensor{g}{^\beta_\tau} - \tensor{g}{^\alpha_\tau}\tensor{g}{^\beta_\rho}).
+\end{equation}
+Contrayendo el segundo índice:
+\begin{equation}
+  \begin{aligned}[b]
+    \epsilon^{\mu\nu\alpha\beta}\epsilon_{\mu\nu\rho\sigma} & = 4(\tensor{g}{^\alpha_\sigma}\tensor{g}{^\beta_\rho} - \tensor{g}{^\alpha_\rho}\tensor{g}{^\beta_\sigma}) + \tensor{g}{^\alpha_\rho}\tensor{g}{^\beta_\sigma} - \tensor{g}{^\alpha_\sigma}\tensor{g}{^\beta_\rho} + \tensor{g}{^\alpha_\rho}\tensor{g}{^\beta_\sigma} - \tensor{g}{^\alpha_\sigma}\tensor{g}{^\beta_\rho}\\
+                                                            & = 2(\tensor{g}{^\alpha_\sigma}\tensor{g}{^\beta_\rho} - \tensor{g}{^\alpha_\rho}\tensor{g}{^\beta_\sigma}).
+  \end{aligned}
+\end{equation}
+}
+\begin{equation}
+  \epsilon^{\mu\nu\alpha\beta}\epsilon_{\mu\nu\rho\sigma} = 2(g^{\alpha}_\sigma g^{\beta}_\rho - g^{\alpha}_\rho g^{\beta}_\sigma)
+\end{equation}
+se puede expresar el operador $J^{\mu\nu}$ en función de $\tilde{J}^{\mu\nu}$:
+\begin{equation}
+  -\frac{1}{2}\epsilon^{\alpha\beta\mu\nu}\tilde{J}_{\mu\nu} = -\frac{1}{4} \epsilon^{\alpha\beta\mu\nu}\epsilon_{\mu\nu\rho\sigma}J^{\rho\sigma} = \frac{1}{2}(g^{\alpha}_\rho g^{\beta}_\sigma - g^{\alpha}_\sigma g^{\beta}_\rho)J^{\rho\sigma} = J^{\alpha\beta}.\label{eq:newJcomm}
+\end{equation}
+Luego calculamos el conmutador:
+\begin{equation}
+   \begin{aligned}[b]
+     \left[\tilde{J}^{\rho\sigma},J^{\mu\nu}\right] & = \frac{1}{2}\tensor{\epsilon}{^\rho^\sigma_\alpha_\beta}\left[J^{\alpha\beta},J^{\mu\nu}\right]\\
+                                                    & = \frac{i}{2}\tensor{\epsilon}{^\rho^\sigma_\alpha_\beta}\left(g^{\beta\mu}J^{\alpha\nu}-g^{\alpha\mu}J^{\beta\nu} - g^{\alpha\nu}J^{\mu\beta} + g^{\beta\nu}J^{\mu\alpha}\right)\\
+                                                    & = \frac{i}{2}\left(\epsilon^{\rho\sigma\alpha\mu}\tensor{J}{_\alpha^\nu}-\epsilon^{\rho\sigma\mu\beta}\tensor{J}{_\beta^\nu}-\epsilon^{\rho\sigma\nu\beta}\tensor{J}{^\mu_\beta}+\epsilon^{\rho\sigma\alpha\nu}\tensor{J}{^\mu_\alpha}\right)\\
+                                                    & = -i\left(\epsilon^{\rho\sigma\mu\alpha}\tensor{J}{_\alpha^\nu} - \epsilon^{\rho\sigma\nu\alpha}\tensor{J}{_\alpha^\mu}\right).
+   \end{aligned}
+\end{equation}
+Reemplazando \eqref{eq:newJcomm} en esta igualdad se obtiene
+\begin{equation}
+   \begin{aligned}[b]
+     \left[\tilde{J}^{\rho\sigma},J^{\mu\nu}\right] & = \frac{i}{2}\left(\epsilon^{\rho\sigma\mu\alpha}\tensor{\epsilon}{_\alpha^\nu^\beta^\gamma} - \epsilon^{\rho\sigma\nu\alpha}\tensor{\epsilon}{_\alpha^\mu^\beta^\gamma}\right)\tilde{J}_{\beta\gamma}\\
+                                                    & = -\frac{i}{2}\bigg(g^{\mu\nu}(g^{\rho\gamma}g^{\sigma\beta} - g^{\rho\beta}g^{\sigma\gamma}) + g^{\mu\beta}(g^{\rho\nu}g^{\sigma\gamma} - g^{\rho\gamma}g^{\sigma\nu}) + g^{\mu\gamma}(g^{\rho\beta}g^{\rho\nu} - g^{\rho\nu}g^{\sigma\beta})\\
+                                                    & \quad -g^{\nu\mu}(g^{\rho\gamma}g^{\sigma\beta}-g^{\rho\beta}g^{\sigma\gamma}) - g^{\nu\beta}(g^{\rho\mu}g^{\sigma\gamma}-g^{\rho\gamma}g^{\sigma\mu}) + g^{\nu\gamma}(g^{\rho\beta}g^{\sigma\mu}-g^{\rho\mu}g^{\sigma\beta})\bigg)\tilde{J}_{\beta\gamma},
+   \end{aligned}
+\end{equation}
+y usando la antisimetría de $\tilde{J}^{\mu\nu}$ se reduce a 
+\begin{equation}
+  \begin{aligned}[b]
+  \left[\tilde{J}^{\rho\sigma},J^{\mu\nu}\right] & = -i\bigg(g^{\rho\nu}\tilde{J}^{\mu\sigma}-g^{\rho\mu}\tilde{J}^{\nu\sigma}-g^{\sigma\nu}\tilde{J}^{\mu\rho}+g^{\sigma\mu}\tilde{J}^{\nu\rho}\bigg)\\
+                                                 & = i(g^{\sigma\mu}\tilde{J}^{\rho\nu}-g^{\rho\mu}\tilde{J}^{\sigma\nu}-g^{\rho\nu}\tilde{J}^{\mu\sigma}+g^{\sigma\nu}\tilde{J}^{\mu\rho}),\label{eq:CommBetweenJs}
+  \end{aligned}
+\end{equation}
+es decir que el operador $\tilde{J}^{\mu\nu}$ tiene la misma regla de conmutación que $J^{\mu\nu}$.
+
+De este modo, usando \eqref{eq:LubanskiAndOp} se calcula el conmutador:
+\begin{equation}
+	\left[W^\alpha, J^{\mu\nu}\right] = \left[P_\beta \tilde{J}^{\alpha\beta},J^{\mu\nu}\right] = P_\beta\left[\tilde{J}^{\alpha\beta},J^{\mu\nu}\right] + g_{\beta\rho}\left[P^\rho,J^{\mu\nu}\right]\tilde{J}^{\alpha\beta}.
+\end{equation}
+Esta igualdad se expande usando \eqref{eq:CommBetweenJs}
+\begin{equation}
+   \begin{aligned}[b]
+     \left[W^\alpha,J^{\mu\nu}\right] & = iP_\beta(g^{\beta\mu}\tilde{J}^{\alpha\nu}-g^{\alpha\mu}\tilde{J}^{\beta\nu}-g^{\alpha\nu}\tilde{J}^{\mu\beta}+g^{\beta\nu}\tilde{J}^{\mu\alpha})+ig_{\beta\rho}(g^{\rho\mu}P^\nu - g^{\rho\nu}P^\mu)\tilde{J}^{\alpha\beta}\\
+                                      & = i(P^\mu \tilde{J}^{\alpha\nu}+g^{\mu\alpha}W^\nu - g^{\alpha\nu}W^\mu + P^\nu \tilde{J}^{\mu\alpha} - P^\mu \tilde{J}^{\alpha\nu})\\
+                                      & = i(g^{\alpha\mu}W^\nu - g^{\alpha\nu}W^\mu).
+   \end{aligned}
+\end{equation}
+De este resultado se puede hallar el commutador entre $W^2$ y $J^{\rho\sigma}$:
+\begin{equation}
+	\begin{aligned}[b]
+		\left[W^2,J^{\rho\sigma}\right] & = W_\mu\left[W^\mu,J^{\rho\sigma}\right] + \left[W_\mu,J^{\rho\sigma}\right]W^\mu                                                           \\
+		                                & = W^\mu g_{\mu\alpha}\left[W^\alpha,J^{\rho\sigma}\right] + g_{\mu\beta}\left[W^\beta,J^{\rho\sigma}\right]W^\mu                            \\
+		                                & = iW^\mu g_{\mu\alpha}(g^{\alpha\rho}W^\sigma - g^{\alpha\sigma}W^\rho) + ig_{\mu\beta}(g^{\beta\rho}W^\sigma - g^{\beta\sigma}W^\rho)W^\mu
+	\end{aligned}
+\end{equation}
+Usando la identidad
+\begin{equation}
+	g_{\mu\rho}g^{\rho\nu} = \delta^{\nu}_\mu,
+\end{equation}
+se obtiene
+\begin{equation}
+	\begin{aligned}[b]
+		\left[W^2, J^{\rho\sigma}\right] & = iW^\mu W^\sigma \delta^\rho_\mu - iW^\mu W^\rho \delta^\sigma_\mu + i W^\sigma W^\mu \delta^\rho_\mu - i W^\rho W^\mu \delta^\sigma_\mu \\
+		                                 & = 0.
+	\end{aligned}
+\end{equation}
+Con esto se ha demostrado que $W^2$ es un operador de Casimir, y que además conmuta con el operador $P^2$.
+
+Resulta útil expresar $W^2$ en función de los generadores $J^k$. Primero calculamos la componente $W^0$:
+\begin{equation}
+	\begin{aligned}[b]
+		W^0 & = \frac{1}{2}\epsilon_{0\nu\rho\sigma}J^{\nu\rho}P^{\sigma} = \frac{-1}{2}\sum_{\nu\rho\sigma}\epsilon^{0\nu\rho\sigma}J^{\nu\rho}P^{\sigma} \\
+		    & = \frac{-1}{2}\sum_{mnl}\epsilon^{mnl}J^{mn}P^{l} = \vec{J}\cdot \vec{P}.
+	\end{aligned}
+\end{equation}
+Igualmente, la componente $W^i$ será
+\begin{equation}
+	\begin{aligned}[b]
+		W^i & = -\frac{1}{2}\epsilon_{i\nu\rho\sigma}J^{\nu\rho}P^{\sigma}                                                                                                                                            \\
+		    & = -\frac{1}{2}\left(\epsilon_{i0\rho\sigma}J^{0\rho}P^{\sigma} + \epsilon_{i\nu 0\sigma}J^{\nu 0}P^{\sigma} + \epsilon_{i\nu\rho 0}J^{\nu\rho}P^0\right)                                                \\
+		    & = \frac{1}{2}\left(\sum_{\rho\sigma}\epsilon^{i0\rho\sigma}J^{0\rho}P^{\sigma} + \sum_{\nu\sigma}\epsilon^{i\nu 0\sigma}J^{\nu 0}P^{\sigma} + \sum_{\nu\rho}\epsilon^{i\nu\rho 0}J^{\nu\rho}P^0\right).
+	\end{aligned}
+\end{equation}
+Reordenando los índices se puede reducir al símbolo de Levi-Civita con tres índices:
+\begin{equation}
+	\begin{aligned}[b]
+		W^i & = \frac{1}{2}\left(-\sum_{jk}\epsilon^{ijk}K^{j}P^{k} - \sum_{jk}\epsilon^{ijk}K^j P^k - \sum_{jk}\epsilon^{ijk}J^{jk}P^0\right) \\
+		    & = -\sum_{jk}\epsilon^{ijk}K^{j}P^{k} + J^{i}P^{0}.
+	\end{aligned}
+\end{equation}
+Así se obtiene al usar
+\begin{equation}
+  \begin{aligned}[b]
+    \vec{L}. \vec{P} & = i(x^2\partial^{3} - x^3\partial^{2})i \partial^{1} + i(x^3\partial^{1} - x^1 \partial^{3})i\partial^{2} + i(x^1\partial^{2}-x^2\partial^{1})i\partial^{3}\\
+                     & = 0
+  \end{aligned}
+\end{equation}
+que
+\begin{equation}
+	W^0 = \vec{S}\cdot \vec{P}\quad y \quad \vec{W} = \vec{J}P^0 - \vec{K}\times \vec{P}.
+\end{equation}
+Al considerar el sistema de referencia de la partícula, el operador momentum se anula, por lo que las componentes $W^i$ se expresar como
+\begin{equation}
+	W^0 = 0 \quad y \quad \vec{W} = m \vec{S}.
+\end{equation}
+De este modo el operador $W^2$ será dado por
+\begin{equation}
+  W^2 = (W^0)^2 - (\vec{W})^2 = - m^2 \vec{S}^2.\label{eq:W2Rep}
+\end{equation}
+Además como es un operador de Casimir, por ende un invariante relativista, entonces \eqref{eq:W2Rep} es válida para cualquier sistema de referencia.
+
+Recordemos que las componentes de $\vec{S}$ siguen el mismo álgebra que el operador momento angular en la mecánica cuántica no relativista, por lo que el operador $\vec{S}\,^2$ tiene como autovalores $s(s+1)$ \cite{gottfried}. Así los autovalores de $W^2$ son $-m^2s(s+1)$. Como $m^2$ es un invariante relativista, podemos asociar el valor espín de la partícula con el operador de Casimir $W^2$.
+
+De los resultados obtenidos en esta sección, es evidente que $P^2$ se relaciona a la masa de la partícula, $P^i$ a su momentum, $P^0$ a su energía, $W^2$ al espín y $W^0$ a la proyección del espín en el operador momentum. Para formar un conjunto completo de observables compatibles es necesario verificar que todos estos operadores conmutan entre sí. Se obtuvo previamente que los dos operadores de Casimir $W^2$ y $P^2$ conmutan, y junto a las relaciones de conmutación al ser $W^2$ y $P^2$ operadores de Casimir, lo único que queda por verificar es que $W^0$ conmuta con $W^0$ y $P^2$. Para ello se expresa $W^0$ como
+\begin{equation}
+	W^0 = W_0 = -\frac{1}{2}\epsilon_{ijk}J^{ij}P^k,
+\end{equation}
+para luego hallar
+\begin{equation}
+	\left[W^2,W^0\right] = \frac{1}{2}\epsilon_{ijk}\left[J^{ij}P^k,W^2\right]= \frac{1}{2}\epsilon_{ijk}\bigg(J^{ij}\left[P^k,W^2\right]+\left[J^{ij},W^2\right]P^k\bigg) = 0
+\end{equation}
+y
+\begin{equation}
+   \left[P^2,W^0\right] = \left[P_\mu P^\mu,W^0\right] = P_\mu\left[P^\mu,W^0\right] + \left[P_\mu,W^0\right]P_\mu = 0.
+\end{equation}
+De este modo los operadores $P^2$, $W^2$, $P^\mu$ y $W^0$ permiten caracterizar el estado de una partícula.
+

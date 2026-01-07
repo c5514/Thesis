@@ -1,0 +1,132 @@
+\chapter{Relación de ortogonalidad de los biespinores $u^{(h)}(p)$ y $v^{(h)}(p)$}\label{aped.D}
+\markboth{Relación de ortogonalidad de los biespinores $u^{(h)}(p)$ y $v^{(h)}(p)$}{Relación de ortogonalidad de los biespinores $u^{(h)}(p)$ y $v^{(h)}(p)$}
+\lhead[\thepage]{APÉNDICE \thechapter. \rightmark}
+\rhead[APÉNDICE \thechapter. \leftmark]{\thepage}
+Sabemos que al aplicar la ecuación de Dirac en los biespinores $u^{(h)}(p)$ y $v^{(h)}(p)$ se obtiene que estos satisfacen las ecuaciones \eqref{eq:diracPu(h)} y \eqref{eq:diracPv(h)}, es decir 
+\begin{align}
+	(\gamma^\mu p_\mu -m)u^{(h)}(p) = 0, \\
+	(\gamma^\mu p_\mu +m)v^{(h)}(p) = 0.
+\end{align}
+Al definir la adjunta de $u^{(h)}(p)$ como
+\begin{equation}
+  \overline{u^{(h)}}(p)\equiv u^{(h)^\dagger}(p)\gamma^0
+\end{equation}
+obtendremos de \eqref{eq:diracPu(h)} que
+\begin{equation}
+	\begin{aligned}[b]
+		0 & = u^{(h)^\dagger}(p)(\gamma^{\mu^\dagger}p_\mu -m)\gamma^0 = u^{(h)^\dagger}(p)\gamma^0\gamma^0(\gamma^{\mu^\dagger}p_\mu -m)\gamma^0 \\
+		  & = \overline{u^{(h)}}(p)(\gamma^\mu p_\mu -m).\label{eq:diracPu(h)adj}
+	\end{aligned}
+\end{equation}
+De igual forma para
+\begin{equation}
+  \overline{v^{(h)}}(p) \equiv v^{(h)^\dagger}(p)\gamma^0
+\end{equation}
+se obtiene de \eqref{eq:diracPv(h)} que
+\begin{equation}
+	\begin{aligned}[b]
+		0 & = v^{(h)^\dagger}(p)(\gamma^{\mu^\dagger}p_\mu +m)\gamma^0 = v^{(h)^\dagger}(p)\gamma^0\gamma^0(\gamma^{\mu^\dagger}p_\mu +m)\gamma^0 \\
+		  & = \overline{v^{(h)}}(p)(\gamma^\mu p_\mu +m).\label{eq:diracPv(h)adj}
+	\end{aligned}
+\end{equation}
+Si realizamos el cambio $(p^0,\vec{p}\,)\to (p^0, - \vec{p}\,)$ en las ecuaciones \eqref{eq:diracPu(h)}, \eqref{eq:diracPv(h)}, y denotamos $p_P \equiv(p^0, -\vec{p}\,)$, obtendremos al aplicar $\gamma^0$ por la izquierda que
+\begin{equation}
+	0 = \gamma^0(\gamma^0p_0 - \gamma^k p_k -m)u^{(h)}(p_P) = (\gamma^\mu p_\mu - m)\gamma^0u^{(h)}(p_P)\label{eq:invDiracu(h)}
+\end{equation}
+y
+\begin{equation}
+	0 = (\gamma^0p_0 - \gamma^k p_k + m)v^{(h)}(p_P)  = (\gamma^\mu p_\mu + m)\gamma^0v^{(h)}(p_P)\label{eq:invDiracv(h)}
+\end{equation}
+
+Considerando la ecuación de autovalores de la helicidad dadas por \eqref{eq:helicityu(h)} y \eqref{eq:helicityv(h)}, es decir 
+\begin{align}
+	\frac{\vec{p}\cdot \vec{\Sigma}}{\abs{\vec{p}\,}} u^{(h)}(p) & = h u^{(h)}(p),\\
+	\frac{\vec{p} \cdot \vec{\Sigma}}{\abs{\vec{p}\,}}v^{(h)}(p) & = -h v^{(h)}(p),
+\end{align}
+obtendremos que 
+\begin{equation}
+		h\overline{u^{(h)}}(p) = u^{(h)^\dagger}(p)\frac{\vec{p}\cdot \vec{\Sigma}^\dagger}{\abs{\vec{p}\,}}\gamma^0 = u^{(h)^\dagger}(p)\gamma^0\frac{\vec{p}\cdot (\gamma^0\vec{\Sigma}^\dagger\gamma^0)}{\abs{\vec{p}\,}}=\overline{u^{(h)}}(p)\frac{\vec{p}\cdot \vec{\Sigma}}{\abs{\vec{p}\,}}
+\end{equation}
+y
+\begin{equation}
+		-h\overline{v^{(h)}}(p) = v^{(h)^\dagger}(p)\frac{\vec{p}\cdot \vec{\Sigma}^\dagger}{\abs{\vec{p}\,}}\gamma^0 = v^{(h)^\dagger}(p)\gamma^0\frac{\vec{p}\cdot (\gamma^0\vec{\Sigma}^\dagger\gamma^0)}{\abs{\vec{p}\,}} = \overline{v^{(h)}}(p)\frac{\vec{p}\cdot \vec{\Sigma}}{\abs{\vec{p}\,}}.
+\end{equation}
+Así como para la ecuación obtenida de la ecuación de Dirac, al aplicar la transformación $(p^0, \vec{p}) \to (p^0,-\vec{p}\,)$ sobre la ecuación de autovalores del operador helicidad obtendremos:
+\begin{equation}
+	\begin{aligned}[b]
+		-\frac{\vec{p}\cdot \vec{\Sigma}}{\abs{\vec{p}}}u^{(-h)}(p_P)                            & = -hu^{(-h)}(p_P)                                    \\
+		-\gamma^0 \frac{\vec{p}\cdot(\gamma^0 \vec{\gamma}\gamma^5)}{\abs{\vec{p}}}u^{(-h)}(p_P) & = -h\gamma^0 u^{(-h)}(p_P)                           \\
+		\frac{\vec{p}\cdot \vec{\Sigma}}{\abs{\vec{p}}}\gamma^0u^{(-h)}(p_P)                     & = h\gamma^0u^{(-h)}(p_{P})\label{eq:invHelicityu(h)}
+	\end{aligned}
+\end{equation}
+y
+\begin{equation}
+	\begin{aligned}[b]
+		-\frac{\vec{p}\cdot \vec{\Sigma}}{\abs{\vec{p}}}v^{(-h)}(p_P)                            & = -hv^{(-h)}(p_P)                                   \\
+		-\gamma^0 \frac{\vec{p}\cdot(\gamma^0 \vec{\gamma}\gamma^5)}{\abs{\vec{p}}}v^{(-h)}(p_P) & = -h\gamma^0 v^{(-h)}(p_P)                          \\
+		\frac{\vec{p}\cdot \vec{\Sigma}}{\abs{\vec{p}}}\gamma^0v^{(-h)}(p_P)                     & = h\gamma^0v^{(-h)}(p_P).\label{eq:invHelicityv(h)}
+	\end{aligned}
+\end{equation}
+Notamos que
+\begin{equation}
+	\begin{aligned}[b]
+		\overline{u^{(h)}}(p)\left(\frac{\vec{p}\cdot \vec{S}}{\abs{\vec{p}}}u^{(h')}(p)\right) - \left(\overline{u^{(h)}}(p)\frac{\vec{p}\cdot \vec{S}}{\abs{\vec{p}}}\right)u^{(h')}(p) & = 0 \\
+		(h' - h) \overline{u^{(h)}}(p)u^{(h')}(p)                                                                                                                                         & = 0
+	\end{aligned}
+\end{equation}
+implica que $\overline{u^{(h)}}(p)u^{(h')}(p)\propto \delta_{h,h'}$. De igual forma obtenemos que $\overline{v^{(h)}}(p)u^{(h')}(p)\propto \delta_{h,h'}$. Ahora proponemos que
+\begin{align}
+	\overline{u^{(h)}}(p)u^{(h')}(p) & = 2m\delta_{h,h'},\label{eq:u(h)orth}  \\
+	\overline{v^{(h)}}(p)u^{(h')}(p) & = -2m\delta_{h,h'}.\label{eq:v(h)orth}
+\end{align}
+A partir de estas relaciones hallamos
+\begin{equation}
+	\begin{aligned}[b]
+		\overline{u^{(h)}}(p)\gamma^\mu u^{(h')}(p) & = \frac{1}{2m}\overline{u^{(h)}}(p)\gamma^\mu mu^{(h')}(p) + \frac{1}{2m}\overline{u^{(h)}}(p)m \gamma^\mu u^{(h')}(p)                               \\
+		                                            & = \frac{1}{2m}\overline{u^{(h)}}(p)\gamma^\mu\gamma^\nu p_\nu u^{(h')}(p) + \frac{1}{2m}\overline{u^{(h)}}(p)\gamma^\nu p_\nu \gamma^\mu u^{(h')}(p) \\
+		                                            & = \frac{1}{m}g^{\mu\nu}p_\nu\overline{u^{(h)}}(p)u^{(h')}(p)                                                                                         \\
+		                                            & = \frac{p^{\mu}}{m}\overline{u^{(h)}}(p)u^{(h')}(p)                                                                                                  \\
+		                                            & = 2p^\mu \delta_{h,h'}
+	\end{aligned}
+\end{equation}
+\begin{equation}
+	\begin{aligned}[b]
+		\overline{v^{(h)}}(p)\gamma^\mu v^{(h')}(p) & = \frac{1}{2m}\overline{v^{(h)}}(p)\gamma^\mu mv^{(h')}(p) + \frac{1}{2m}\overline{v^{(h)}}(p)m \gamma^\mu v^{(h')}(p)                               \\
+		                                            & = \frac{1}{2m}\overline{v^{(h)}}(p)\gamma^\mu\gamma^\nu p_\nu u^{(h')}(p) + \frac{1}{2m}\overline{v^{(h)}}(p)\gamma^\nu p_\nu \gamma^\mu u^{(h')}(p) \\
+		                                            & = \frac{1}{m}g^{\mu\nu}p_\nu\overline{v^{(h)}}(p)v^{(h')}(p)                                                                                         \\
+		                                            & = \frac{p^{\mu}}{m}\overline{v^{(h)}}(p)v^{(h')}(p)                                                                                                  \\
+		                                            & = 2p^\mu \delta_{h,h'}
+	\end{aligned}
+\end{equation}
+\begin{equation}
+	\begin{aligned}[b]
+		\overline{u^{(h)}}(p)\gamma^5 u^{(h')}(p) & = \frac{1}{2m}\overline{u^{(h)}}(p)\gamma^5 mu^{(h')}(p) + \frac{1}{2m}\overline{u^{(h)}}(p)\gamma^5 mu^{(h')}(p)                \\
+		                                          & = \frac{1}{2m}\overline{u^{(h)}}(p)\gamma^5 mu^{(h')}(p) + \frac{1}{2m}\overline{u^{(h)}}(p)\gamma^5\gamma^\mu p_\mu u^{(h')}(p) \\
+		                                          & = \frac{1}{2m}\overline{u^{(h)}}(p)\gamma^5 mu^{(h')}(p) - \frac{1}{2m}\overline{u^{(h)}}(p)\gamma^\mu\gamma^5 p_\mu u^{(h')}(p) \\
+		                                          & = \frac{1}{2m}\overline{u^{(h)}}(p)\gamma^5 mu^{(h')}(p) -\frac{1}{2m}\overline{u^{(h)}}(p)\gamma^5 mu^{(h')}(p)                 \\
+		                                          & = 0
+	\end{aligned}
+\end{equation}
+\begin{equation}
+	\begin{aligned}[b]
+		\overline{v^{(h)}}(p)\gamma^5 v^{(h')}(p) & = \frac{1}{2m}\overline{v^{(h)}}(p)\gamma^5 mv^{(h')}(p) + \frac{1}{2m}\overline{v^{(h)}}(p)\gamma^5 mu^{(h')}(p)                \\
+		                                          & = \frac{1}{2m}\overline{v^{(h)}}(p)\gamma^5 mv^{(h')}(p) + \frac{1}{2m}\overline{v^{(h)}}(p)\gamma^5\gamma^\mu p_\mu v^{(h')}(p) \\
+		                                          & = \frac{1}{2m}\overline{v^{(h)}}(p)\gamma^5 mv^{(h')}(p) - \frac{1}{2m}\overline{v^{(h)}}(p)\gamma^\mu\gamma^5 p_\mu v^{(h')}(p) \\
+		                                          & = \frac{1}{2m}\overline{v^{(h)}}(p)\gamma^5 mv^{(h')}(p) -\frac{1}{2m}\overline{v^{(h)}}(p)\gamma^5 mv^{(h')}(p)                 \\
+		                                          & = 0
+	\end{aligned}
+\end{equation}
+\begin{equation}
+	\begin{aligned}[b]
+		u^{(h)^\dagger}(p)v^{(h')}(p_P) & = \overline{u^{(h)}}(p)\gamma^0 v^{(h')}(p_P)                                                                                                                            \\
+		                                & = \overline{u^{(h)}}(p)\left(\frac{\gamma^\mu p_\mu}{m}\right)\gamma^0v^{(h')}(p_P) + \overline{u^{(h)}}(p)\left(\frac{-\gamma^\mu p_\mu}{m}\right)\gamma^0v^{(h')}(p_P) \\
+		                                & = 0
+	\end{aligned}
+\end{equation}
+\begin{equation}
+	\begin{aligned}[b]
+		v^{(h)^\dagger}(p)u^{(h')}(p_P) & = \overline{v^{(h)}}(p)\gamma^0 u^{(h')}(p_P)                                                                                                                            \\
+		                                & = \overline{v^{(h)}}(p)\left(\frac{\gamma^\mu p_\mu}{m}\right)\gamma^0u^{(h')}(p_P) + \overline{v^{(h)}}(p)\left(\frac{-\gamma^\mu p_\mu}{m}\right)\gamma^0u^{(h')}(p_P) \\
+		                                & = 0
+	\end{aligned}
+\end{equation}

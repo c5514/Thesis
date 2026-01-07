@@ -1,0 +1,353 @@
+\chapter{Ecuaciones de movimiento}\label{cap.2}
+\markboth{Ecuaciones de movimiento}{Ecuaciones de movimiento}
+% Colocar el resumen del capítulo
+Este capítulo establece los fundamentos teóricos para los capítulos posteriores, dividiéndose en dos partes principales: el estudio de la mecánica cuántica no relativista y el de la ecuación de Klein-Gordon.
+
+En la primera parte, se revisan los postulados de la mecánica cuántica, enfatizando la relación de la función de onda con la teoría de probabilidades. Se discute la probabilidad de transición entre estados, destacando el caso de una partícula libre. Asimismo, se obtienen las funciones de onda plana como soluciones de la ecuación de Schrödinger, las cuales por sí mismas no describen un estado físico.
+
+Motivado por el hecho de que, dada una función de onda, para cada observable existe una distribución de probabilidad asociada, se determina la relación entre las incertidumbres de estos observables, derivándose la relación de Heisenberg. Esta provee la relación entre las incertidumbres de los observables posición y momento, lo cual es importante en la búsqueda de una solución de la ecuación de movimiento que exhiba la idea de localidad alrededor de un punto, tema del siguiente capítulo. Posteriormente, para obtener las incertidumbres para soluciones particulares de la ecuación de Schrödinger, se expresan estas en los espacios de posiciones y momentos en términos de ondas planas, para así obtener las densidades de probabilidad asociadas a los operadores posición y momento. Este formalismo permite calcular valores esperados e incertidumbres para los operadores posición y momento de una solución específica, y analizar su evolución temporal.
+
+La segunda parte se dedica a la ecuación de Klein-Gordon. Se deduce a partir de la relación de dispersión relativista y se verifica su covariancia bajo transformaciones de Lorentz. Al igual que en el caso no relativista, las ondas planas son soluciones, pero algunas están asociadas a energías negativas. A partir de estas se construyen las soluciones generales como combinaciones lineales de las funciones de onda. Y para determinar su validez como estados de un partícula, se deriva la ecuación de continuidad, en donde se identifica la densidad de probabilidad. Este análisis revela que las soluciones de energía positiva tienen densidad de probabilidad positiva, mientras que las de energía negativa conducen a una densidad negativa. En consecuencia, se identifican dos subespacios del espacio de soluciones, con métricas distintas, como los aptos para describir el estado de una partícula libre relativista. Por último, se determinan las densidades de probabilidad asociadas a los operadores de posición y momento para los estados con energía positiva.
+\section{Ecuación de movimiento en el marco no relativista} \renewcommand{\thefootnote}{\arabic{footnote}} % numeración por símbolos
+\lhead[\thepage]{\thesection. Ecuación de movimiento en el marco no relativista}
+\subsection{Ecuación de Schrödinger}
+En la mecánica cuántica no relativista se considera que el estado de una partícula está determinado por su función de onda $\psi(\vb{x})\in \mathcal{H}$ con norma igual a 1, donde $\mathcal{H}$ es un espacio de Hilbert. Esta permite determinar los posibles resultados de una medición de un observable $\hat{A}$, los cuales son los autovalores del observable que se mide, es decir que en la ecuación de autovalores
+\begin{equation}
+	\hat{A} \psi_a = a \psi_a
+\end{equation}
+los valores de $a$ son los posibles resultados de la medición. Además, el estado de la partícula luego de la medición será el autoestado correspondiente al resultado obtenido, es decir $\psi_a$. Este fenómeno es conocido como el \emph{colapso de la función de onda}.
+
+Podemos notar que debido a que los autovalores de un operador autoadjunto y diferente de uno proporcional a la identidad tiene diferentes autovalores, al realizar la medición habrán más de un posible resultado. La probabilidad de que la función de onda $\psi$ ``colapse'' al autoestado $\psi_a$ es dada por
+\begin{equation}
+	P_a (\psi) = \abs{\braket{\psi_a}{\psi}}^2.\label{eq:probablity}
+\end{equation}
+Por el teorema espectral los autoestados $\psi_a$ forman un base ortonormal para el espacio de Hilbert $\mathcal{H}$. \footnote{Esto es válido para un espacio de Hilbert finito dimensional, ya que para uno de dimensión infinita los autoestados no son elementos del espacio de Hilbert \cite{hall}.} Entonces debido a que $\psi$ está normalizado, se obtiene que
+\begin{equation}
+	\sum_{a}P_a(\psi) = 1,
+\end{equation}
+verificando que $P_a$ está asociado a la probabilidad de obtener $a$ como resultado de la medición.
+
+De este modo, se tiene que la función de onda no define que resultado se obtendrá al medir un observable $\hat{A}$, sino que solo determinará las probabilidades de este. Además, debido a que toda función de onda se puede expresar como una combinación lineal de los autovalores $\psi_a$, para dos funciones de onda distintas
+\begin{equation}
+	\psi = \sum_{a}b_a \psi_a\quad \text{y}\quad \phi = \sum_{a}c_a \psi_a,
+\end{equation}
+si luego de medir el observable $A$ en ambas se obtiene como resultado $a$, no es posible distinguirlas entre sí. Esto sugiere que el principio de superposición impide que sea posible determinar el estado de la partícula antes de la medición, incluso si se puede expresar el estado antes de la medición en función de los autoestados del observable que fue medido.
+
+Por otro lado, la medición del observable para un estado de la partícula se puede realizar en distintos instantes de tiempo, por lo que la evolución de la función de onda en un sistema cerrado es importante al momento de tener una descripción del sistema. Es conocido que la evolución de la función de onda de una partícula no relativista es determinada por la ecuación de Schrödinger:
+\begin{equation}
+	\hat{H} \psi(\vb{x},t) = \mi \hbar \frac{\partial }{\partial t}\psi(\vb{x},t).
+\end{equation}
+Dado que los autovalores del Hamiltoniano:
+\begin{equation}
+	\hat{H} \psi_E(\vb{x},t) = E(t) \psi_E(\vb{x},t),
+\end{equation}
+determinan los valores de energía posibles de la partícula, y forman una base ortonormal en el espacio de estados, cualquier solución de la ecuación de Schrödinger se puede en función de los autoestados de energía $\psi_E$:
+\begin{equation}
+	\psi(\vb{x},t) = \sum_{E} c_E(t) \psi_E(\vb{x},t).\label{eq:free_sol_schr}
+\end{equation}
+Al reemplazar esta expansión de $\psi$ en la ecuación de Schrödinger, y usando la ortogonalidad de los autoestados de energía, se obtiene que las probabilidades $\abs{c_E(t)}^2$ cambian cuando el Hamiltoniano es dependiente del tiempo. Es decir que si un estado inicialmente está en el estado $\psi_E$, luego de un intervalo de tiempo, será una combinación lineal de todos los autoestados de energía. Esto hace posible la transición espontánea de un autoestado de energía a otro.
+
+Si considera el el caso de una partícula en un potencial independiente del tiempo, el Hamiltoniano correspondiente será:
+\begin{equation}
+	\hat{H} = -\frac{\hbar^2}{2m}\laplacian + V(\vb{x}).\label{eq:hamiltonian}
+\end{equation}
+En este caso, al resolver la ecuación de Schrödinger se obtendrá que:
+\begin{equation}
+	\psi(\vb{x},t) = \sum_{E}c_E(0)e^{-\mi \frac{E}{\hbar}t}\psi_E(\vb{x},0).
+\end{equation}
+Por lo que la probabilidad de que la partícula tenga una energía $E$ es constante:
+\begin{equation}
+	P_E(t) = \abs{c_E(0)e^{-\mi \frac{E}{\hbar}t}}^2 = P_E(0),
+\end{equation}
+En particular, si se considera que $V(\vb{x}) = 0$, se obtiene el caso de una partícula libre. Además, como el operador momentum es dado por:
+\begin{equation}
+	\hat{\vb{P}} = \frac{\hbar}{\mi} \gradient,
+\end{equation}
+los autoestados de energía serán dados por:
+\begin{equation}
+	\psi_E (\vb{x},t) = e^{- \frac{i}{\hbar}(Et - \vb{p}\cdot \vb{x})}\label{eq:eigenEnergySchrFree}
+\end{equation}
+y se cumple la relación de dispersión
+\begin{equation}
+	E = \vb{p}^2/2m.
+\end{equation}
+Esto quiere decir que para una partícula libre, los autoestados de energía son los mismos que los autoestados de momentum. Y por ende, la única forma de que una partícula sea descrita por la función de onda \eqref{eq:eigenEnergySchrFree} en un instante dado, es que haya estado desde $t=0$ en este estado, o que se haya realizado una medición en la que se haya obtenido como resultado $E$ o $\vb{p}$.
+\subsection{Relación de incertidumbre}
+En la ecuación \eqref{eq:probablity} se mostró que un observable $\hat{A}$ define una densidad de probabilidad asociada a los resultados posibles de su medición. En este sentido, el valor medio asociado a la distribución de probabilidad
+\begin{equation}
+	\left\langle \hat{A}\right\rangle = a \abs{\braket{\psi_a}{\psi}}^2
+\end{equation}
+o expresado de forma equivalente como:
+\begin{equation}
+	\left\langle \hat{A}\right\rangle = \bra{\psi}\hat{A}\ket{\psi}.
+\end{equation}
+Siguiendo la teoría de probabilidades, se define la desviación estándar como
+\begin{equation}
+	\triangle \hat{A} = \sqrt{\left\langle \hat{A}^2\right\rangle-\left\langle \hat{A}\right\rangle^2},
+\end{equation}
+la cual al estar relacionada con la dispersión de los posibles resultados de la medición del observable $\hat{A}$, puede ser interpretada como la incertidumbre estos.
+
+Dado que distintos observables definen distribuciones de probabilidad distintas, a menos que estos observables conmuten entre sí, es de interés determinar la relación que tendrán las incertidumbres correspondientes a estos observables. Para este fin, se definen los observables $\hat{A}$ y $\hat{B}$, que son operadores autoadjuntos que actúan sobre el mismo espacio de Hilbert $\mathcal{H}$. A partir de ellos se definen los operadores
+\begin{equation}
+	\hat{M}=\hat{A}-\langle\hat{A}\rangle \hat{I}\quad \text{y}\quad \hat{N}=\hat{B}-\langle\hat{B}\rangle \hat{I},
+\end{equation}
+que serán también operadores autoadjuntos, puesto que los valores medios de los observables son números reales. Esta característica de los operadores $\hat{M}$ y $\hat{N}$ nos permite obtener
+\begin{equation}
+	\bra{\psi}\hat{M}\hat{N}\ket{\psi}=m+\mi n,\quad \bra{\psi}\hat{N}\hat{M}\ket{\psi} = m- \mi n
+\end{equation}
+donde $m,n\in\mathbb{R}$. Así el valor medio del conmutador y el anticonmutador de $\hat{M}$ y $\hat{N}$ será
+\begin{equation}
+	\bra{\psi}\commutator{\hat{M}}{\hat{N}}\ket{\psi}=2\mi n\quad \text{y} \quad \bra{\psi}\anticommutator{\hat{M}}{\hat{N}}\ket{\psi}=2m,
+\end{equation}
+entonces
+\begin{equation}
+	\abs{\bra{\psi}\commutator{\hat{M}}{\hat{N}}\ket{\psi}}^2+\abs{\bra{\psi}\anticommutator{\hat{M}}{\hat{N}}\ket{\psi}}^2=4\abs{\bra{\psi}\hat{M}\hat{N}\ket{\psi}}^2.\label{eq:proof_uncertaitny}
+\end{equation}
+Usando la desigualdad de Cauchy-Schwarz se tiene que
+\begin{equation}
+	\abs{\bra{\psi}\hat{M}\hat{N}\ket{\psi}}^2\leq \bra{\psi}\hat{M}^2\ket{\psi}\bra{\psi}\hat{N}^2\ket{\psi},
+\end{equation}
+lo cual implica junto a \eqref{eq:proof_uncertaitny} que
+\begin{equation}
+	\abs{\bra{\psi}\commutator{\hat{M}}{\hat{N}}\ket{\psi}}^2\leq 4\bra{\psi}\hat{M}^2\ket{\psi}\bra{\psi}\hat{N}^2\ket{\psi}.\label{eq:proof_uncertaitny2}
+\end{equation}
+Por definición de $\hat{M}$ y $\hat{N}$ se cumple que
+\begin{equation}
+	\Delta\hat{A}=\sqrt{\langle\hat{M}^2\rangle},\quad \Delta\hat{B}=\sqrt{\langle\hat{N}^2\rangle}
+\end{equation}
+y
+\begin{equation}
+	\bra{\psi}\commutator{\hat{M}}{\hat{N}}\ket{\psi}=\bra{\psi}\commutator{\hat{A}}{\hat{B}}\ket{\psi},
+\end{equation}
+entonces la desigualdad \eqref{eq:proof_uncertaitny2} se puede expresar como
+\begin{equation}
+	\Delta\hat{A}\Delta\hat{B}\geq \frac{\abs{\bra{\psi}\commutator{\hat{A}}{\hat{B}}\ket{\psi}}}{2}.
+\end{equation}
+En particular, para $\hat{A} = \hat{X}$ y $\hat{B}= \hat{P}_x$. Al expresar en forma integral al valor medio de su conmutador:
+\begin{equation}
+	\bra{\psi}\commutator{\hat{X}}{\hat{P}_x}\ket{\psi} = \int \psi^\ast(\vb{x}) x\left(\frac{\hbar}{\mi} \partial_x\right)\psi(\vb{x})\dd^3 x - \int \psi^\ast(\vb{x})\left(\frac{\hbar}{\mi} \partial_x\right)( x \psi(\vb{x})) \dd^3 x ,
+\end{equation}
+y tras expandir el segundo término, y usar la condición de normalización de $\psi$, se obtiene:
+\begin{equation}
+	\bra{\psi}\commutator{\hat{X}}{\hat{P_x}}\ket{\psi}= \mi\hbar.
+\end{equation}
+Por lo tanto, la relación entre las incertidumbres de los observables $\hat{X}$ y $\hat{P}_x$ es:
+\begin{equation}
+	\triangle \hat{X} \triangle \hat{P}_x  \geq \frac{\hbar}{2}.\label{eq:heisenberg}
+\end{equation}
+Esta es la relación de incertidumbre de Heisenberg, que establece una cota inferior para el producto de las incertidumbres de dos observables. Para el caso de los observables de posición y momento, implica que a mayor precisión en el valor de la posición, habrá una menor precisión en el valor del momento. Este resultado contrasta con lo predicho por la teoría clásica, donde la certeza con la que se conoce un observable es independiente de cualquier otro.
+
+Además, debe notarse que la relación \eqref{eq:heisenberg} no determina la evolución temporal de las incertidumbres, sino que solo establece una relación entre ellas para un instante dado. Para estudiar cómo evolucionan, es necesario calcular sus valores explícitamente para un estado cuántico específico y evolucionarlo.
+\subsection{Solución de la ecuación de Schrödinger para una partícula libre}
+Para estudiar la dinámica de las relaciones de incertidumbre de los operadores de posición y momentum, se procede a determinar las densidades de probabilidades asociadas a estas mismas.
+%TODO: Mejorar
+La ecuación \eqref{eq:free_sol_schr} se puede expresar de forma equivalente, y considerando el caso de una partícula libre como:
+\begin{equation}
+	\psi(\vb{x},t) = \sum c_E e^{-\frac{\mi}{\hbar}(Et- \vb{p}\cdot \vb{x})}.
+\end{equation}
+Esta expresión es válida para el caso de un espectro discreto del operador momentum. Para el caso continuo, cualquier solución de la ecuación de Schrödinger se expresa como la transformada de Fourier de $c(\vb{p})$:
+\begin{equation}
+	\psi(\vb{x},t) = \frac{1}{(2\pi\hbar)^{3/2}}\int c(\vb{p})e^{-\frac{\mi}{\hbar}(Et- \vb{p}\cdot \vb{x})}\dd^3 p.\label{eq:free_particle_sol_expan}
+\end{equation}
+Así, la densidad de probabilidad asociada al operador posición
+\begin{equation}
+	\rho(\vb{x},t) = \psi^\ast(\vb{x},t)\psi(\vb{x},t),
+\end{equation}
+se expresará como:
+\begin{equation}
+	\rho(\vb{x},t) = \frac{1}{(2\pi\hbar)^3}\left(\int c(\vb{p})^\ast e^{\frac{\mi}{\hbar}(Et- \vb{p}\cdot \vb{x})}\dd^3 p\right)\left(\int c(\vb{p}')e^{-\frac{\mi}{\hbar}(E't- \vb{p}'\cdot \vb{x})}\dd^3 p'\right).
+\end{equation}
+Luego, usando la condición de normalización de $\psi(z,t)$ se obtiene:
+\begin{equation}
+	\int \rho(\vb{x},t) \dd^3 x = \frac{1}{(2\pi\hbar)^3}\int \left(\int c(p')\left(\int c(p)^\ast e^{\frac{\mi}{\hbar}(E-E')t}e^{\frac{\mi}{\hbar}(\vb{p}'- \vb{p})\cdot \vb{x}}\dd^3 p\right)  \dd^3 p'\right) \dd^3 x,
+\end{equation}
+y como
+\begin{equation}
+	\int  e^{\frac{\mi}{\hbar}\vb{p}\cdot \vb{x}}\dd^3 x = (2\pi\hbar)^3\delta(\vb{p})\label{eq:delta_identity}
+\end{equation}
+se reduce a:
+\begin{equation}
+	\int  \rho(\vb{x},t) \dd^3 x = \int \abs{c(\vb{p})}^2 \dd^3 p.
+\end{equation}
+Esto nos asociar $\abs{c(\vb{p})}^2$ a la densidad de probabilidad asociada al operador momentum.
+
+Esta relación se hace más evidente mediante el cálculo explícito del valor medio del operador momentum. Para esto se expresa el operador momentum en el espacio de posiciones:
+\begin{equation}
+	\hat{\vb{P}}\psi(\vb{x},t) = \frac{\hbar}{\mi}\gradient \psi(\vb{x},t).
+\end{equation}
+De modo que, al considerar la expansión de $\psi(\vb{x},t)$ dada en \eqref{eq:free_particle_sol_expan} se obtiene:
+\begin{equation}
+	\hat{\vb{P}}\psi(\vb{x},t) = \int \vb{p} c(\vb{p})e^{-\frac{\mi}{\hbar}(Et- \vb{p}\cdot \vb{x})}\dd^3 p.
+\end{equation}
+Con esto se obtiene que el valor medio del operador momentum usando la relación \eqref{eq:delta_identity}:
+\begin{equation}
+	\bra{\psi}\hat{\vb{P}}\ket{\psi} = \int \vb{p}\abs{c(\vb{p})}^2 \dd^3 p.
+\end{equation}
+Este resultado verifica la afirmación anterior, es decir que $\abs{c(\vb{p})}^2$ es la densidad de probabilidad asociada al operador momentum. Con esto se han obtenido las densidades de probabilidad asociadas a ambos operadores y lo que queda es estudiar soluciones específicas de la ecuación de Schrödinger, lo cual se realiza en el siguiente capítulo.
+\section{Ecuación de movimiento en el marco relativista} \renewcommand{\thefootnote}{\arabic{footnote}} % numeración por símbolos
+\lhead[\thepage]{\thesection. Ecuación de movimiento en el marco relativista}
+\subsection{Ecuación de Klein-Gordon}
+Cuando se considera la teoría de la relatividad especial, la ecuación de Schrödinger para una partícula libre:
+\begin{equation}
+	-\frac{\hbar^2}{2m}\laplacian \psi(\vb{x},t) = \mi \hbar \frac{\partial}{\partial t}\psi(\vb{x},t)\label{eq:schr_free_particle}
+\end{equation}
+no es una ecuación válida para describir la dinámica de una partícula, pues al tener derivada parcial de primer orden con respecto del tiempo, y derivada de segundo orden con respecto de las coordenadas espaciales, no es invariante frente a transformaciones de Lorentz.
+
+Para obtener una ecuación invariante frente a las transformaciones de Lorentz se usa el hecho de que \eqref{eq:schr_free_particle} se puede mediante la regla de correspondencia:
+\begin{equation}
+	p_x \rightarrow -i\hbar\frac{\partial}{\partial x},\quad p_y \rightarrow -i\hbar\frac{\partial}{\partial y},\quad p_z \rightarrow -i\hbar\frac{\partial}{\partial z}\quad \text{y}\quad E\rightarrow i\hbar\frac{\partial }{\partial t},
+\end{equation}
+y la ecuación de dispersión no relativista:
+\begin{equation}
+	E = \frac{\vb{p}^2}{2m}.
+\end{equation}
+De este modo, si la ecuación de dispersión que se usa es la ecuación de dispersión relativista:
+\begin{equation}
+	E^2 = \vb{p}^2c^2 + m^2 c^4
+\end{equation}
+se obtiene la ecuación de Klein-Gordon:
+\begin{equation}
+	(\hbar^2c^2 \square + m^2c^4)\phi = 0,\label{eq:kleingordon}
+\end{equation}
+donde $\square$ es el d'Alembertiano con coordenadas $(ct,x,y,z)$. Esta ecuación se puede expresar en forma covariante como:
+\begin{equation}
+	\left[\partial^{\mu}\partial_{\mu} + \left(\frac{mc}{\hbar}\right)^2\right]\phi = 0.\label{eq:kleingordoncov}
+\end{equation}
+Para verificar que la ecuación de Klein-Gordon es Lorentz-covariante que la transformación de coordenadas
+\begin{equation}
+	x'^\mu = \tensor{\Lambda}{^\mu_\nu}x^\nu
+\end{equation}
+es una transformación de Lorentz si y solo si se cumple que
+\begin{equation}
+	\tensor{g}{_\mu_\nu} = \tensor{\Lambda}{^\rho_\mu}\tensor{g}{_\rho_\sigma}\tensor{\Lambda}{^\sigma_\nu},\label{eq:lorentztrans1}
+\end{equation}
+por lo que las derivadas parciales en ambos sistemas coordenados se relacionan por
+\begin{equation}
+	\partial_{\mu} = \frac{\partial x'^\nu}{\partial x^\mu}\frac{\partial }{\partial x'^\nu} = \tensor{\Lambda}{^\nu_\mu}\partial'_{\nu}.
+\end{equation}
+Entonces
+\begin{equation}
+	\left[\partial^{\mu}\partial_{\mu} + \left(\frac{mc}{\hbar}\right)^2\right]\phi(x) = \left[\tensor{\Lambda}{^\nu_\mu}g^{\mu\sigma}\tensor{\Lambda}{^\rho_\sigma}\partial'_{\nu}\partial'_{\rho} + \left(\frac{mc}{\hbar}\right)^2\right]\phi(\Lambda^{-1}x')
+\end{equation}
+y usando \eqref{eq:lorentztrans1} se reduce a
+\begin{equation}
+	\begin{aligned}[b]
+		\left[\partial^{\mu}\partial_{\mu} + \left(\frac{mc}{\hbar}\right)^2\right]\phi(x) & = \left[g^{\nu\rho}\partial'_{\nu}\partial'_{\rho} + \left(\frac{mc}{\hbar}\right)^2\right]\phi(\Lambda^{-1}x') \\
+		                                                                                   & =\left[\partial'^{\nu}\partial'_{\nu} + \left(\frac{mc}{\hbar}\right)^2\right]\phi(\Lambda^{-1}x').
+	\end{aligned}
+\end{equation}
+Esto implica que la ecuación de Klein-Gordon es Lorentz-covariante, pues mantiene su forma en distintos sistemas coordenados relacionados por medio de una transformación de Lorentz.
+
+Al igual que para la ecuación de Schrödinger se encuentra que las funciones de onda plana
+\begin{equation}
+	\phi^{\pm}(\vb{x},t) = N e^{\frac{i}{\hbar}(\vb{p}\cdot \vb{x}\mp Et)},
+\end{equation}
+donde $E>0$, son soluciones de la ecuación de Klein-Gordon. Además, estas soluciones son autoestados del operador energía
+\begin{equation}
+	\hat{E}\phi^{\pm}(\vb{x},t) = i\hbar \frac{\partial }{\partial t}\left[N e^{\frac{i}{\hbar}(\vb{p}\cdot \vb{x} \mp Et)}\right] = \pm E\phi^{\pm}(\vb{x},t)
+\end{equation}
+y el operador momentum
+\begin{equation}
+	\hat{P}_i \phi^\pm(\vb{x},t) = -i\hbar \frac{\partial}{\partial x^i}\left[N e^{\frac{i}{\hbar}(\vb{p}\cdot \vb{x} \mp Et)}\right] = p_i \phi^\pm(\vb{x},t).
+\end{equation}
+Aquí notamos que las soluciones $\phi^{\pm}(\vb{x},t)$ tienen el mismo momentum pero tienen valor de energía con signo opuesto. Por esto $\psi^+(\vb{x},t)$ será llamado estado de energía positiva, y $\phi^-(\vb{x},t)$ de energía negativa.
+
+\subsection{Solución de la ecuación de Klein-Gordon}
+A partir de las funciones de onda plana se pueden formar otras soluciones de la ecuación de Klein-Gordon, esto es
+\begin{equation}
+	\phi(x) = \frac{1}{(2\pi \hbar)^{3/2}}\int \left[e^{ \frac{i}{\hbar}(\vb{p}\cdot \vb{x} - Et)}\tilde{\phi}^+\left(\frac{E}{c},\vb{p}\right) + e^{ \frac{i}{\hbar}(\vb{p}\cdot \vb{x} + Et)}\tilde{\phi}^-\left(\frac{E}{c}, - \vb{p}\right)\right]\dd^4 p.
+\end{equation}
+donde $\tilde{\phi}^\pm\left(\frac{E}{c},\pm\vb{p}\right)\in \mathbb{C}$. Haciendo el cambio de variable $\vb{p}\to - \vb{p}$ para la segunda integral se obtiene
+\begin{equation}
+	\phi(x) = \frac{1}{(2\pi \hbar)^{3/2}}\int \left[e^{- i p \cdot x/\hbar}\tilde{\phi}^+(p) + e^{i p \cdot x/\hbar}\tilde{\phi}^-(p)\right] \dd^4 p \label{eq:KGgenSol}
+\end{equation}
+donde $p\cdot x \equiv Et - \vb{p}\cdot\vb{x}$. Reemplazando esta expresión en la ecuación de Klein-Gordon se obtiene
+\begin{equation}
+	\frac{1}{(2\pi \hbar)^{3/2}}\int (-c^2p^2 + m^2c^4)\left[e^{- ip\cdot x/\hbar}\tilde{\phi}^+(p) + e^{ip\cdot x/\hbar}\tilde{\phi}^-(p)\right] \dd^4 p = 0.
+\end{equation}
+Para que la transformación de Fourier sea única se debe cumplir que $(-c^2p^2 + m^2c^4)\tilde{\phi}^\pm(p) = 0$, lo que implica que
+\begin{equation}
+	\tilde{\phi}^\pm(p) = \delta(-c^2p^2 + m^2c^4)\tilde{a}^\pm(p)\label{eq:KGgenFourier}
+\end{equation}
+donde $a^{\pm}(p)$ es una función arbitraria.
+Ahora expresamos la distribución Delta de Dirac como
+\begin{equation}
+	\delta(-c^2 p^2 + m^2c^4) = \delta(\vb{p}^2c^2+ m^2c^4 - E^2)
+\end{equation}
+de la definición de la distribución obtenemos
+\begin{equation}
+	\delta(-c^2 p^2 + m^2c^4) = \frac{\delta(\sqrt{\vb{p}^2c^2 + m^2c^4} - E) + \delta(\sqrt{\vb{p}\,^2c^2 + m^2c^4} + E)}{2\sqrt{\vb{p}^2c^2 + m^2c^4}}.
+\end{equation}
+Reemplazando en \eqref{eq:KGgenSol} y \eqref{eq:KGgenFourier}, y definiendo
+\begin{equation}
+	a^\pm(p) = \frac{1}{\sqrt{2E}}\tilde{a}^\pm(p)
+\end{equation}
+se obtiene que la solución general de la ecuación de Klein-Gordon será dada por
+\begin{equation}
+	\phi(x) = \frac{1}{(2\pi \hbar)^{3/2}}\int \frac{1}{\sqrt{2E}}\left[e^{-ip\cdot x/\hbar}a^+(p) + e^{i p\cdot x/\hbar}a^-(p)\right]\dd^3 p.\label{eq:KGgenSol2}
+\end{equation}
+Para determinar que soluciones son aceptables como estados de una partícula hay que recordar que la función de onda por sí misma no tiene una interpretación física, sino las densidades de probabilidad obtenidas a partir de esta. Para encontrar la densidad de probabilidad en el caso de la ecuación de Klein-Gordon, hallaremos la ecuación de continuidad para así poder identificar uno de los términos de esta con la densidad de probabilidad de la posición de la partícula.
+
+Al aplicar $\phi^\ast$ por el lado izquierdo de la ecuación de la ecuación de Klein-Gordon \eqref{eq:kleingordoncov} se obtiene
+\begin{equation}
+	\phi^{\ast}\left[\partial_\mu\partial^{\mu} + \left(\frac{mc}{\hbar}\right)^2\right]\phi = 0,
+\end{equation}
+y al aplicar $\psi$ por el lado izquierdo de su conjugada compleja:
+\begin{equation}
+	\phi\left[\partial_\mu\partial^{\mu} + \left(\frac{mc}{\hbar}\right)^2\right]\phi^{\ast} = 0.
+\end{equation}
+Al restar estas ecuaciones obtenemos
+\begin{equation}
+	\phi^{\ast}\partial_\mu\partial^{\mu}\phi - \phi\partial_\mu\partial^{\mu}\phi^{\ast} = \partial_\mu(\phi^{\ast}\partial^{\mu}\phi) - \partial_\mu(\phi\partial^{\mu}\phi^{\ast}) = 0,
+\end{equation}
+entonces al definir
+\begin{equation}
+	j^{\mu} \equiv \frac{i\hbar}{2m}(\phi^{\ast}\partial^{\mu}\phi - \phi\partial^{\mu}\phi^{\ast})
+\end{equation}
+se obtiene la ecuación de continuidad
+\begin{equation}
+	\partial_\mu j^{\mu} = 0.
+\end{equation}
+Así, la densidad de probabilidad será
+\begin{equation}
+	\rho \equiv \frac{1}{c}j^{0} = \frac{i\hbar}{2mc^2}\left(\phi^\ast \frac{\partial \phi}{\partial t} - \phi\frac{\partial \phi^\ast}{\partial t}\right).\label{eq:densityKG}
+\end{equation}
+Notamos que la operador densidad depende de la derivada parcial respecto del tiempo de la función de onda, lo cual sugiere la existencia de soluciones de la ecuación de Klein-Gordon con probabilidad negativa, lo cual claramente es una inconsistencia. Esto se hace evidente al hallar la densidad de probabilidad \eqref{eq:densityKG} para las funciones de onda plana:
+\begin{equation}
+	\rho  = \frac{i\hbar}{2mc^2}\left(N e^{-\frac{i}{\hbar}(\vb{p}\cdot \vb{x} \mp Et)}\partial_t\left(N^{\ast} e^{\frac{i}{\hbar}(\vb{p}\cdot \vb{x} \mp Et)}\right) - N e^{\frac{i}{\hbar}(\vb{p}\cdot \vb{x} \mp Et)}\partial_t\left(N^{\ast} e^{-\frac{i}{\hbar}(\vb{p}\cdot \vb{x} \mp Et)}\right)\right)
+\end{equation}
+entonces
+\begin{equation}
+	\rho = \pm \frac{\abs{N}^2}{2mc^2} E.
+\end{equation}
+Una posible solución para esta inconsistencia es definir densidades de probabilidad distintas para las soluciones con energía positiva negativa, pero esto implicaría que nos se pueden tratar estas soluciones como elementos de un espacio con un producto interno definido. Por ello una solución de la ecuación de Klein-Gordon es una función de onda cuando está formado como una combinación lineal de los estados de energía positiva o negativa, pero no una combinación de estos.
+
+Esto significa que las única soluciones que se pueden interpretar como una función de onda son aquellas que se pueden expresar como
+\begin{equation}
+	\phi(x) = \frac{1}{(2\pi \hbar)^{3/2}}\int \frac{1}{\sqrt{2E}}a^+(p) e^{-ip\cdot x/\hbar} \dd^3 p\label{eq:positiva_sol_KG}
+\end{equation}
+o
+\begin{equation}
+	\phi(x) = \frac{1}{(2\pi \hbar)^{3/2}}\int \frac{1}{\sqrt{2E}} a^-(p) e^{i p\cdot x/\hbar} \dd^3 p.
+\end{equation}
+Ahora vamos a encontrar la densidad de probabilidad asociada al operador momentum. Para ello vamos a considerar las soluciones de la forma \eqref{eq:positiva_sol_KG}, cuya derivada parcial respecto del tiempo es dada por:
+\begin{equation}
+	\frac{\partial }{\partial t}\phi(x) = -\frac{\mi}{\hbar} \frac{1}{(2\pi \hbar)^{3/2}}\int \sqrt{\frac{E}{2}} a^+(p)e^{-\mi p\cdot x}  \dd^3 p.
+\end{equation}
+Al expresar la densidad de probabilidad \eqref{eq:densityKG} de la forma:
+\begin{equation}
+	\rho(x) = \frac{\hbar}{mc^2}\Im{\phi \frac{\partial \phi^\ast}{\partial t}}\label{eq:densityKG_2}
+\end{equation}
+se obtiene:
+\begin{equation}
+	\int \rho(x) \dd^3 x = \frac{\hbar}{mc^2}\Im{\int \phi \frac{\partial \phi^\ast}{\partial t} \dd^3 x}.
+\end{equation}
+Al usar la igualdad \eqref{eq:delta_identity} se reduce a:
+\begin{equation}
+	\int \rho(x) \dd^3 x = \frac{\hbar}{mc^2}\Im{\mi \frac{1}{2\hbar}\int \abs{a^+(p)}^2 \dd^3 p} = \frac{1}{2mc^2}\int \abs{a^+(p)}^2 \dd^3 p.
+\end{equation}
+Esto se puede se expresar de forma equivalente como:
+\begin{equation}
+	\int \rho(x) \dd^3 x = \int \gamma(p)\abs{\frac{1}{\sqrt{2E}}a^+(p)}^2 \dd^3 p\label{eq:density_momentum_KG}
+\end{equation}
+donde $\gamma(p)$ es el factor de Lorentz para una partícula clásica de masa $m$ que se mueve con un momentum $\vb{p}$. En el límite no relativista, $\gamma(p)$ tiende a $1$, así la densidad de probabilidad concuerda con lo obtenido en el caso no relativista.

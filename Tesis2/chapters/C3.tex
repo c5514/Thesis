@@ -1,0 +1,535 @@
+\chapter{Paquetes de onda}\label{cap.3}
+\markboth{Paquetes de onda}{Paquetes de onda}
+En el capítulo anterior se obtuvo, en el caso no relativista, que cualquier solución de la ecuación de Schrödinger para una partícula libre puede expresarse como una combinación lineal de autoestados de energía-momento, también conocidos como funciones de onda plana. Estas soluciones no son cuadrado integrables al considerar que la partícula se puede propagar libremente en todo el espacio-tiempo. Esto tiene una consecuencia importante, y es que la densidad de probabilidad asociada al operador posición no está bien definida, pues tiene el mismo en cada punto del espacio coordenado. Además, para relacionar la función de onda de una partícula libre con el hecho de que una partícula clásica tiene una posición definida, es necesario encontrar una función de onda que nos dé la idea de localidad alrededor de un punto, el cual sería asignado a la posición de la partícula clásica. Esto nos lleva a la definición de un paquete de onda gaussiano, el cual es derivado en este capítulo de dos formas distintas en el marco no relativista. Y se calculan las densidades de probabilidad de un paquete de onda gaussiano asociadas a los operadores de posición y momentum, y se estudia su evolución. 
+
+Posteriormente, se plantea la formulación de un paquete de onda gaussiano en el marco relativista, en específico, para la ecuación de Klein-Gordon. Sin embargo, a diferencia del caso no relativista, no toda solución de la ecuación de Klein-Gordon puede ser interpretada como una función de onda. Para definir una función de onda de una partícula libre, se debe considerar que el estado de la partícula es descrito por una combinación lineal de funciones de onda plana con energía positiva o negativa, pero no ambas a la vez. Por consistencia con el caso no relativista, se asume que la solución buscada solo es combinación de las funciones de onda plana con energía positiva. Luego, se estudia la evolución de una función de onda que inicialmente tiene la forma de la función de onda encontrada en el caso no relativista. Para esto se calcula la transformada de Fourier de la gaussiana y se reemplaza el resultado obtenido en la expansión de la solución general. Esto nos lleva a una integral, la cual, según \textcite{Huang_2024}, produce una densidad de probabilidad que tiene valores negativos en algunos puntos cuando la función de onda está muy localizada  . Por esto se realiza una aproximación en la que la densidad de probabilidad es positiva en todos los puntos. Habiendo calculado la función de onda, se determina la densidad de probabilidad asociada al operador posición y se estudia su propagación, observándose que mantiene la forma de una distribución en todo instante. Finalmente, se analiza la densidad de probabilidad en el espacio de momentos.
+\section{Paquetes de onda en el marco no relativista} \renewcommand{\thefootnote}{\arabic{footnote}} % numeración por símbolos
+\lhead[\thepage]{\thesection. Paquetes de onda en el marco no relativista}
+\subsection{Formación de un paquete de onda gaussiano}
+Consideremos una partícula libre unidimensional que se propaga a lo largo del eje $z$. La ecuación de Schrödinger correspondiente es:
+\begin{equation}
+	-\frac{\hbar^2}{2m}\frac{\dd^2 }{\dd z^2} \psi(z,t) = i\hbar\frac{\partial }{\partial t}\psi(z,t),\label{eq:Schrodinger}
+\end{equation}
+cuyas soluciones son las funciones de onda plana unidimensionales:
+\begin{equation}
+	\psi_p(z,t) = \frac{1}{(2\pi\hbar)^{1/2}}\exp{\frac{i}{\hbar} (p z - E t)}\label{eq:schrodingerSol}
+\end{equation}
+donde $E$ y $p$ son la energía y el momentum, respectivamente, y satisfacen la ecuación de dispersión:
+\begin{equation}
+	E = \frac{p^2}{2m}.\label{eq:non_rel_dispersion}
+\end{equation}
+Estas soluciones no pertenecen al espacio de Hilbert $L^2(\mathbb{R})$, puesto que la integral $\int \psi^\ast \psi \dd z$ diverge, por lo que no representan el estado de una partícula.
+
+Para construir una solución de la ecuación de Schrödinger que sí sea de cuadrado integrable, se propone una función de la forma:
+\begin{equation}
+  \psi(z,t) = f(z,t) e^{i(k_0z - \omega_0 t)}\label{eq:proposed_sol}.
+\end{equation}
+Con el fin de reproducir el comportamiento de una onda plana, se impone la igualdad:
+\begin{equation}
+	\omega_0 = \frac{\hbar}{2m}k_0^2,\label{eq:dispersionSchr}
+\end{equation}
+la cual se obtiene al identificar a $p =\hbar k_0$ y $E = \hbar \omega_0$ en la relación de dispersión \eqref{eq:non_rel_dispersion}.
+
+Para sustituir $\psi(z,t)$ en la ecuación de Schrödinger \eqref{eq:Schrodinger}, se calculan las derivadas parciales:
+\begin{align}
+	\frac{\partial \psi(z,t)}{\partial t}     & = \left[\frac{\partial f(z,t)}{\partial t} -i\omega_0 f(z,t)\right]e^{i(k_0z - \omega_0t)},                                            \\
+	\frac{\partial^2 \psi(z,t)}{\partial z^2} & = \left[\frac{\partial^2 f(z,t)}{\partial z^2} + 2 ik_0 \frac{\partial f(z,t)}{\partial z} - k_0^2f(z,t)\right]e^{i(k_0z -\omega_0t)}.
+\end{align}
+Sustituyendo estas expresiones en \eqref{eq:Schrodinger} y simplificando el factor exponencial común, se obtiene:
+\begin{equation}
+	i\hbar \frac{\partial f(z,t)}{\partial t} + \hbar \omega_0 f(z,t) = -\frac{\hbar^2}{2m}\left[\frac{\partial^2 f(z,t)}{\partial z^2} + 2ik \frac{\partial f(z,t)}{\partial z} - k_0^2 f(z,t)\right],
+\end{equation}
+que se reduce usando la relación \eqref{eq:dispersionSchr}, y dividiendo todos los términos entre $\mi \hbar$:
+\begin{equation}
+	\frac{\partial f(z,t)}{\partial t} = i\frac{\hbar}{2m}\frac{\partial^2 f(z,t)}{\partial z^2} - \frac{\hbar k_0}{m}\frac{\partial f(z,t)}{\partial z}.\label{eq:TestFunSchr}
+\end{equation}
+En esta última ecuación observamos que el primer término del lado derecho es proporcional a $\frac{\hbar}{2m}$ y a la segunda derivada de $f(z,t)$ respecto de $z$, mientras que el segundo término es proporcional a $\frac{\hbar}{m}$ y a la primera derivada de $f(z,t)$ respecto de $z$. Esta estructura sugiere que una posible solución podría contener un término dependiente de $z^2$, aunque también incorporar términos dependientes de $t$. Por ello, se propone la siguiente solución:
+\begin{equation}
+	f(z,t) = e^{A(t) - B(t)\left(z - \frac{\hbar k_0 }{m}t\right)^2},\label{eq:TestFunSol}
+\end{equation}
+cuyas derivadas parciales son:
+\begin{align}
+	\frac{\partial f}{\partial t}     & = \left[A'(t) - B'(t)\left(z- \frac{\hbar k_0}{m}t\right)^2  +\frac{2\hbar k_0}{m} B(t)\left(z-\frac{\hbar k_0 t}{m}\right)\right]f(z,t) \\
+	\frac{\partial f}{\partial z}     & = -2B(t)\left(z - \frac{\hbar k_0 t}{m}\right)f(z,t)                                                                                     \\
+	\frac{\partial^2 f}{\partial z^2} & = \left[-2B(t) + 4 B(t)^2 \left(z - \frac{\hbar k_0 t}{m}\right)^2\right]f(z,t).
+\end{align}
+Al sustituir estas igualdades en la ecuación \eqref{eq:TestFunSchr}, se obtiene
+\begin{equation}
+	A'(t) - B'(t)\left(z- \frac{\hbar k_0}{m}t\right)^2 =  \frac{i\hbar}{2m}\left[-2B(t) + 4 B(t)^2 \left(z - \frac{\hbar k_0 t}{m}\right)^2\right],
+\end{equation}
+Dado que, en general, $z - \hbar k_0 t/m$ no es igual a cero, para satisfacer la igualdad se deben cumplir las siguientes ecuaciones diferenciales:
+\begin{equation}
+	A'(t) + \frac{i\hbar}{m}B(t) = 0,\quad B'(t) + \frac{2i\hbar}{m}B(t)^2 = 0.
+\end{equation}
+La segunda ecuación es una ecuación diferencial de primer orden cuya solución es de la forma:
+\begin{equation}
+  B(t) = \frac{1}{C  +\frac{2 i\hbar t}{m}}\label{eq:B_sol},
+\end{equation}
+donde $C \in \mathbb{C}$ es la constante de integración, y depende de las condiciones iniciales. Con esta solución, podemos ahora determinar $A(t)$ resolviendo la ecuación diferencial de primer orden: 
+\begin{equation}
+	A'(t) = \frac{-i\hbar}{mC  +2 i\hbar t},
+\end{equation}
+en donde, integrando, se obtiene:
+\begin{equation}
+  A(t) = D - \frac{1}{2}\ln(2i\hbar t+ mC).\label{eq:A_sol}
+\end{equation}
+siendo $D$ otra constante de integración.
+
+Finalmente, al sustituir las expresiones para $B(t)$ y $A(t)$ en \eqref{eq:TestFunSol}, y luego en \eqref{eq:proposed_sol}, se obtiene la solución buscada:
+\begin{equation}
+	\psi(z,t) = e^{i(k_0 - \omega_0 t)}\frac{e^{D}}{\sqrt{mC + 2i\hbar t}} \exp{-\frac{1}{C + \frac{2i\hbar t}{m}}\left(z - \frac{\hbar k_0 t}{m}\right)^2}.\label{eq:gaussianGenSchr}
+\end{equation}
+Para comprobar que $\psi(z,t)$ es un elemento de $L^2(\mathbb{R})$, debe verificarse que la integral
+\begin{equation}
+	I(t) = \int_{-\infty}^{\infty}\psi^\ast(z,t)\psi(z,t) \dd z,
+\end{equation}
+sea convergente e igual a $1$. Dada la complejidad de \eqref{eq:gaussianGenSchr}, es conveniente evaluar primero $I(0)$ para reducir el número de constantes, y luego verificar que $I(t)=1$ para todo $t$.
+
+Asumiendo que $C$ es un número real y positivo, la integral en $t=0$ se calcula como: 
+\begin{equation}
+	I(0) = \int_{-\infty}^{\infty}\frac{e^{2D}}{mC}\exp{-\frac{2}{C}z^2} \dd z = \frac{e^{2D}}{mC}\sqrt{\frac{\pi C}{2}}
+\end{equation}
+y de la condición de normalización $I(0)=1$ se obtiene:
+\begin{equation}
+	e^{2D} = m\sqrt{\frac{2C}{\pi}}
+\end{equation}
+Con este resultado, la integral en un instante arbitrario $t$ resulta:
+\begin{equation}
+	\begin{aligned}[b]
+		I(t) & = m\sqrt{\frac{2C}{\pi}} \frac{1}{\sqrt{m^2C^2 + 4\hbar^2 t^2}}\int_{-\infty}^{\infty}\exp{-\frac{2C}{C^2 + \frac{4\hbar^2 t^2}{m^2}}\left(z - \frac{\hbar k_0 t}{m}\right)^2} \dd z \\
+		     & = m\sqrt{\frac{2C}{\pi}} \frac{1}{\sqrt{m^2C^2 + 4\hbar^2 t^2}}\sqrt{\frac{\left(C^2 + \frac{4\hbar^2 t^2}{m^2}\right)\pi}{2C}}.
+	\end{aligned}
+\end{equation}
+Por lo tanto, la solución \eqref{eq:gaussianGenSchr} es cuadrado integrable. Tras aplicar la condición de normalización $I(t) =1$, se expresa como: 
+\begin{equation}
+	\psi(z,t) = e^{i(k_0z - \omega_0 t)}\frac{\left(\frac{2C}{\pi}\right)^{1/4}}{\sqrt{C + i \frac{2\hbar t}{m}}} \exp{-\frac{1}{C + i\frac{2\hbar t}{m}}\left(z - \frac{\hbar k_0 t}{m}\right)^2}.\label{eq:gaussianGenSchr2}
+\end{equation}
+La constante $C$ en la solución obtenida carece aún de una interpretación física directa. Para encontrar su significado, se aborda el problema inicial desde otra perspectiva. En esta se considera una densidad de probabilidad asociada al operador momentum igual a una distribución gaussiana centrada en $p_0$ con desviación estándar $\sigma_p$. De este modo, la función de onda en el espacio de soluciones será la transformada de Fourier de:
+\begin{equation}
+	f(p) = \frac{1}{(2\pi)^{1/4}\sqrt{\sigma_p}}\exp{-\frac{(p-p_0)^2}{4\sigma_p^2}}.\label{eq:gaussian_momentum}
+\end{equation}
+Esto se expresa de forma explícita como:
+\begin{equation}
+	\psi(z,t) = \frac{1}{\sqrt{2\pi\hbar}}\int_{- \infty}^{\infty}f(p) e^{-\frac{\mi}{\hbar}(Et- pz)} \dd p.\label{eq:Schr_gaussian_int}
+\end{equation}
+
+Para evaluar la integral \eqref{eq:Schr_gaussian_int}, se define 
+\begin{equation}
+	A = \frac{1}{(2\pi)^{1/4}\sqrt{\sigma_p}(2\pi\hbar)^{1/2}},
+\end{equation}
+con lo cual $\psi(z,t)$ se expresará como:
+\begin{equation}
+	\begin{aligned}[b]
+		\psi(z,t) & = \int_{-\infty}^{\infty}A e^{-\frac{(p-p_0)^2}{4\sigma_p^2}}e^{\frac{i}{\hbar}\left[pz - \frac{p^2t}{2m}\right]} \dd p                                                                         \\
+		          & = A e^{-\frac{p_0^2}{4\sigma_p^2}} \int_{-\infty}^{\infty}e^{-p^2\left[\frac{1}{4\sigma_p^2} + \mi\frac{t}{2\hbar m}\right]}e^{\mi p\left[-\mi \frac{p_0}{2\sigma_p^2} + \frac{z}{\hbar}\right]} \dd p.
+	\end{aligned}\label{eq:integral_gauss}
+\end{equation}
+Así, la integral a calcular es de la forma:
+\begin{equation}
+	\int_{-\infty}^{\infty}e^{-\alpha x^2}e^{i\beta x} \dd x = \int_{-\infty}^{\infty}e^{-\alpha\left(x - \frac{i\beta}{2\alpha}\right)^2}e^{-\frac{\beta^2}{4\alpha}} \dd x = e^{-\frac{\beta^2}{4\alpha}}\int_{-\infty}^{\infty}e^{-\alpha x^2} \dd x.
+\end{equation}
+cuya solución es dada por:
+\begin{equation}
+	\int_{-\infty}^{\infty}e^{-\alpha x^2}e^{i\beta x} \dd x = \sqrt{\frac{\pi}{\alpha}}e^{-\frac{\beta^2}{4\alpha}}.\label{eq:special_integral_gaussian}
+\end{equation}
+Por lo que la solución \eqref{eq:integral_gauss} es:
+\begin{equation}
+  \psi(z,t) = A e^{-\frac{p_0^2}{4\sigma_p^2}}\sqrt{\frac{\pi}{\frac{1}{4\sigma_p^2} + \mi \frac{t}{2\hbar m}}}\exp{- \frac{1}{\left(\frac{1}{\sigma_p^2}+ \mi\frac{2t}{m\hbar}\right)}\left[-\mi\frac{p_0}{2\sigma_p^2} + \frac{z}{\hbar}\right]^2}.\label{eq:sol_from_momen}
+\end{equation}
+Esta solución es idéntica a la obtenida anteriormente en \eqref{eq:gaussianGenSchr2} mediante la identificación $C=\frac{\hbar^2}{\sigma_p^2}$. Esto proporciona la interpretación física buscada para $C$. 
+
+Para obtener la densidad de probabilidad asociada a esta función de onda, es conveniente expresar la función de onda en forma polar, separando la amplitud real del factor de fase. Para esto, se expande el exponente:
+\begin{equation}
+	\begin{aligned}[b]
+		\frac{\left[-\frac{ip_0}{2\sigma_p^2} + \frac{z}{\hbar}\right]^2}{\left(\frac{1}{\sigma_p^2}+ \frac{2it}{m\hbar}\right)} & = \frac{\left(\frac{1}{\sigma_p^2}- \frac{2it}{m\hbar}\right)}{\left(\frac{1}{\sigma_p^4}+ \frac{4t^2}{m^2\hbar^2}\right)}\left[-\frac{p_0^2}{4\sigma_p^4} + \frac{z^2}{\hbar^2} - i \frac{p_0z}{\hbar\sigma_p^2}\right] \\
+		                                                                                                                                & = \frac{1}{\left(\frac{1}{\sigma_p^4}+ \frac{4t^2}{m^2\hbar^2}\right)}\bigg[-\frac{p_0^2}{4\sigma_p^6} + \frac{z^2}{\hbar^2\sigma_p^2} - \frac{ip_0z}{\hbar\sigma_p^4} + \frac{ip_0^2t}{2m\hbar\sigma_p^4} - \frac{2itz^2}{m\hbar^3} - \frac{2tp_0z}{\hbar^2\sigma_p^2 m}\bigg].
+	\end{aligned}
+\end{equation}
+Sustituyendo en la expresión de $\psi(z,t)$ y reagrupando términos:
+\begin{equation}
+	\begin{aligned}[c]
+		\psi(z,t) & = A\sqrt{\frac{\pi}{\frac{1}{4\sigma_p^2} + \frac{it}{2\hbar m}}}\exp\Bigg\{-\frac{1}{\left(\frac{1}{\sigma_p^4}+ \frac{4t^2}{m^2\hbar^2}\right)}\bigg[\left(\frac{z}{\hbar\sigma_p} - \frac{p_0t}{\sigma_p m\hbar}\right)^2 - \frac{ip_0z}{\hbar\sigma_p^4} \\
+		          & \quad + \frac{ip_0^2t}{2m\hbar\sigma_p^4} - \frac{2itz^2}{m\hbar^3}\bigg]\Bigg\}.
+	\end{aligned}
+\end{equation}
+Luego, se expresa en forma polar el coeficiente del paquete de onda como:
+\begin{equation}
+	\sqrt{\frac{\pi}{\frac{1}{4\sigma_p^2} + \frac{it}{2\hbar m}}} = \sqrt{\frac{4\pi\left(\frac{1}{\sigma_p^2} - \frac{2it}{m\hbar}\right)}{\frac{1}{\sigma_p^4} + \frac{4t^2}{m^2\hbar^2}}} = \sqrt{\frac{4\pi}{\sqrt{\frac{1}{\sigma_p^4} + \frac{4t^2}{m^2\hbar^2}}}}\exp{-\frac{i}{2} \arctan\left(\frac{2\sigma_p^2t}{m\hbar}\right)}.
+\end{equation}
+De este modo, al definir las cantidades:
+\begin{equation}
+	\sigma_z \equiv \frac{\hbar}{2\sigma_p}\sqrt{1 + \frac{4\sigma_p^4}{\hbar^2}\frac{t^2}{m^2}}\quad \text{y}\quad v_0 \equiv \frac{p_0}{m},\label{eq:def_sigm_z_schr}
+\end{equation}
+se obtiene finalmente la función de onda en la forma compacta:
+\begin{equation}
+	\psi(z,t) = \frac{1}{(2\pi)^{1/4}\sqrt{\sigma_z}}\exp{-\frac{(z - v_0t)^2}{4\sigma_z^2}}e^{i\phi(z,t)}\label{eq:gaussianSchrSol}
+\end{equation}
+con la fase $\phi(z,t)$ dada por:
+\begin{equation}
+	\phi(z,t) = \frac{1}{\hbar}\left[p_0 + \frac{\sigma_p^2v_0t}{2\sigma_z^2p_0}\right](z-v_0t) + \frac{p_0}{2\hbar}v_0t - \frac{1}{2}\arctan\left(\frac{2\sigma_p^2t}{m\hbar}\right).\label{eq:gaussianSchrSol2}
+\end{equation}
+
+Como la función de onda obtenida tiene una componente real y otra imaginaria, para observar su evolución, se necesitan graficar ambas componentes. Esto se muestra en la Figura \ref{fig:evolutionWaveSchro}, y se observa que la función de onda se dispersa, lo cual se relaciona al hecho de que es una combinación de distintos paquetes de onda con momentum fijo, por lo que los valores de momentum mayores harán que la función se disperse.
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian/graphs/0000/wave.pdf}
+		\caption{t = 0.0 s}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian/graphs/0400/wave.pdf}
+		\caption{t = 0.4 s}
+	\end{subfigure}
+	\hfill\break
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian/graphs/0800/wave.pdf}
+		\caption{t = 0.8 s}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian/graphs/1200/wave.pdf}
+		\caption{t = 1.2 s}
+	\end{subfigure}
+	\hfill\break
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian/graphs/1600/wave.pdf}
+		\caption{t = 1.6 s}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian/graphs/2000/wave.pdf}
+		\caption{t = 2.0 s}
+	\end{subfigure}
+	\hfill\break
+	\caption{Evolución de un paquete de onda gaussiano para una rapidez media no nula.}
+	\label{fig:evolutionWaveSchro}
+\end{figure}
+\subsection{Densidad de probabilidad}
+Aunque la evolución de la función de onda es importante para determinar los posibles valores de una medición, el objeto de interés físico directo es la densidad de probabilidad asociada a los observables que se desean medir. Para el caso del observable posición, representado por el operador $\hat{Z}$ que actúa como:
+\begin{equation}
+   \hat{Z}\psi(z,t) = z\psi(z,t),
+\end{equation}
+la densidad de probabilidad en el instante $t$ es $\abs{\psi(z,t)}^2$. En el caso del paquete de onda gaussiano, esta toma la forma explícita:
+\begin{equation}
+	\abs{\psi(z,t)}^2 = \frac{1}{(2\pi)^{1/2}\sigma_z}\exp{-\frac{(z-v_0t)^2}{2\sigma_z^2}}.
+\end{equation}
+La evolución temporal de esta densidad de probabilidad se ilustra en la Figura \ref{eq:evolProbDensitySchro}. En ella se observa claramente que el paquete se desplaza con velocidad constante $v_0$ y, simultáneamente, se dispersa debido a la dependencia temporal de $\sigma_z$ en \eqref{eq:def_sigm_z_schr}.
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian/graphs/0000/prob.pdf}
+		\caption{t = 0.0 s}
+	\end{subfigure}
+	\begin{subfigure}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian/graphs/0400/prob.pdf}
+		\caption{t = 0.4 s}
+	\end{subfigure}
+	\begin{subfigure}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian/graphs/0800/prob.pdf}
+		\caption{t = 0.8 s}
+	\end{subfigure}
+	\begin{subfigure}[c]{0.6\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian/graphs/1200/prob.pdf}
+		\caption{t = 1.2 s}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.6\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian/graphs/1600/prob.pdf}
+		\caption{t = 1.6 s}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.6\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian/graphs/2000/prob.pdf}
+		\caption{t = 2.0 s}
+	\end{subfigure}
+	\caption{Evolución de la densidad de probabilidad de un paquete de onda gaussiano para una rapidez no nula.}
+	\label{eq:evolProbDensitySchro}
+\end{figure}
+% A partir de este resultado podemos graficar la evolución del paquete gaussiano (ver Figura \ref{fig:evolution}).
+% \begin{figure}[H]
+% 	\centering
+% 	\begin{subfigure}[b]{0.4\textwidth}
+% 		\centering
+% 		\includegraphics[width=\textwidth]{graph/graph_real.pdf}
+% 		\caption{Componente real}
+% 		\label{fig:sub1}
+% 	\end{subfigure}
+% 	\hfill
+% 	\begin{subfigure}[b]{0.4\textwidth}
+% 		\centering
+% 		\includegraphics[width=\textwidth]{graph/graph_im.pdf}
+% 		\caption{Componente imaginaria}
+% 		\label{fig:sub2}
+% 	\end{subfigure}
+% 	\caption{Evolución de un paquete de onda gaussiano}
+% 	\label{fig:evolution}
+% \end{figure}
+%
+% Además, en la Figura \ref{fig:density_non_rel} se muestra la evolución de la densidad de probabilidad asociada al paquete de onda gaussiano.
+%
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.4\textwidth]{graph/graph_dens.pdf}
+% 	\caption{Densidad de probabilidad}
+% 	\label{fig:density_non_rel}
+% \end{figure}
+Una vez obtenida la densidad de probabilidad para la posición, se calcula su valor esperado e incertidumbre correspondiente. Se tiene: 
+\begin{align}
+	\left\langle z\right\rangle   & = \frac{1}{\sqrt{2\pi}\sigma_z} \int_{-\infty}^{\infty}z\exp{-\frac{(z -v_0t)^2}{2\sigma_z^2}}\dd z   \\
+	\left\langle z^2\right\rangle & =\frac{1}{\sqrt{2\pi}\sigma_z} \int_{-\infty}^{\infty}z^2\exp{-\frac{(z -v_0t)^2}{2\sigma_z^2}}\dd z.
+\end{align}
+Estas integrales se resuelven mediante las identidades gaussianas:
+\begin{equation}
+  \int_{-\infty}^{\infty}e^{-\alpha x^2} \dd x = \sqrt{\frac{\pi}{\alpha}},\quad \int_{-\infty}^{\infty}xe^{-\alpha x^2} \dd x= 0,\quad \int_{-\infty}^{\infty}x^2e^{-\alpha x^2} \dd x = \frac{1}{2}\sqrt{\frac{\pi}{\alpha^3}},\label{eq:gaussians}
+\end{equation}
+obteniéndose:
+\begin{equation}
+	\left\langle z\right\rangle = v_0 t,\quad \left\langle z^2\right\rangle = \sigma^2_z + (v_0t)^2.\label{eq:mean_schr_pos}
+\end{equation}
+El valor esperado de la posición indica que el centro del paquete se mueve con velocidad constante $v_0$, siguiendo la trayectoria clásica de una partícula libre con la misma velocidad. Por ello, interpretaremos $v_0$ como la velocidad media de la partícula.
+
+A partir de \eqref{eq:mean_schr_pos}, la incertidumbre de la posición resulta:
+\begin{equation}
+	\triangle z = \sigma_z.
+\end{equation}
+Recordando que $\sigma_z$ fue definida en \eqref{eq:def_sigm_z_schr} 
+\begin{equation}
+   \sigma_z(t) = \frac{\hbar}{2\sigma_p}\sqrt{1 + \frac{4\sigma_p^4 t^2}{\hbar^2m^2}},
+\end{equation}
+la incertidumbre $\triangle z$ aumenta. Esto se puede entender como una consecuencia de que el paquete de onda gaussiano es una superposición de funciones de onda plana con diferentes momentos, tal que la diferencia entre los valores de momentum genera el aumento de la incertidumbre de la posición.
+
+Al considerar el operador momentum en el espacio de posiciones:
+\begin{equation}
+	\hat{P} \psi(z) = \frac{\hbar}{\mi} \frac{\dd }{\dd z}\psi(z).
+\end{equation}
+la densidad de probabilidad asociada a este será dada por:
+\begin{equation}
+	\abs{f(p)}^2 = \frac{1}{\sqrt{2\pi}\sigma_p}\exp{-\frac{(p - p_0)^2}{2\sigma_p^2}}.
+\end{equation}
+Nótese que esta distribución de probabilidad no depende del tiempo, es decir que para un paquete de onda gaussiano, la densidad de probabilidad asociada al observable momentum permanece invariante durante la evolución. Esto contrasta con el comportamiento de la densidad de probabilidad asociada al operador posición, donde el paquete se desplaza y dispersa.
+
+A partir de esta densidad, los valores esperados del momento se calculan como:
+\begin{align}
+	\left\langle p\right\rangle   & = \frac{1}{\sqrt{2\pi}\sigma_p}\int_{-\infty}^{\infty}p \exp{- \frac{(p-p_0)^2}{2\sigma_p^2}} \dd p    \\
+	\left\langle p^2\right\rangle & = \frac{1}{\sqrt{2\pi}\sigma_p}\int_{-\infty}^{\infty}p^2 \exp{- \frac{(p-p_0)^2}{2\sigma_p^2}} \dd p.
+\end{align}
+Usando las mismas identidades usadas para la posición, dadas en \eqref{eq:gaussians} se obtiene:
+\begin{equation}
+	\left\langle p\right\rangle = p_0,\quad \left\langle p^2\right\rangle = \sigma_p^2 + p_0^2.
+\end{equation}
+El valor esperado del momentum coincide con el momentum clásico de una partícula libre con masa $m$ y velocidad $v_0$. La incertidumbre correspondiente es:
+\begin{equation}
+	\triangle p = \sigma_p,
+\end{equation}
+la cual es constante para un paquete de onda gaussiano.
+
+Finalmente, el producto de las incertidumbres resulta:
+\begin{equation}
+  \triangle z \triangle p = \frac{\hbar}{2}\sqrt{1 + \frac{4\sigma_p^4}{\hbar^2}\frac{t^2}{m^2}}.\label{eq:product_uncert_gaussian}
+\end{equation}
+Esta expresión satisface la relación de Heisenberg \eqref{eq:heisenberg} en todo instante. El producto de incertidumbres alcanza su valor mínimo posible $\hbar/2$ en $t=0$, y posteriormente aumenta únicamente debido al crecimiento de la incertidumbre de la posición, ya que $\triangle p$ permanece constante.
+
+Si asociamos a $t=0$ con el instante posterior a una medición que prepara el estado como un paquete de onda gaussiano, la igualdad \eqref{eq:product_uncert_gaussian} evaluada en ese momento establece dos límites: uno en el que la partícula está bien localizada en el espacio de posiciones y otro en el que está bien localizada en el espacio de momentos. 
+
+Conforme evoluciona el sistema, el incremento de la $\triangle z$ refleja la pérdida progresiva en la precisión del conocimiento de la posición de la partícula. Esta pérdida solo puede revertirse mediante una nueva medición, proceso que rompe la condición de evolución libre de interacciones considerada hasta ahora.
+
+Así, para una partícula libre, después de un intervalo de tiempo suficientemente largo desde su preparación, el paquete de onda se habrá dispersado tanto que tenderá al límite de una partícula completamente deslocalizada en el espacio de posiciones. En esta situación, la descripción mediante una función de onda plana es un aproximación válida, aunque tal función no es una función de onda válida.
+
+\section{Paquetes de onda en el marco relativista} \renewcommand{\thefootnote}{\arabic{footnote}} % numeración por símbolos
+\lhead[\thepage]{\thesection. Paquetes de onda en el marco relativista}
+\subsection{Formación de un paquete de onda gaussiano}
+Si una partícula se propaga en la dirección del eje $z$, las componentes del momentum en las otras direcciones deben anularse. Esto significa que una partícula relativista descrita por la ecuación de Klein-Gordon que se mueve en la dirección del eje $z$ será dada por
+\begin{equation}
+	\phi(z,t) = \frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}\frac{1}{\sqrt{2E}}e^{-\frac{i}{\hbar}(Et - p z)}a^+(p) \dd p.
+\end{equation}
+donde $E = \sqrt{p^2c^2 + m^2 c^4}$. Como $a^+(p)$ depende del momentum y la masa de la partícula es una constante, podemos definir la función
+\begin{equation}
+	\tilde{\phi}(p) \equiv \frac{a^+(p)}{\sqrt{2E}},
+\end{equation}
+lo que significa que la expresión anterior será ahora
+\begin{equation}
+	\phi(z,t) = \frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}\tilde{\phi}(p) \exp{-\frac{i}{\hbar}(\sqrt{p^2c^2 + m^2c^4}t - pz)} \dd p.\label{eq:K-G_fourier}
+\end{equation}
+Para hallar la evolución de un paquete de onda gaussiano como el obtenido en \eqref{eq:gaussianSchrSol} para $z_0=0$ y $t=0$,
+\begin{equation}
+	\phi(z,0) = \frac{1}{\sqrt{\sigma_z\sqrt{2\pi}}}\exp{-\frac{z^2}{4\sigma_z^2} + \frac{i}{\hbar}p_0 z},\label{eq:gaussian_initial_K_G}
+\end{equation}
+usamos la transformada inversa de Fourier para $t=0$, es decir
+\begin{equation}
+	\tilde{\phi}(p) = \frac{1}{\sqrt{2\pi\hbar}}\int_{-\infty}^{\infty}\phi(z,0)e^{-\frac{i}{\hbar}pz} \dd z,\label{eq:inverse_fourier_K_G}
+\end{equation}
+para luego reemplazar el valor obtenido de $\tilde{\psi}(p)$ en la ecuación \eqref{eq:K-G_fourier}.
+
+Al reemplazar \eqref{eq:gaussian_initial_K_G} en la integral \eqref{eq:inverse_fourier_K_G} se obtiene
+\begin{equation}
+	\tilde{\phi}(p) = \frac{1}{\sqrt{2\pi\hbar\sigma_z\sqrt{2\pi}}}\int_{-\infty}^{\infty}e^{-\frac{z^2}{4\sigma_z^2}}e^{\frac{i}{\hbar}(p_0 -p)z} \dd z,
+\end{equation}
+la cual se puede resolver al usar \eqref{eq:special_integral_gaussian}:
+\begin{equation}
+	\tilde{\phi}(p) = \sqrt{\frac{\sqrt{2}\sigma_z}{\hbar\sqrt{\pi}}}\exp{-\frac{\sigma_z^2}{\hbar^2}(p-p_0)^2}.\label{eq:KG_gaussian_momentum}
+\end{equation}
+Antes de hallar $\phi(z,t)$ hay que notar que
+\begin{equation}
+	\int_{-\infty}^{\infty}\tilde{\phi}^\ast(p) \tilde{\phi}(p) \dd p =1
+\end{equation}
+y que la desviación estándar $\sigma_p$ es
+\begin{equation}
+	\sigma_p \equiv \frac{\hbar}{2\sigma_z}.
+\end{equation}
+Entonces, el paquete de onda gaussiano en cualquier instante de tiempo será:
+\begin{equation}
+	\phi(z,t) = \frac{1}{\sqrt{\sigma_p2\pi\hbar\sqrt{2\pi}}} \int_{-\infty}^{\infty} \exp{-\frac{(p-p_0)^2}{4\sigma_p^2} + \frac{i}{\hbar}pz -\frac{i}{\hbar}t\sqrt{p^2c^2 + m^2c^4}} \dd p.\label{eq:rel_KG_fun_gaussian}
+\end{equation}
+Esta integral no se puede resolver de forma tan sencilla como se hizo para el caso no relativista, debido a que la energía no es un polinomio de grado menor o igual a dos para poder usar las integrales obtenidas de la función gaussiana. En el artículo publicado por \textcite{Huang_2024} se obtuvo que para valores $\sigma_z$ mayores a la longitud de onda reducida de Compton ($\lambda_C$), la densidad de probabilidad es evoluciona de forma similar a una función gaussiana. En contraste, para $\sigma_z$ menor que $\lambda_C$ esta no evoluciona como una función gaussiana. Además, para el caso de $\sigma_z< \lambda_C$, hay zonas con densidad de probabilidad negativa, lo cual corresponde a la contribución de estados de energía negativa. Pero no está bien definido para las soluciones de la ecuación de Klein-Gordon para una partícula libre.
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./gaussian_rel/WavePacketFreeGauss_S3P0.pdf}
+		\caption{Gráfica obtenida para $\sigma_z = 3\lambda_C$}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{./gaussian_rel/WavePacketFreeGauss_S0p3P0.pdf}
+		\caption{Gráfica obtenida para $\sigma_z = 0.3 \lambda_C$}
+	\end{subfigure}
+	\caption{Evolución de paquete de onda gaussiano para la ecuación de Klein-Gordon para $p_0 =0$ para diferentes valores de $\sigma_z$, donde las curvas de colores oscuros a claro se relacionan con el aumento del tiempo. Extraído de \textcite{Huang_2024}.}
+\end{figure}
+Esto sugiere que para tener un paquete de onda gaussiano bien definido para la ecuación de Klein-Gordon se debe considerar que la distribución gaussiana de los momentos $\tilde{\phi}(p)$ debe estar fuertemente localizada al alrededor de un punto, el cual denotaremos por $p_0$. Por esto expresamos la energía de la partícula de masa $m$ en función de $p_0$:
+\begin{equation}
+	E = (p^2c^2 + m^2c^4)^{1/2} = \sqrt{p_0^2c^2 + m^2c^4}\left[1 + \frac{p^2 - p^2_0}{p_0^2 + mc^2}\right]^{1/2}
+\end{equation}
+Y al definir
+\begin{equation}
+	E_0 \equiv (p_0c^2 + mc^4)^{1/2}
+\end{equation}
+se puede expresar como
+\begin{equation}
+	E = E_0\left[1 + \frac{(p^2 - p_0^2)c^2}{E_0^2}\right]^{1/2}.\label{eq:relativistic_energy_centered}
+\end{equation}
+Luego, la condición para que la distribución de momentos esté fuertemente localizada será $(p-p_0)c/E_0 \ll 1$. De esta, se puede realizar una expansión de Taylor con términos con factor $(p-p_0)^n$ y despreciar los términos de menor contribución. Para hacer esto definimos la función $g(p)$ como
+\begin{equation}
+	g(p) = \left[1 + \frac{(p^2 - p_0^2)c^2}{E_0^2}\right]^{1/2},
+\end{equation}
+cuyas derivadas son
+\begin{equation}
+	\frac{\dd g(p)}{\dd p} = \frac{pc^2}{E_0^2 g(p)},\quad \frac{\dd^2 g(p)}{\dd p^2} = \frac{m^2c^6}{E_0^4[g(p)]^3}.
+\end{equation}
+Así, al realizar la expansión de Taylor hasta el segundo término de de \eqref{eq:relativistic_energy_centered}, se obtiene
+\begin{equation}
+	E = E_0 \left[1 + \frac{p_0c^2}{E_0^2}(p-p_0) + \frac{m^2c^6}{2E_0^4}(p-p_0)^2\right].\label{eq:KG_expanded_energy}
+\end{equation}
+Al reemplazar \eqref{eq:KG_expanded_energy} en \eqref{eq:rel_KG_fun_gaussian} se obtiene:
+\begin{equation}
+	\begin{aligned}[b]
+		\phi(z,t) & = \frac{e^{-\frac{i}{\hbar}E_0t}}{\sqrt{\sigma_p2\pi\hbar\sqrt{2\pi}}} \int_{-\infty}^{\infty} \exp\bigg\{-\frac{i}{\hbar}t E_0\left[\frac{p_0c^2}{E_0^2}(p-p_0) + \frac{m^2c^6}{2E_0^4}(p-p_0)^2\right] \\
+		          & \quad -\frac{(p-p_0)^2}{4\sigma_p^2} + \frac{i}{\hbar}pz\bigg\} \dd p.
+	\end{aligned}
+\end{equation}
+Y tras realizar el cambio de variable $\kappa = p - p_0$, la integral se expresa como
+\begin{equation}
+	\phi(z,t) = \frac{e^{-\frac{i}{\hbar}(E_0t - p_0z)}}{\sqrt{\sigma_p2\pi\hbar\sqrt{2\pi}}} \int_{-\infty}^\infty \exp{\frac{i}{\hbar}\left(z - \frac{p_0c^2t}{E_0}\right)\kappa - \left(i\frac{m^2c^6t}{\hbar2E_0^3} + \frac{1}{4\sigma_p^2}\right)\kappa^2} \dd \kappa.
+\end{equation}
+De modo que, luego de usar \eqref{eq:special_integral_gaussian}, se obtiene:
+\begin{equation}
+	\phi(z,t) = \frac{e^{-\frac{i}{\hbar}(E_0t - p_0z)}}{\sqrt{\sigma_p2\pi\hbar\sqrt{2\pi}}}\sqrt{\frac{\pi}{i\frac{m^2c^6t}{\hbar2E_0^3} + \frac{1}{4\sigma_p^2}}} \exp{- \frac{\frac{1}{\hbar^2}\left(z - \frac{p_0c^2t}{E_0}\right)^2}{4\left(i\frac{m^2c^6t}{\hbar2E_0^3} + \frac{1}{4\sigma_p^2}\right)}}.\label{eq:KG_wave_packet}
+\end{equation}
+\subsection{Densidad de probabilidad}
+Sin embargo, para la ecuación de Klein-Gordon el valor de $\phi(z,t)$ no es suficiente para determinar la densidad de probabilidad de la posición, sino que también se debe tomar en cuenta su derivada respecto del tiempo:
+\begin{equation}
+	\begin{aligned}[b]
+		\frac{\partial \phi(z,t)}{\partial t} & = -\frac{i}{\hbar}E_0\frac{e^{-\frac{i}{\hbar}(E_0t - p_0z)}}{\sqrt{\sigma_p2\pi\hbar\sqrt{2\pi}}}\sqrt{\frac{\pi}{i\frac{m^2c^6t}{\hbar2E_0^3} + \frac{1}{4\sigma_p^2}}} \exp{- \frac{\frac{1}{\hbar^2}\left(z - \frac{p_0c^2t}{E_0}\right)^2}{4\left(i\frac{m^2c^6t}{\hbar2E_0^3} + \frac{1}{4\sigma_p^2}\right)}}                                 \\
+		                                      & \quad + i \frac{m^2c^6}{4\hbar E_0^3} \frac{e^{-\frac{i}{\hbar}(E_0t - p_0z)}}{\sqrt{\sigma_p2\pi\hbar\sqrt{2\pi}}}\sqrt{\frac{\pi}{\left(i\frac{m^2c^6t}{\hbar2E_0^3} + \frac{1}{4\sigma_p^2}\right)^3}} \exp{- \frac{\frac{1}{\hbar^2}\left(z - \frac{p_0c^2t}{E_0}\right)^2}{4\left(i\frac{m^2c^6t}{\hbar2E_0^3} + \frac{1}{4\sigma_p^2}\right)}} \\
+		                                      & \quad - \frac{e^{-\frac{i}{\hbar}(E_0t - p_0z)}}{\sqrt{\sigma_p2\pi\hbar\sqrt{2\pi}}}\sqrt{\frac{\pi}{i\frac{m^2c^6t}{\hbar2E_0^3} + \frac{1}{4\sigma_p^2}}} \exp{- \frac{\frac{1}{\hbar^2}\left(z - \frac{p_0c^2t}{E_0}\right)^2}{4\left(i\frac{m^2c^6t}{\hbar2E_0^3} + \frac{1}{4\sigma_p^2}\right)}}                                              \\
+		                                      & \quad \times \frac{-\frac{8}{\hbar^2}\left(z-\frac{p_0c^2t}{E_0}\right)\frac{p_0c^2}{E_0}\left(i \frac{m^2c^6t}{2\hbar E_0^3} + \frac{1}{4\sigma_p^2}\right) - i\frac{2m^2c^6}{\hbar^3 E_0^3}\left(z- \frac{p_0c^2t}{E_0}\right)^2}{16\left(\frac{im^2c^6t}{2\hbar E_0^3} + \frac{1}{4\sigma_p^2}\right)^2}.
+	\end{aligned}\label{eq:KG_wave_packet_2}
+\end{equation}
+Con esto se puede hallar la dependencia de la densidad de probabilidad del tiempo y la posición usando \eqref{eq:densityKG_2}:
+\begin{equation*}
+  \rho(x) = \frac{\hbar}{mc^2}\Im{\phi \frac{\partial \phi^\ast}{\partial t}}
+\end{equation*}
+es decir:
+\begin{equation}
+  \begin{aligned}[b]
+    \rho(z,t) = & \frac{1}{2mc^2\pi\sigma_p \sqrt{2\pi}}\frac{\pi}{\frac{m^4c^{12}t^2}{4\hbar^2E_0^6}+ \frac{1}{16\sigma_p^4}}\exp{-\frac{\frac{1}{2\hbar^2\sigma_p^2}\left(z-\frac{p_0c^2}{E_0}t\right)^2}{4\left(\frac{m^4c^{12}t^2}{4\hbar^2E_0^6} + \frac{1}{16\sigma_p^4}\right)}}\times\\
+                & \Bigg[\frac{E_0}{\hbar} - \frac{\frac{m^2c^6}{4\hbar^2E_0^3}\frac{1}{4\sigma_p}}{\frac{m^4c^{12}t^2}{4\hbar^2E_0^6} + \frac{1}{16\sigma_p^4}} + \frac{\frac{1}{\hbar^2}\left(z-\frac{p_0c^2t}{E_0}\right)\frac{p_0c^2}{E_0}\frac{m^2c^6t}{2\hbar E_0^3}}{2\left(\frac{m^4c^{12}t^2}{4\hbar^2E_0^6} + \frac{1}{16\sigma_p^4}\right)} \\
+                & \quad - \frac{\frac{2m^2c^6}{\hbar^3E_0^3}\left(z - \frac{p_0c^2t}{E_0}\right)^2\left(\frac{1}{16\sigma_p^4} - \frac{m^4c^{12}t^2}{4\hbar^2 E_0^6}\right)}{16\left(\frac{m^4c^{12}t^2}{4\hbar^2E_0^6} + \frac{1}{16\sigma_p^4}\right)^2}\Bigg].
+  \end{aligned}
+\end{equation}
+Sin embargo, este resultado no está normalizado. Esto se debido a que $\abs{\tilde{\phi}(p)}^2$ no es la densidad de probabilidad en el espacio de momentos, sino $\gamma(p)\abs{\tilde{\phi}(p)}^2$, según lo obtenido en \eqref{eq:density_momentum_KG}. Al normalizarla, se obtiene:
+\begin{equation}
+	\begin{aligned}[b]
+		\rho(z,t) = & \frac{1}{\left(\frac{E_0}{\hbar} - \frac{\frac{m^2c^6}{4\hbar^2E_0^3}\frac{1}{4\sigma_p}}{\frac{m^4c^{12}t^2}{4\hbar^2E_0^6} + \frac{1}{16\sigma_p^4}} - \frac{\frac{m^2c^6}{\hbar E_0^3}\sigma_p^2 \left(\frac{1}{16\sigma_p^4} - \frac{m^4c^{12}t^2}{4\hbar^2E_0^6}\right)}{2\left(\frac{m^4c^{12}t^2}{4\hbar^2E_0^6} + \frac{1}{16\sigma_p^4}\right)}\right)\sqrt{\pi 8\hbar^2\sigma_p^2\left(\frac{m^4c^{12}t^2}{4\hbar^2E_0^6} + \frac{1}{16\sigma_p^4}\right)}}\\
+                & \exp{-\frac{\frac{1}{2\hbar^2\sigma_p^2}\left(z-\frac{p_0c^2}{E_0}t\right)^2}{4\left(\frac{m^4c^{12}t^2}{4\hbar^2E_0^6} + \frac{1}{16\sigma_p^4}\right)}}\times \Bigg[\frac{E_0}{\hbar} - \frac{\frac{m^2c^6}{4\hbar^2E_0^3}\frac{1}{4\sigma_p}}{\frac{m^4c^{12}t^2}{4\hbar^2E_0^6} + \frac{1}{16\sigma_p^4}} + \frac{\frac{1}{\hbar^2}\left(z-\frac{p_0c^2t}{E_0}\right)\frac{p_0c^2}{E_0}\frac{m^2c^6t}{2\hbar E_0^3}}{2\left(\frac{m^4c^{12}t^2}{4\hbar^2E_0^6} + \frac{1}{16\sigma_p^4}\right)} \\
+		            & \quad - \frac{\frac{2m^2c^6}{\hbar^3E_0^3}\left(z - \frac{p_0c^2t}{E_0}\right)^2\left(\frac{1}{16\sigma_p^4} - \frac{m^2c^{12}t^2}{4\hbar^2 E_0^6}\right)}{16\left(\frac{m^4c^{12}t^2}{4\hbar^2E_0^6} + \frac{1}{16\sigma_p^4}\right)^2}\Bigg]                                                                                      
+	\end{aligned}
+\end{equation}
+Su evolución es mostrada en la figura \ref{eq:evolProbDensityKG}. En esta se nota que la densidad de probabilidad evoluciona como un paquete de onda gaussiano, por lo que la aproximación usada es válida, y será usada más adelante para hallar la oscilación de sabor de paquetes de onda gaussianos de la ecuación de Klein-Gordon.
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.7\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian_rel/klein_gordon/0000.pdf}
+		\caption{t = 0.0 s}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.7\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian_rel/klein_gordon/0400.pdf}
+		\caption{t = 0.4 s}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.7\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian_rel/klein_gordon/0800.pdf}
+		\caption{t = 0.8 s}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.7\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian_rel/klein_gordon/1200.pdf}
+		\caption{t = 1.2 s}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.7\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian_rel/klein_gordon/1600.pdf}
+		\caption{t = 1.6 s}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.7\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{gaussian_rel/klein_gordon/2000.pdf}
+		\caption{t = 2.0 s}
+	\end{subfigure}
+	\caption{Evolución de la densidad de probabilidad de un paquete de onda gaussiano para la ecuación de Klein-Gordon.}
+	\label{eq:evolProbDensityKG}
+\end{figure}
+La densidad de probabilidad asociada al operador momentum se obtiene de \eqref{eq:KG_gaussian_momentum} y \eqref{eq:density_momentum_KG}:
+\begin{equation}
+  \rho_p = \gamma(p) \frac{1}{\sqrt{\sigma_p\sqrt{2\pi}}}\exp{-\frac{(p-p_0)^2}{4\sigma_p^2}}
+\end{equation}
+Como:
+\begin{equation}
+   \gamma(p) = \frac{1}{\sqrt{1-\frac{p^2c^2}{E^2}}} = \frac{\sqrt{p^2c^2 + m^2c^4}}{mc^2},
+\end{equation}
+se obtiene:
+\begin{equation}
+   \rho_p = \frac{\sqrt{p^2c^2 + m^2c^4}}{mc^2\sqrt{\sigma_p\sqrt{2\pi}}}\exp{-\frac{(p-p_0)^2}{4\sigma_p^2}}.
+\end{equation}
+Y su gráfica está dada en:
+% ──────────────────────────────────────────────────────────────────────
+\begin{figure}[!htpb]
+  \centering
+  \includegraphics[width=0.9 \linewidth]{gaussian_rel/klein_gordon/densit_momentum/plot.pdf}
+  \caption{Densidad de probabilidad de una paquete de onda gaussiano en el espacio de momentos para la ecuación de Klein-Gordon}
+\end{figure}
+% ──────────────────────────────────────────────────────────────────────
+
+

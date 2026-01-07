@@ -1,0 +1,884 @@
+\chapter{Helicidad y quiralidad}\label{cap.4}
+\markboth{Heliciad y quiralidad}{Helicidad y quiralidad}
+En este capítulo se define el operador helicidad, y a partir de la covarianza de la ecuación de Dirac se halla la representación del operador espín. De este resultado, se expresa el operador helicidad en función de las matrices gamma, y se demuestra que el espín de las partículas descritas por la ecuación de Dirac es 1/2. Luego se define un nuevo conjunto completo de observables compatibles, de cuyos elementos se determinan sus autofunciones y las relaciones entre estas para hallar la solución general de la ecuación de Dirac. Usando la representación de Dirac se obtiene la representación de estas autofunciones y se evalúan en el límite no relativista para hallar su relación con los resultados de la mecánica cuántica no relativista.
+
+Además, se determina la relación entre el operador quiralidad y la transformación de paridad, así como su aplicación en las soluciones de la ecuación de Dirac. Finalmente se evalúa la ecuación de Dirac en el caso no masivo, obteniéndose que la helicidad y la quiralidad son equivalentes en este caso.
+\section{Helicidad} \renewcommand{\thefootnote}{\arabic{footnote}} % numeración por símbolos
+\lhead[\thepage]{\thesection. Helicidad}
+
+\subsection{Conjunto completo de observables compatibles}
+En el capítulo anterior se obtuvo que los operadores $P^2$, $W^2$, $P^\mu$, $W^0$ permiten caracterizar el estado de una partícula. Sin embargo, se tiene que \footnote{En este capítulo se volverán a usar las unidades naturales: $c= \hbar =1$.}
+\begin{equation}
+	W^2 = -m^2 \vec{S}\,^2,
+\end{equation}
+y
+\begin{equation}
+	P^2 = - \square = m^2,\quad
+\end{equation}
+pues toda solución de la ecuación de Dirac satisface la ecuación $\square + m^2 = 0$ debido al método de Umezawa, por el cual se obtuvo la ecuación de Dirac en la subsección \ref{ssec:ecuación_Dirac}. Por lo que estos operadores son proporcionales a la identidad, así no pudiendo ser observables, sino restricciones de la partícula. De este modo, solo los operadores $P^\mu$ y $W^0$ forman un conjunto completo de observables compatibles. 
+
+Evidentemente los operadores $P^k = -i \partial_{k}$ son los operadores momentum, pero esto no es así para operador $P^0$. Para tener encontrar a que se relaciona este operador aplicamos el operador $\gamma^0$ a la ecuación de Dirac
+\begin{equation}
+	\begin{aligned}[b]
+    0 & = \gamma^0(i\gamma^\mu \partial_{\mu} - m)\psi(x)\\
+      & = (i \gamma^0 \gamma^k \partial_{k} + i\partial_{0} - m\gamma^0)\psi(x),
+	\end{aligned}
+\end{equation}
+obteniéndose de este modo que
+\begin{equation}
+	H_D\psi(x) = i \partial_{0}\psi(x)\label{eq:DiracHamiltonian}
+\end{equation}
+donde
+\begin{equation}
+	H_D \equiv (-i \gamma^0 \vec{\gamma}\cdot \gradient + m\gamma^0).\label{eq:Hamiltonian}
+\end{equation}
+es el Hamiltoniano de Dirac. Por lo que el operador $P^0$ permite calcular la energía de la partícula, ya que es equivalente al Hamiltoniano de Dirac.
+
+Para hallar los autovalores del Hamiltoniano de Dirac notamos que
+\begin{equation}
+	P^i f(p)e^{\pm ip\cdot x} = -if(p)\partial_{i}e^{\pm ip\cdot x} = \mp p_i f(p) e^{\pm ip\cdot x}
+\end{equation}
+y
+\begin{equation}
+	P^0 f(p)e^{\pm ip\cdot x} = if(p)\partial_{0}e^{\pm ip\cdot x} = \mp E f(p)e^{\pm ip\cdot x},
+\end{equation}
+donde $f(p)$ depende solo del momentum. Aquí se obtiene que los autovalores con frecuencia negativa tiene una energía positiva y los autovalores con frecuencia positiva tienen energía negativa. Para hacer énfasis en la diferencia entre estos autovalores, denotamos estos como
+\begin{equation}
+	u(p)e^{-ip\cdot x} \quad \text{y}\quad v(p)e^{ip\cdot x}.
+\end{equation}
+Al aplicar el Hamiltoniano de Dirac en ellos se obtiene
+\begin{equation}
+   \begin{aligned}[b]
+     H_D \left(u(p)e^{-i p\cdot x}\right) & = (\gamma^0 \vec{\gamma}\cdot \vec{P} + m\gamma^0)u(p)e^{-ip\cdot x}\\
+                             & = \gamma^0(\vec{\gamma}\cdot \vec{p} + m)u(p)e^{-ip\cdot x}
+   \end{aligned}
+\end{equation}
+y
+\begin{equation}
+   \begin{aligned}[b]
+     H_D\left(v(p)e^{i p\cdot x}\right) & = (\gamma^0 \vec{\gamma}\cdot \vec{P} + m\gamma^0)v(p)e^{ip\cdot x}\\
+                             & = \gamma^0(-\vec{\gamma}\cdot \vec{p} + m)v(p)e^{ip\cdot x}
+   \end{aligned}
+\end{equation}
+Al reemplazar en \eqref{eq:DiracHamiltonian} y aplicar $\gamma^0$ se obtienen:
+\begin{align}
+  (\gamma^\mu p_\mu - m) u(p) & = 0\\
+  (\gamma^\mu p_\mu +m)v(p) & = 0.
+\end{align}
+Así se han obtenidos las ecuaciones que deben satisfacer los autovalores del Hamiltoniano de Dirac.
+
+Con respecto al operador $W^0$, este al depender del espín
+\begin{equation}
+   W^0 = \vec{S}\cdot \vec{P},
+\end{equation}
+es necesario hallar la representación del espín para hallar sus autovalores. Para esto usamos la covariancia de la ecuación de Dirac y 
+\begin{equation}
+	\partial_\mu = \frac{\partial }{\partial x^\mu} = \frac{\partial x'^\nu}{\partial x^\mu}\frac{\partial }{\partial x'^\nu} = \tensor{\Lambda}{^\nu_\mu}\partial_\nu'.
+\end{equation}
+Entonces expresando la ecuación de Dirac en otro sistema de referencia inercial se obtiene:
+\begin{equation}
+	(i\gamma^\mu\partial_\mu - m)\psi(x) = (i\gamma^\mu\tensor{\Lambda}{^\nu_\mu}\partial'_\nu - m)\mathcal{S}^{-1}(\Lambda)\psi'(x') =0.
+\end{equation}
+Aplicando $\mathcal{S}(\Lambda)$ por el lado izquierdo
+\begin{equation}
+	\begin{aligned}[b]
+		0 & = (i \mathcal{S}(\Lambda)\gamma^\mu\tensor{\Lambda}{^\nu_\mu}\partial'_\nu \mathcal{S}^{-1}(\Lambda) - m)\psi'(x')  \\
+		  & =(i \mathcal{S}(\Lambda)\gamma^\mu\tensor{\Lambda}{^\nu_\mu} \mathcal{S}^{-1}(\Lambda)\partial'_\nu  - m)\psi'(x').
+	\end{aligned}
+\end{equation}
+Como la ecuación de Dirac debe tener la misma forma en ambos sistemas de referencia, al comparar con la ecuación de Dirac en las coordenadas $x_\nu'$
+\begin{equation}
+	(i\gamma^\nu \partial_\nu' -m )\psi'(x') = 0
+\end{equation}
+se obtiene que $\mathcal{S}$ debe satisfacer la relación
+\begin{equation}
+	\gamma^\nu = \mathcal{S}(\Lambda) \gamma^\mu \tensor{\Lambda}{^\nu_\mu}\mathcal{S}^{-1}(\Lambda),
+\end{equation}
+o equivalentemente
+\begin{equation}
+	\mathcal{S}(\Lambda)^{-1}\gamma^\nu \mathcal{S}(\Lambda) = \gamma^\mu \tensor{\Lambda}{^\nu_\mu}.\label{eq:lorentzfieldop}
+\end{equation}
+Recordando que las componentes de $\vec{S}$ se construyen a partir de los generadores de $\mathcal{S}(\Lambda)$, evaluamos esta condición para una transformación infinitesimal $\Lambda = 1 + \varepsilon\omega$:
+\begin{equation}
+	\begin{aligned}[b]
+		\gamma^{\mu}(\tensor{\delta}{^\nu_\mu} + \varepsilon\tensor{\omega}{^\nu_\mu}) & =\left(\mathbbm{1} - \frac{i}{2}\varepsilon\omega_{\rho\sigma}S^{\rho\sigma}\right)\gamma^{\nu}\left(\mathbbm{1} + \frac{i}{2}\varepsilon\omega_{\alpha\beta}S^{\alpha\beta}\right) \\
+		\gamma^{\mu} + \varepsilon\tensor{\omega}{^\nu_\mu}\gamma^{\mu}                & = \gamma^{\mu} - \frac{i}{2}\varepsilon\omega_{\rho\sigma}S^{\rho\sigma}\gamma^\nu + \frac{i}{2}\varepsilon\omega_{\alpha\beta}\gamma^{\nu}S^{\alpha\beta}                          \\
+		\tensor{\omega}{^\nu_\mu}\gamma^{\mu}                                          & = \frac{i}{2}\omega_{\rho\sigma}\left[\gamma^{\nu},S^{\rho\sigma}\right].
+	\end{aligned}
+\end{equation}
+Realizando el cambio $\tensor{\omega}{^\nu_\mu} = g^{\nu\alpha}\omega_{\alpha\mu}$
+\begin{equation}
+	\begin{aligned}[b]
+		i\omega_{\rho\sigma}\left[\gamma^{\nu},S^{\rho\sigma}\right] & = 2g^{\nu\alpha}\omega_{\alpha\mu}\gamma^{\mu}                                                   \\
+		                                                             & = g^{\nu\rho}\omega_{\rho\sigma}\gamma^{\sigma} + g^{\nu\sigma}\omega_{\sigma\rho}\gamma^{\rho}  \\
+		                                                             & = g^{\nu\rho}\omega_{\rho\sigma}\gamma^{\sigma} - g^{\nu\sigma}\omega_{\rho\sigma}\gamma^{\rho}.
+	\end{aligned}
+\end{equation}
+De este modo los generadores $S^{\rho\sigma}$ siguen la relación
+\begin{equation}
+	i\left[\gamma^{\nu}, S^{\rho\sigma}\right] = g^{\nu\rho}\gamma^{\sigma} - g^{\nu\sigma}\gamma^{\rho}.
+\end{equation}
+Con el fin de hallar $S^{\rho\sigma}$ evaluamos conmutador:
+\begin{equation}
+	\begin{aligned}[b]
+		i\left[\gamma^{\nu},\frac{-i}{4}\left[\gamma^\rho,\gamma^\mu\right]\right] & = \frac{1}{4}\gamma^{\nu}\left[\gamma^{\rho},\gamma^{\mu}\right] - \frac{1}{4}\left[\gamma^{\rho},\gamma^{\mu}\right]\gamma^{\nu}                                                                                                            \\
+		                                                                           & = \frac{1}{4}\gamma^{\nu}\gamma^{\rho}\gamma^{\mu}-\frac{1}{4}\gamma^{\nu}\gamma^{\mu}\gamma^{\rho} - \frac{1}{4}\gamma^{\rho}\gamma^{\mu}\gamma^{\nu} + \frac{1}{4}\gamma^{\mu}\gamma^{\rho}\gamma^{\nu}                                    \\
+		                                                                           & = \frac{1}{4}\gamma^{\nu}\gamma^{\rho}\gamma^{\mu} + \frac{1}{4}\gamma^{\rho}(\gamma^{\nu}\gamma^{\mu} - 2g^{\mu\nu}) - \frac{1}{4}\gamma^{\nu}\gamma^{\mu}\gamma^{\rho} + \frac{1}{4}\gamma^{\mu}(2g^{\rho\nu} - \gamma^{\nu}\gamma^{\rho}) \\
+		                                                                           & = \frac{1}{4}\left\{\gamma^{\nu},\gamma^{\rho}\right\}\gamma^{\mu} - \frac{1}{4}\left\{\gamma^{\nu},\gamma^{\mu}\right\}\gamma^{\rho} - \frac{1}{2}g^{\mu\nu}\gamma^{\rho} + \frac{1}{2}g^{\rho\nu}\gamma^{\mu}                              \\
+		                                                                           & = g^{\nu\rho}\gamma^{\mu} - g^{\nu\mu}\gamma^{\rho}.
+	\end{aligned}
+\end{equation}
+Como satisface la relación dada, podemos afirmar que
+\begin{equation}
+  S^{\rho\mu} = -\frac{i}{4}\left[\gamma^\rho,\gamma^\mu\right].\label{eq:spinGenerators}
+\end{equation}
+y
+\begin{equation}
+	\mathcal{S}(I + \varepsilon\omega) = \mathbbm{1} - \frac{i}{4}\varepsilon\omega_{\mu\nu}\sigma^{\mu\nu}.
+\end{equation}
+Al reemplazar \eqref{eq:spinGenerators} en 
+\begin{equation}
+   S^k = -\frac{1}{2}\sum_{j,l}\epsilon^{kjl}S^{jl},
+\end{equation}
+se obtiene que las componentes de espín están dadas por
+\begin{equation}
+	S^k = \frac{i}{8}\sum_{j,l}\epsilon^{kjl}\left[\gamma^j,\gamma^l\right].
+\end{equation}
+Estas componentes se pueden expresar en función de $\Sigma$, cuya definición y propiedades se encuentran en el apéndice \ref{B.1.}, como
+\begin{equation}
+  S^{k} = \frac{1}{2}\Sigma^k.\label{eq:espinOperator}
+\end{equation}
+Usando 
+\begin{equation}
+  (\Sigma^k)^2 = I,
+\end{equation}
+se obtiene que
+\begin{equation}
+   \vec{S}^2 = \frac{3}{4}I = \frac{1}{2}\left(\frac{1}{2} + 1\right)I.
+\end{equation}
+Y como esta representación del espín se había obtenido de la covariancia de la ecuación de Dirac, esta restringida a esta, es decir que la ecuación de Dirac describe a partículas con espín $1/2$.
+
+De este modo, el operador $W^0$ está dado por 
+\begin{equation}
+   W^0 = \vec{\Sigma}\cdot \vec{P}.
+\end{equation}
+Sin embargo, este al representar en el espacio de momentos la proyección del momentum en la dirección del espín, dependerá de la magnitud del espín. Para tener un operador independiente de esta se define el operador helicidad como
+\begin{equation}
+  \hat{h} \equiv \frac{W^0}{s \abs{\vec{P}}} = \frac{\vec{S}\cdot \vec{P}}{s \abs{\vec{P}}},\label{eq:helicityDef}
+\end{equation}
+donde $s$ es el espín de la partícula y el denominador $\abs{\vec{P}}$ representa que en el espacio de momentos estará normalizado. Con este operador se puede definir un nuevo conjunto completo de observables compatibles, dado por los operadores $P^\mu$ y $\hat{h}$. En este contexto, la helicidad representa la orientación del espín en la dirección de la partícula.
+
+Además, al reeemplazar \eqref{eq:espinOperator} en \eqref{eq:helicityDef} se obtiene
+\begin{equation}
+	\hat{h} = \frac{\vec{\Sigma}\cdot \vec{P}}{\abs{\vec{P}\,}}.
+\end{equation}
+\subsection{Autofunciones de la helicidad}
+Para obtener las autofunciones de la helicidad, usamos la propiedad de anticonmutación de $\Sigma^k$ dada en \eqref{eq:AntiSigma}:
+\begin{equation}
+	\hat{h}^2 = \sum_{k,j=1}^3\frac{\Sigma^k\Sigma^jP^kP^j}{\abs{\vec{P}\,}^2} = \frac{(P^1)^2 + (P^2)^2}{\abs{\vec{P}\,}^2} = I,
+\end{equation}
+lo que implica que el operador helicidad tiene autovalores $\pm 1$. De este modo junto al Hamiltoniano de Dirac tendremos que 
+\begin{equation}
+   u^{(h)}(p)e^{-ip\cdot x}\quad \text{y}\quad v^{(h)}(p)e^{ip \cdot x}
+\end{equation}
+son las autofunciones de estos, donde $h$ denota el autovalor de la helicidad al que corresponden. Estas satisfacen
+\begin{align}
+	(\gamma^\mu p_\mu -m)u^{(h)}(p) = 0,\label{eq:diracPu(h)} \\
+	(\gamma^\mu p_\mu +m)v^{(h)}(p) = 0.\label{eq:diracPv(h)}
+\end{align}
+
+Reemplazando estos biespinores en la ecuación de autovalores de la helicidad:
+\begin{equation}
+	\frac{\vec{\Sigma}\cdot \vec{P}}{\abs{\vec{P}\,}}\left(u^{(h)}(p) e^{-ip\cdot x}\right) = \frac{\vec{\Sigma}\cdot \vec{p}}{\abs{\vec{p}\,}}u^{(h)}(p)e^{ip\cdot x} = h u^{(h)}(p)e^{-ip\cdot x}
+\end{equation}
+y
+\begin{equation}
+	\frac{\vec{\Sigma}\cdot \vec{P}}{\abs{\vec{P}\,}}\left(v^{(h)}(p) e^{-ip\cdot x}\right) = -\frac{\vec{\Sigma}\cdot \vec{p}}{\abs{\vec{p}\,}}v^{(h)}(p)e^{ip\cdot x} = h v^{(h)}(p)e^{ip\cdot x}.
+\end{equation}
+Entonces se cumple que
+\begin{align}
+	\frac{\vec{p}\cdot \vec{\Sigma}}{\abs{\vec{p}\,}} u^{(h)}(p) & = h u^{(h)}(p),\label{eq:helicityu(h)}  \\
+	\frac{\vec{p} \cdot \vec{\Sigma}}{\abs{\vec{p}\,}}v^{(h)}(p) & = -h v^{(h)}(p).\label{eq:helicityv(h)}
+\end{align}
+Como toda solución puede expresarse como una combinación de lineal de estos biespinores, tendremos que la solución general de la ecuación de Dirac tiene la forma
+\begin{equation}
+	\psi(x,t) = \int \frac{1}{(2\pi)^{3/2} \sqrt{2E}}\sum_{h=\pm 1}\bigg[a^{(h)}(p)u^{(h)}(p)e^{-i p\cdot x} + b^{(h)^\ast}(p)v^{(h)}(p)e^{i p\cdot x}\bigg] \dd^3p
+\end{equation}
+donde $a^{(h)}(p)$ y $b^{(h)}(p)$ son números complejos.
+
+A partir de las \crefrange{eq:diracPu(h)}{eq:diracPv(h)} y las \crefrange{eq:helicityu(h)}{eq:helicityv(h)} se obtuvieron (ver Apéndice \ref{aped.D}):
+\begin{align}
+	\overline{u^{(h)}}(p)\gamma^\mu u^{(h')}(p) & = \overline{v^{(h)}}(p) \gamma^\mu v^{(h')}(p) = 2p^\mu \delta_{h,h'}, \\
+	u^{(h)^\dagger} (p) v^{(h')}(p_P)           & = v^{(h)^\dagger} (p) u^{(h')}(p_P) = 0,
+\end{align}
+donde
+\begin{equation}
+	\overline{u^{(h)}}(p) = u^{(h)^\dagger}(p)\gamma^0,\quad \overline{v^{(h)}}(p) = v^{(h)^\dagger}(p)\gamma^0
+\end{equation}
+y $p_P = (p^0, - \vec{p}\,)$.
+
+Usando estas relaciones se pueden calcular los coeficientes $a^{(h)}(p)$, $b^{(h)}(p)$:
+\begin{align}
+	a^{(h)}(p) & = \frac{1}{(2\pi)^{3/2}}\frac{1}{\sqrt{2E}} \int u^{(h)^\dagger}(p)\psi(x)e^{ip\cdot x} \dd^3 x  \\
+	b^{(h)}(p) & = \frac{1}{(2\pi)^{3/2}}\frac{1}{\sqrt{2E}}\int \psi^\dagger(x)v^{(h)}(p)e^{ip \cdot x} \dd^3 x.
+\end{align}
+De este modo podemos expresar toda solución de la ecuación de Dirac en función de los biespinores $u^{(h)}(p)$ y $v^{(h)}(p)$, y obtener sus coeficientes a partir de las relaciones entre estos.
+\subsection{Representación de Dirac de la helicidad}
+La helicidad en la representación de Dirac está dada por
+\begin{equation}
+	\hat{h} = \frac{1}{\abs{\vec{P}\,}}\begin{pmatrix}
+		\vec{\sigma}\cdot \vec{P} & 0                         \\
+		0                         & \vec{\sigma}\cdot \vec{P}
+	\end{pmatrix} .
+\end{equation}
+y el Hamiltoniano de Dirac \eqref{eq:Hamiltonian} por
+\begin{equation}
+	\begin{aligned}[b]
+		H_D & = \begin{pmatrix}
+			        I & 0 \\ 0 & -I
+		        \end{pmatrix} \begin{pmatrix}
+			                      \vec{\sigma}\cdot \vec{P} & 0                          \\
+			                      0                         & -\vec{\sigma}\cdot \vec{P}
+		                      \end{pmatrix}+ m\begin{pmatrix}
+			                                      I & 0  \\
+			                                      0 & -I
+		                                      \end{pmatrix} \\
+		    & = \begin{pmatrix}
+			        \vec{\sigma}\cdot \vec{P} & 0                         \\
+			        0                         & \vec{\sigma}\cdot \vec{P}
+		        \end{pmatrix} + m\begin{pmatrix}
+			                         I & 0  \\
+			                         0 & -I
+		                         \end{pmatrix}.
+	\end{aligned}
+\end{equation}
+Evidentemente estos conmutan, tal y como se esperaba debido a que son observables compatibles.
+
+Luego, expresamos las ecuaciones \eqref{eq:helicityu(h)} \eqref{eq:helicityv(h)} en la representación de Dirac:
+\begin{equation}
+	\begin{pmatrix}
+		\dfrac{\vec{p}\cdot \vec{\sigma}}{\abs{\vec{p}}} & 0                                                \\
+		0                                                & \dfrac{\vec{p}\cdot \vec{\sigma}}{\abs{\vec{p}}}
+	\end{pmatrix}u^{(h)}(p) = h u^{(h)}(p),\quad \begin{pmatrix}
+		\dfrac{\vec{p}\cdot \vec{\sigma}}{\abs{\vec{p}}} & 0                                                \\
+		0                                                & \dfrac{\vec{p}\cdot \vec{\sigma}}{\abs{\vec{p}}}
+	\end{pmatrix} v^{(h)}(p) = -h v^{(h)}(p).
+\end{equation}
+Así podemos expresar $u^{(h)}(p)$ y $v^{(h)}(p)$ como
+\begin{equation}
+	u^{(h)}(p) = \begin{pmatrix}
+		A\chi^{(h)}(\vec{p}) \\B\chi^{(h)}(\vec{p})
+	\end{pmatrix}\quad \text{y}\quad v^{(h)}(p) = \begin{pmatrix}
+	   C \chi^{(-h)}(\vec{p})\\ D \chi^{(-h)}(\vec{p})
+   \end{pmatrix},\label{eq:repDiracU(h)V(h)}
+\end{equation}
+donde $A,B,C,D \in \mathbb{C}$ y $\chi^{(h)}(\vec{p})$ satisface
+\begin{equation}
+	\frac{\vec{p}\cdot \vec{\sigma}}{\abs{\vec{p}}} \chi^{(h)}(\vec{p})= h \chi^{(h)}(\vec{p}).\label{eq:helicitySolFact}
+\end{equation}
+De esta ecuación de autovalores se obtiene
+\begin{equation}
+	\left(\chi^{(h)}(\vec{p})\right)^\dagger \frac{\vec{p}\cdot \vec{\sigma}}{\abs{\vec{p}}} = h \left(\chi^{(h)}(\vec{p})\right)^\dagger,
+\end{equation}
+el cual junto a la expresión anterior nos permite obtener
+\begin{equation}
+	\begin{aligned}[b]
+		0 & = \left(\chi^{(-h)}(\vec{p})\right)^\dagger \frac{\vec{p}\cdot \vec{\sigma}}{\abs{\vec{p}}}\chi^{(h)}(\vec{p}) - \left(\chi^{(-h)}(\vec{p})\right)^\dagger \frac{\vec{p}\cdot \vec{\sigma}}{\abs{\vec{p}}}\chi^{(h)}(\vec{p}) \\
+		  & = h\left(\chi^{(-h)}(\vec{p})\right)^\dagger \chi^{(h)}(\vec{p}) - (-h)\left(\chi^{(-h)}(\vec{p})\right)^\dagger \chi^{(h)}(\vec{p})                                                                                          \\
+		  & = 2h \left(\chi^{(-h)}(\vec{p})\right)^\dagger \chi^{(h)}(\vec{p}).
+	\end{aligned}
+\end{equation}
+Esto implica que $\chi^{(h)}(\vec{p})$ y $\chi^{(-h)}(\vec{p})$ son ortogonales, es decir
+\begin{equation}
+	\left(\chi^{(-h)}(\vec{p})\right)^\dagger \chi^{(h)}(\vec{p}) = 0.
+\end{equation}
+Ahora asumiremos que los autoestados $\chi^{(h)}(\vec{p})$ son ortonormales, por lo que
+\begin{equation}
+	\left(\chi^{(h')}(\vec{p})\right)^\dagger \chi^{(h)}(\vec{p}) = \delta_{h,h'}.
+\end{equation}
+Luego notamos que como $\chi^{(-h)}(- \vec{p})$ es un autovalor de $\vec{p}\cdot \vec{\sigma}/ \abs{\vec{p}\,}$, por lo que debe ser proporcional a $\chi^{(h)}(\vec{p})$:
+\begin{equation}
+	\chi^{(-h)}(-\vec{p}) = \eta(\vec{p},h)\chi^{(h)}(\vec{p}).
+\end{equation}
+Si cambiamos el signo de $\vec{p}$ y $h$ de la última ecuación, obtendremos
+\begin{equation}
+	\chi^{(h)}(\vec{p}) = \eta(-\vec{p},-h)\chi^{(-h)}(- \vec{p}).
+\end{equation}
+Por lo que
+\begin{equation}
+	\eta(- \vec{p}, -h) = \eta^\ast(\vec{p},h).
+\end{equation}
+Así al resolver \eqref{eq:helicitySolFact} para $\vec{p} \neq - \abs{\vec{p}}\hat{e}_3$ obtendremos que
+\begin{equation}
+	\chi^{(+)}(\vec{p}\,) = \frac{1}{\sqrt{2(1 + \hat{p}_3})}\begin{pmatrix}
+		\hat{p}_3 + 1 \\ \hat{p}_1 + i \hat{p}_2
+	\end{pmatrix},\quad \chi^{(-)}(\vec{p}\,) = \frac{1}{\sqrt{2(1 + \hat{p}_3)}}\begin{pmatrix}
+		- \hat{p}_1 + i \hat{p}_2 \\ \hat{p}_3 +1
+	\end{pmatrix}.
+\end{equation}
+Para $\vec{p} = - \abs{\vec{p}}\hat{e}_3$, la ecuación \eqref{eq:helicitySolFact} es dada por
+\begin{equation}
+   \sigma_3 \chi^{(h)}(\vec{p}) = -h \chi^{(h)}(\vec{p}),
+\end{equation}
+por lo que sus autovalores son
+\begin{equation}
+   \chi^{(+)}(\vec{p}) = \begin{pmatrix}
+      0\\1
+   \end{pmatrix}\quad \text{y}\quad \chi^{(-)}(\vec{p}) = \begin{pmatrix}
+   1 \\ 0
+   \end{pmatrix}.
+\end{equation}
+Para hallar los factores $A,B,C,D$ dados en \eqref{eq:repDiracU(h)V(h)} tenemos que usar las ecuaciones \eqref{eq:diracPu(h)} y \eqref{eq:diracPv(h)}. Usando el hecho de que 
+\begin{equation}
+   p_0 = E \quad \text{y}\quad p_i = -p^i,
+\end{equation}
+para $i = 1,2,3$, estas ecuaciones se pueden expresar en la representación de Dirac como
+\begin{equation}
+	\begin{pmatrix}
+		E- m                    & -\vec{\sigma}\cdot \vec{p} \\
+		\vec{\sigma}\cdot \vec{p} & -(E+m)
+	\end{pmatrix}\begin{pmatrix}
+		A \chi^{(h)}(\vec{p}) \\B\chi^{(h)}(\vec{p})
+	\end{pmatrix} = \begin{pmatrix}
+		0 \\0
+  \end{pmatrix}\label{eq:eigenvalue1}
+\end{equation}
+y
+\begin{equation}
+	\begin{pmatrix}
+		E + m                     & - \vec{p}\cdot\vec{\sigma} \\
+		\vec{p}\cdot \vec{\sigma} & -(E -m)
+	\end{pmatrix}\begin{pmatrix}
+		C \chi^{(-h)}(\vec{p}) \\
+		D \chi^{(-h)}(\vec{p})
+	\end{pmatrix} = \begin{pmatrix}
+		0 \\0
+  \end{pmatrix}.\label{eq:eigenvalue2}
+\end{equation}
+Usando \eqref{eq:helicitySolFact} y la relación $E^2 = p^2 + m^2$ obtenemos
+\begin{equation}
+	\vec{p}\cdot \vec{\sigma} \chi^{(h)}(\vec{p}) = h\sqrt{E^2 - m^2}\chi^{(h)}(\vec{p}).
+\end{equation}
+De este modo de las ecuaciones \eqref{eq:eigenvalue1} y \eqref{eq:eigenvalue2} se obtiene los sistemas de ecuaciones
+\begin{equation}
+	\begin{aligned}[b]
+		A(E-m) - hB \sqrt{E^2 - m^2} = 0 \\
+		hA\sqrt{E^2 - m^2} - B(E+m) = 0
+	\end{aligned}
+\end{equation}
+y
+\begin{equation}
+	\begin{aligned}[b]
+		C(E + m) + hD\sqrt{E^2 - m^2} = 0 \\
+		-hC\sqrt{E^2 - m^2} - D(E-m) = 0
+	\end{aligned}.
+\end{equation}
+Al resolver estos se obtienen
+\begin{equation}
+	A = \sqrt{E + m},\quad B = h\sqrt{E-m},\quad C = -\sqrt{E - m},\quad D = h\sqrt{E + m}.
+\end{equation}
+Entonces
+\begin{equation}
+	u^{(h)}(p) = \begin{pmatrix}
+		\sqrt{E + m}\chi^{(h)}(\vec{p}) \\
+		h\sqrt{E - m}\chi^{(h)}(\vec{p})
+	\end{pmatrix},\quad	v^{(h)}(p) = \begin{pmatrix}
+		-\sqrt{E -m }\chi^{(-h)}(\vec{p}) \\
+		h\sqrt{E + m}\chi^{(-h)}(\vec{p})
+	\end{pmatrix},
+\end{equation}
+o de forma explícita para $\vec{p} \neq -\abs{\vec{p}}\hat{e}_3$
+\begin{align}
+   u^{(+)}(p) = \begin{pmatrix}
+      \sqrt{\frac{E + m}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         \hat{p}_3 +1\\ \hat{p}_1 + i \hat{p}_2
+      \end{pmatrix}\\
+      \sqrt{\frac{E-m}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         \hat{p}_3 + 1\\ \hat{p}_1 + i \hat{p}_2
+      \end{pmatrix}
+   \end{pmatrix},\quad u^{(-)}(p) = \begin{pmatrix}
+      \sqrt{\frac{E + m}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         -\hat{p}_1 + i\hat{p}_2\\\hat{p}_3 +1
+      \end{pmatrix}\\
+      -\sqrt{\frac{E-m}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         -\hat{p}_1 + i\hat{p}_2\\\hat{p}_3 +1
+      \end{pmatrix}
+   \end{pmatrix},\\
+   v^{(+)}(p) = \begin{pmatrix}
+      -\sqrt{\frac{E - m}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         -\hat{p}_1 + i\hat{p}_2\\\hat{p}_3 +1
+      \end{pmatrix}\\
+      \sqrt{\frac{E + m}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         -\hat{p}_1 + i\hat{p}_2\\\hat{p}_3 +1
+      \end{pmatrix} 
+   \end{pmatrix},\quad v^{(-)}(p) = \begin{pmatrix}
+      -\sqrt{\frac{E - m}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         \hat{p}_3 + 1\\ \hat{p}_1 + i \hat{p}_2
+      \end{pmatrix}\\
+      -\sqrt{\frac{E + m}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         \hat{p}_3 + 1\\ \hat{p}_1 + i \hat{p}_2
+      \end{pmatrix} 
+   \end{pmatrix}.
+\end{align}
+Y para $\vec{p} = - \abs{\vec{p}}\hat{e}_3$:
+\begin{align}
+   u^{(+)}(p) = \begin{pmatrix}
+      \sqrt{{E + m}}\begin{pmatrix}
+        0\\1
+      \end{pmatrix}\\
+      \sqrt{{E-m}}\begin{pmatrix}
+        0\\1
+      \end{pmatrix}
+   \end{pmatrix},\quad u^{(-)}(p) = \begin{pmatrix}
+      \sqrt{{E + m}}\begin{pmatrix}
+        1\\0
+      \end{pmatrix}\\
+      -\sqrt{{E-m}}\begin{pmatrix}
+        1\\0
+      \end{pmatrix}
+   \end{pmatrix},\\
+   v^{(+)}(p) = \begin{pmatrix}
+      -\sqrt{{E - m}}\begin{pmatrix}
+        1\\0
+      \end{pmatrix}\\
+      \sqrt{{E + m}}\begin{pmatrix}
+        1\\0
+      \end{pmatrix} 
+   \end{pmatrix},\quad v^{(-)}(p) = \begin{pmatrix}
+      -\sqrt{{E - m}}\begin{pmatrix}
+        0\\1
+      \end{pmatrix}\\
+      -\sqrt{{E + m}}\begin{pmatrix}
+        0\\1
+      \end{pmatrix} 
+   \end{pmatrix}.
+\end{align}
+\subsection{Límite no relativista}
+En límite no relativista $\abs{\vec{p}}\ll m$ se tiene que
+\begin{equation}
+  E = \sqrt{p^2 + m^2} = m^2\left(1 + \frac{p^2}{m^2}\right)^{1/2} \approx m + \frac{p^2}{2m},
+\end{equation}
+entonces
+\begin{align}
+	E + m \approx 2m,\quad E - m \approx \frac{p^2}{2m}.
+\end{align}
+Por lo que los espinores $u^{(h)}(p)$ expresados en la representación de Dirac en el límite relativista se expresan como
+\begin{equation}
+	u^{(h)}(p) \approx \sqrt{2m}\begin{pmatrix}
+		\chi^{(h)}(\vec{p}) \\
+		h \dfrac{\abs{\vec{p}}}{2m}\chi^{(h)}(\vec{p})
+	\end{pmatrix},\quad v^{(h)}(p)  \approx \sqrt{2m}\begin{pmatrix}
+		- \dfrac{\abs{\vec{p}}}{2m}\chi^{(-h)}(\vec{p}) \\
+		h\chi^{(-h)}(\vec{p})
+	\end{pmatrix}.
+\end{equation}
+De estas observamos que las dos componentes superiores de $u^{(h)}_D(p)$ son mucho mayores que las dos componentes inferiores, por esto son llamadas \emph{componentes grandes} y \emph{componentes pequeñas}, respectivamente. De forma similar pero al revés se tienen componentes grandes y pequeñas para $v^{(h)}_D(p)$. Debido a estas propiedades es conveniente usar la representación de Dirac cuando se evalua un problema en el límite no relativista.
+\section{Quiralidad} \renewcommand{\thefootnote}{\arabic{footnote}} % numeración por símbolos
+\lhead[\thepage]{\thesection. Quiralidad}
+\subsection{Transformación de paridad}
+Una transformación de paridad es aquella que invierte la orientación de la parte espacial, así para un espacio-tiempo 3+1 dimensional se identifican dos transformaciones de paridad:
+\begin{equation}
+	\begin{aligned}[c]
+		\mathcal{P}_1 = \begin{pmatrix}
+			                1 & 0  & 0 & 0 \\
+			                0 & -1 & 0 & 0 \\
+			                0 & 0  & 1 & 0 \\
+			                0 & 0  & 0 & 1
+		                \end{pmatrix} &  & \mathcal{P}_2 = \begin{pmatrix}
+			                                                   1 & 0 & 0  & 0 \\
+			                                                   0 & 1 & 0  & 0 \\
+			                                                   0 & 0 & -1 & 0 \\
+			                                                   0 & 0 & 0  & 1
+		                                                   \end{pmatrix}   \\
+		\mathcal{P}_3 = \begin{pmatrix}
+			                1 & 0 & 0 & 0  \\
+			                0 & 1 & 0 & 0  \\
+			                0 & 0 & 1 & 0  \\
+			                0 & 0 & 0 & -1
+		                \end{pmatrix} &  & \mathcal{P}_4 = \begin{pmatrix}
+			                                                   1 & 0  & 0  & 0  \\
+			                                                   0 & -1 & 0  & 0  \\
+			                                                   0 & 0  & -1 & 0  \\
+			                                                   0 & 0  & 0  & -1
+		                                                   \end{pmatrix}
+	\end{aligned}
+\end{equation}
+Estas cuatro transformaciones se relacionan por medio de una rotación de $\pi$ en uno de los planos formados por los ejes espaciales. Además, por lo visto previamente en el capítulo \ref{cap.2}, estas son elementos de $\mathfrak{L}^\uparrow_-$, es decir, son transformaciones ortócronas  e impropias (ver apéndice \ref{aped.C}).
+\subsection{Quiralidad para el campo de Dirac libre}
+Al aplicar la transformación $\mathcal{P}_4$ en la ecuación de Dirac se obtiene que:
+\begin{equation}
+	i( \gamma^0\partial_0 - \gamma^i\partial_i )\psi(t,- \vec{x})=  0.
+\end{equation}
+Usando las relaciones de anticonmutación de las matrices $\gamma$:
+\begin{equation}
+	\begin{aligned}[b]
+		0 & = \gamma^0i(\gamma^0\partial_0 - \gamma^i\partial_i)\psi(t,-\vec{x})    \\
+		  & = i(\gamma^0\partial_0 + \gamma^i\partial_i)\gamma^0\psi(t, - \vec{x}).
+	\end{aligned}
+\end{equation}
+Por lo que la solución $\psi(t, - \vec{x})$ corresponde a una solución de la ecuación de Dirac, es decir
+\begin{equation}
+	\tilde{\psi}(t, \vec{x}) = e^{i\eta}\gamma^0 \psi(t, - \vec{x})
+\end{equation}
+donde $\eta \in \mathbb{C}$.
+
+Se define el operador quiralidad
+\begin{equation}
+	\gamma^5 \equiv i\gamma^0\gamma^1\gamma^2\gamma^3
+\end{equation}
+el cual satisface las propiedades:
+\begin{equation}
+	\left\{\gamma^5,\gamma^\mu\right\} = 0, \quad (\gamma^5)^2 = I,\quad (\gamma^5)^\dagger = \gamma^5.
+\end{equation}
+A partir de la segunda de estas propiedades obtenemos que los autovalores de $\gamma^5$ son $+1$ y $-1$. Si todos los autovalores de $\gamma^5$ fueran iguales a $\pm 1$ entonces $\pm I$, entonces por la propiedad de anticonmutación con las matrices $\gamma^\mu$ se obtendría que estas últimas son iguales a cero. Evidentemente si $\gamma^\mu = 0$ la ecuación de Dirac sería trivial, para tener una ecuación no trivial la matriz $\gamma^5$ debe tener autovalores $+1$ y $-1$, y no solo uno de estos. Entonces existen las autofunciones $\psi_R$ y $\psi_L$, las cuales corresponden a los autovalores $+1$ y $-1$, respectivamente, es decir
+\begin{align}
+	\gamma^5 \psi_R = +\psi_R, \\
+	\gamma^5 \psi_L = -\psi_L.
+\end{align}
+Estos campos son llamados \emph{right-handed} y \emph{left-handed}, respectivamente.
+
+La importancia del operador quiralidad es que al anticonmutar con $\gamma^0$, una transformación de paridad mapea a un campo \emph{right-handed} a uno \emph{left-handed}, y viceversa.
+\begin{equation}
+	\begin{aligned}[b]
+		\gamma^5 ( \gamma^0 \psi_R ) & = -\gamma^0\gamma^5\psi_R = -( \gamma^0\psi_R ), \\
+		\gamma^5 ( \gamma^0 \psi_L ) & = -\gamma^0\gamma^5\psi_L = +( \gamma^0\psi_L ).
+	\end{aligned}
+\end{equation}
+Así se concluye que el operador quiralidad permite diferenciar la orientación de los campos.
+
+Toda solución de la ecuación de Dirac $\psi$ puede ser expresada en función de $\psi_R$ y $\psi_L$ si estas están dadas por
+\begin{align}
+	\psi_R = \frac{I + \gamma^5}{2}\psi, \\
+	\psi_L = \frac{I - \gamma^5}{2}\psi.
+\end{align}
+Esto es
+\begin{equation}
+	\psi = \psi_R + \psi_L.
+\end{equation}
+Así para hallar estas componentes de la solución $\psi$ es conveniente los operadores proyección
+\begin{equation}
+	P_R \equiv \frac{I + \gamma^5}{2},\quad P_L \equiv \frac{I - \gamma^5}{2},
+\end{equation}
+los cuales cumplen las propiedades:
+\begin{align}
+	P_R + P_L = I, & \quad P_RP_L = P_LP_R = 0, \\
+	(P_R)^2 = P_R, & \quad (P_L)^2 = P_L.
+\end{align}
+Habiendo definido estos operadores ahora a partir de la ecuación hallaremos una ecuación que relacione $\psi_R$ y $\psi_L$:
+\begin{equation}
+	\begin{aligned}[b]
+		\gamma^5(i\gamma^\mu\partial_\mu - m)\psi  & = 0  \\
+		-(i\gamma^\mu\partial_\mu + m)\gamma^5\psi & = 0.
+	\end{aligned}
+\end{equation}
+Entonces al sumar o restar esta expresión de la ecuación de Dirac se obtienen:
+\begin{align}
+	(i\gamma^\mu\partial_\mu)P_R\psi - mP_L\psi = 0, \\
+	(i\gamma^\mu\partial_\mu)P_L\psi - mP_R\psi = 0,
+\end{align}
+o equivalentemente
+\begin{align}
+	i\gamma^\mu \partial_\mu \psi_R = m\psi_L\label{eq:psi_Revol} \\
+	i\gamma^\mu \partial_\mu \psi_L = m\psi_R.\label{eq:psi_Levol}
+\end{align}
+Las ecuaciones acopladas obtenidas muestran que las evoluciones espacio-tiempo de las componentes $\psi_R$ y $\psi_L$ se relacionan por la masa $m$ de la partícula.
+
+Usando la representación quiral (ver subsección \ref{ssec:QuiralRep}) tenemos que
+\begin{equation}
+	\gamma^5 = \begin{pmatrix}
+		I & 0  \\
+		0 & -I
+	\end{pmatrix},
+\end{equation}
+entonces
+\begin{equation}
+	P_R = \begin{pmatrix}
+		I & 0 \\0 & 0
+	\end{pmatrix},\quad P_L = \begin{pmatrix}
+		0 & 0 \\0 & I
+	\end{pmatrix}.
+\end{equation}
+Y si definimos
+\begin{equation}
+	\psi = \begin{pmatrix}
+		\chi_R \\ \chi_L
+	\end{pmatrix}
+\end{equation}
+tendremos de las ecuaciones de evolución \eqref{eq:psi_Revol} y \eqref{eq:psi_Levol}
+\begin{align}
+	i \left[-\begin{pmatrix}
+			         0 & I \\I & 0
+		         \end{pmatrix}\partial_0 + \begin{pmatrix}
+			                                   0 & \sigma^k \\-\sigma^k & 0
+		                                   \end{pmatrix}\partial_k\right]\begin{pmatrix}
+		                                                                 \chi_R \\0
+	                                                                 \end{pmatrix} = m \begin{pmatrix}
+		                                                                                   0 \\\chi_L
+	                                                                                   \end{pmatrix} \\
+	i \left[-\begin{pmatrix}
+			         0 & I \\I & 0
+		         \end{pmatrix}\partial_0 + \begin{pmatrix}
+			                                   0 & \sigma^k \\-\sigma^k & 0
+		                                   \end{pmatrix}\partial_k\right]\begin{pmatrix}
+		                                                                 0 \\\chi_L
+	                                                                 \end{pmatrix} = m \begin{pmatrix}
+		                                                                                   \chi_R \\0
+	                                                                                   \end{pmatrix}
+\end{align}
+que
+\begin{align}
+	i(\partial_0 + \vec{\sigma}\cdot\gradient)\chi_R = -m \chi_L, \\
+	i(\partial_0 - \vec{\sigma}\cdot\gradient)\chi_L = -m \chi_R.
+\end{align}
+\subsection{Representación quiral de la helicidad}
+En la representación quiral se tiene que 
+\begin{equation}
+	\vec{\Sigma} = \begin{pmatrix}
+		\vec{\sigma} & 0            \\
+		0            & \vec{\sigma}
+	\end{pmatrix},
+\end{equation}
+por lo que las ecuaciones \eqref{eq:helicityu(h)} \eqref{eq:helicityv(h)} están dadas por
+\begin{equation}
+	\begin{pmatrix}
+		\dfrac{\vec{p}\cdot \vec{\sigma}}{\abs{\vec{p}}} & 0                                                \\
+		0                                                & \dfrac{\vec{p}\cdot \vec{\sigma}}{\abs{\vec{p}}}
+	\end{pmatrix}u^{(h)}(p) = h u^{(h)}(p),\quad \begin{pmatrix}
+		\dfrac{\vec{p}\cdot \vec{\sigma}}{\abs{\vec{p}}} & 0                                                \\
+		0                                                & \dfrac{\vec{p}\cdot \vec{\sigma}}{\abs{\vec{p}}}
+	\end{pmatrix} v^{(h)}(p) = -h v^{(h)}(p).
+\end{equation}
+Así podemos expresar $u^{(h)}(p)$ y $v^{(h)}(p)$ como
+\begin{equation}
+	u^{(h)}(p) = \begin{pmatrix}
+		A'\chi^{(h)}(\vec{p}) \\B'\chi^{(h)}(\vec{p})
+	\end{pmatrix}\quad \text{y}\quad v^{(h)}(p) = \begin{pmatrix}
+	   C' \chi^{(-h)}(\vec{p})\\ D' \chi^{(-h)}(\vec{p})
+   \end{pmatrix},\label{eq:repChiralU(h)V(h)}
+\end{equation}
+donde $A',B',C',D' \in \mathbb{C}$ y $\chi^{(h)}(\vec{p})$ satisface
+\begin{equation}
+  \frac{\vec{p}\cdot \vec{\sigma}}{\abs{\vec{p}}} \chi^{(h)}(\vec{p})= h \chi^{(h)}(\vec{p}).\label{eq:helicitySolFact2}
+\end{equation}
+Notamos que esta ecuación de autovalores es la misma que se obtuvo para la representación de Dirac \eqref{eq:helicitySolFact}, entonces para $\vec{p} \neq - \abs{\vec{p}}\hat{e}_3$ se tiene que 
+\begin{equation}
+	\chi^{(+)}(\vec{p}\,) = \frac{1}{\sqrt{2(1 + \hat{p}_3})}\begin{pmatrix}
+		\hat{p}_3 + 1 \\ \hat{p}_1 + i \hat{p}_2
+	\end{pmatrix},\quad \chi^{(-)}(\vec{p}\,) = \frac{1}{\sqrt{2(1 + \hat{p}_3)}}\begin{pmatrix}
+		- \hat{p}_1 + i \hat{p}_2 \\ \hat{p}_3 +1
+	\end{pmatrix},
+\end{equation}
+y para $\vec{p} = - \abs{\vec{p}}\hat{e}_3$ que
+\begin{equation}
+   \chi^{(+)}(\vec{p}) = \begin{pmatrix}
+     0\\1
+   \end{pmatrix}\quad \text{y}\quad \chi^{(-)}(\vec{p}) = \begin{pmatrix}
+     1\\ 0
+   \end{pmatrix}.
+\end{equation}
+Luego, como en la representación quiral se tienen
+\begin{equation}
+	\gamma^0 = \begin{pmatrix}
+		0  & -I \\
+		-I & 0
+	\end{pmatrix},\quad \gamma^k = \begin{pmatrix}
+		0         & \sigma^k \\
+		-\sigma^k & 0
+	\end{pmatrix},
+\end{equation}
+al usar
+\begin{equation}
+   p_0 = E \quad \text{y}\quad p_i = -p^i,
+\end{equation}
+la ecuación \eqref{eq:diracPu(h)} se expresa como
+\begin{equation}
+	\begin{pmatrix}
+		-m                                & -(E + \vec{\sigma}\cdot \vec{p}) \\
+		- (E - \vec{\sigma}\cdot \vec{p}) & -m
+	\end{pmatrix}\begin{pmatrix}
+		A' \chi^{(h)}(\vec{p}) \\B'\chi^{(h)}(\vec{p})
+	\end{pmatrix} = \begin{pmatrix}
+		0 \\0
+	\end{pmatrix}.
+\end{equation}
+De igual forma la relación \eqref{eq:diracPv(h)} se expresa en la representación quiral como
+\begin{equation}
+	\begin{pmatrix}
+		m                              & - E - \vec{p}\cdot \vec{\sigma} \\
+		-E + \vec{p}\cdot \vec{\sigma} & m
+	\end{pmatrix}\begin{pmatrix}
+		C' \chi^{(-h)}(\vec{p}) \\
+		D'\chi^{(-h)}(\vec{p})
+	\end{pmatrix} = \begin{pmatrix}
+		0 \\0
+	\end{pmatrix}.
+\end{equation}
+Usando \eqref{eq:helicitySolFact2} y la relación $E^2 = p^2 + m^2$ obtenemos
+\begin{equation}
+	\vec{p}\cdot \vec{\sigma} \chi^{(h)}(\vec{p}) = h\sqrt{E^2 - m^2}\chi^{(h)}(\vec{p}),
+\end{equation}
+la cual permite obtener los sistemas de ecuaciones
+\begin{equation}
+	\begin{aligned}[b]
+		-mA' - (E + h \abs{\vec{p}})B' = 0 \\
+		-(E - h \abs{\vec{p}})A' - mB' = 0
+	\end{aligned}
+\end{equation}
+y
+\begin{equation}
+	\begin{aligned}[b]
+		mC' - (E - h \abs{\vec{p}})D' = 0 \\
+		-(E+ h \abs{\vec{p}})C' + m D' = 0
+	\end{aligned}
+\end{equation}
+Al resolverlos se obtienen:
+\begin{equation}
+	A' = -\sqrt{E + h \abs{\vec{p}}},\quad B' = \sqrt{E- h \abs{\vec{p}}},\quad C'= -h\sqrt{E - h \abs{\vec{p}}},\quad D' = -h\sqrt{E + h \abs{\vec{p}}}.
+\end{equation}
+Entonces
+\begin{equation}
+	u^{(h)}(p) = \begin{pmatrix}
+		-\sqrt{E + h \abs{\vec{p}}}\chi^{(h)}(\vec{p}) \\
+		\sqrt{E - h \abs{\vec{p}}}\chi^{(h)}(\vec{p})
+	\end{pmatrix}\label{eq:chiralsolu}
+\end{equation}
+y
+\begin{equation}
+	v^{(h)}(p) = -h\begin{pmatrix}
+		\sqrt{E -h \abs{\vec{p}} }\chi^{(-h)}(\vec{p}) \\
+		\sqrt{E + h \abs{\vec{p}}}\chi^{(-h)}(\vec{p})
+	\end{pmatrix},\label{eq:chiralSolv}
+\end{equation}
+o de forma explícita para $\vec{p} = - \abs{\vec{p}}\hat{e}_3$:
+\begin{align}
+   u^{(+)}(p) = \begin{pmatrix}
+      -\sqrt{\frac{E + \abs{\vec{p}}}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         \hat{p}_3 +1\\ \hat{p}_1 + i \hat{p}_2
+      \end{pmatrix}\\
+      \sqrt{\frac{E-\abs{\vec{p}}}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         \hat{p}_3 + 1\\ \hat{p}_1 + i \hat{p}_2
+      \end{pmatrix}
+   \end{pmatrix},\quad u^{(-)}(p) = \begin{pmatrix}
+      -\sqrt{\frac{E - \abs{\vec{p}}}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         -\hat{p}_1 + i\hat{p}_2\\\hat{p}_3 +1
+      \end{pmatrix}\\
+      \sqrt{\frac{E + \abs{\vec{p}}}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         -\hat{p}_1 + i\hat{p}_2\\\hat{p}_3 +1
+      \end{pmatrix}
+   \end{pmatrix},\\
+   v^{(+)}(p) = \begin{pmatrix}
+      -\sqrt{\frac{E - \abs{\vec{p}}}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         -\hat{p}_1 + i\hat{p}_2\\\hat{p}_3 +1
+      \end{pmatrix}\\
+      -\sqrt{\frac{E + \abs{\vec{p}}}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         -\hat{p}_1 + i\hat{p}_2\\\hat{p}_3 +1
+      \end{pmatrix} 
+   \end{pmatrix},\quad v^{(-)}(p) = \begin{pmatrix}
+      \sqrt{\frac{E + \abs{\vec{p}}}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         \hat{p}_3 + 1\\ \hat{p}_1 + i \hat{p}_2
+      \end{pmatrix}\\
+      \sqrt{\frac{E - \abs{\vec{p}}}{2(1 + \hat{p}_3)}}\begin{pmatrix}
+         \hat{p}_3 + 1\\ \hat{p}_1 + i \hat{p}_2
+      \end{pmatrix} 
+   \end{pmatrix}.
+\end{align}
+Y para $\vec{p} = - \abs{\vec{p}}\hat{e}_3$ 
+\begin{align}
+   u^{(+)}(p) = \begin{pmatrix}
+      -\sqrt{{E + \abs{\vec{p}}}}\begin{pmatrix}
+         0\\1
+      \end{pmatrix}\\
+      \sqrt{{E-\abs{\vec{p}}}}\begin{pmatrix}
+        0 \\1 
+      \end{pmatrix}
+   \end{pmatrix},\quad u^{(-)}(p) = \begin{pmatrix}
+      -\sqrt{{E - \abs{\vec{p}}}}\begin{pmatrix}
+        1\\0
+      \end{pmatrix}\\
+      \sqrt{{E + \abs{\vec{p}}}}\begin{pmatrix}
+        1\\ 0
+      \end{pmatrix}
+   \end{pmatrix},\\
+   v^{(+)}(p) = \begin{pmatrix}
+      -\sqrt{{E - \abs{\vec{p}}}}\begin{pmatrix}
+        1\\0
+      \end{pmatrix}\\
+      -\sqrt{{E + \abs{\vec{p}}}}\begin{pmatrix}
+        1\\0
+      \end{pmatrix} 
+   \end{pmatrix},\quad v^{(-)}(p) = \begin{pmatrix}
+      \sqrt{{E + \abs{\vec{p}}}}\begin{pmatrix}
+        0\\1
+      \end{pmatrix}\\
+      \sqrt{{E - \abs{\vec{p}}}}\begin{pmatrix}
+        0\\1
+      \end{pmatrix} 
+   \end{pmatrix}.
+\end{align}
+\subsection{Campo de Dirac no masivo}
+Si consideramos partículas sin masa tenemos que
+\begin{equation}
+	i\gamma^\mu\partial_\mu\psi_R = 0\quad \text{y}\quad	i\gamma^\mu\partial_\mu\psi_L = 0,
+\end{equation}
+es decir, los campos $\psi_R$ y $\psi_L$ están desacoplados. Eso permite que la dinámica de una partícula pueda ser determinada por solo una de las componentes.
+
+Considerando la ecuación de Dirac para una partícula sin masa
+\begin{equation}
+	i\gamma^\mu\partial_\mu \psi(x,p) = 0,
+\end{equation}
+y una solución $\psi(x,p)$ que es un autovalor del operador cuadrimomento
+\begin{equation}
+	P^\mu \psi(x,p) = i\partial^\mu \psi(x,p) = p^\mu \psi(x,p)
+\end{equation}
+con energía
+\begin{equation}
+	p^0 = E = \abs{\vec{p}}.
+\end{equation}
+Entonces podemos expresar la ecuación de Dirac como
+\begin{equation}
+	\begin{aligned}[b]
+		0 & = \gamma^\mu P_\mu \psi(x,p)                                    \\
+		  & = (\gamma^0P^0 - \sum_k\gamma^kP^k)\psi(x,p)                    \\
+		  & = (\gamma^0 \abs{\vec{p}}- \vec{\gamma}\cdot \vec{p})\psi(x,p),
+	\end{aligned}
+\end{equation}
+y al aplicar $\gamma^5\gamma^0$ por la izquierda obtenemos
+\begin{equation}
+	\begin{aligned}[b]
+		\gamma^5 \psi(x,p) & = \gamma^5\gamma^0\frac{\vec{\gamma}\cdot \vec{p}}{\abs{\vec{p}}}\psi(x,p)    \\
+		                   & = (\gamma^0 \vec{\gamma}\gamma^5)\cdot \frac{\vec{p}}{\abs{\vec{p}}}\psi(x,p) \\
+		                   & = \frac{\vec{\Sigma}\cdot \vec{p}}{\abs{\vec{p}}}\psi(x,p).
+	\end{aligned}
+\end{equation}
+Así obtenemos que el operador helicidad es igual al operador quiralidad para el caso de partículas sin masa, de modo que se cumple
+\begin{align}
+	\frac{\vec{\Sigma}\cdot \vec{p}}{\abs{\vec{p}}}\psi_R(x,p) & = \psi_R(x,p),   \\
+	\frac{\vec{\Sigma}\cdot \vec{p}}{\abs{\vec{p}}}\psi_L(p,r) & = - \psi_L(x,p).
+\end{align}
+Entonces el campo quiral $\psi_R(x,p)$ tiene helicidad positiva y el campo quiral $\psi_L(p,q)$ tiene helicidad negativa.
+
+Reemplazando en \eqref{eq:chiralsolu} y \eqref{eq:chiralSolv} se obtienen
+\begin{equation}
+	\begin{aligned}[c]
+		u^{(+)}(p) & = -\sqrt{2E}\begin{pmatrix}
+			                         \chi^{(+)}(\vec{p}) \\0
+		                         \end{pmatrix}, & u^{(-)}(p) = \sqrt{2E}\begin{pmatrix}
+			                                                                0 \\\chi^{(-)}(\vec{p})
+		                                                                \end{pmatrix} \\
+		v^{(+)}(p) & = -\sqrt{2E}\begin{pmatrix}
+			                         0 \\\chi^{(-)}(\vec{p})
+		                         \end{pmatrix}, & v^{(-)}(p) = \sqrt{2E}\begin{pmatrix}
+			                                                                \chi^{(+)}(\vec{p}) \\0
+		                                                                \end{pmatrix}.
+	\end{aligned}
+\end{equation}
+Como la expansión de Fourier de $\psi_R$ y $\psi_L$ está dada por
+\begin{equation}
+	\psi_{R,L}(x) = \int \frac{1}{(2\pi)^{3/2}\sqrt{2E}}\sum_{h=\pm 1}\left[a^{(h)}(p)u^{(h)}_{R,L}(p)e^{-p\cdot x} + b^{(h)^\ast}(p)v^{(h)}_{R,L}(p)e^{ip \cdot x}\right] \dd^3 p
+\end{equation}
+tendremos que
+\begin{align}
+	\psi_R(x) & = \int \frac{1}{(2\pi)^{3/2}\sqrt{2E}}\left[a^{(+)}(p)u^{(+)}(p)e^{-ip\cdot x}+ b^{-^\ast}(p)v^{(-)}(p)e^{ip \cdot x}\right] \dd^3 p, \\
+	\psi_L(x) & = \int \frac{1}{(2\pi)^{3/2}\sqrt{2E}}\left[a^{(-)}(p)u^{(-)}(p)e^{-ip\cdot x}+ b^{+^\ast}(p)v^{(+)}(p)e^{ip \cdot x}\right] \dd^3 p.
+\end{align}
+Esto comprueba que las soluciones $\psi_R$ y $\psi_L$ son independientes para el caso no masivo. Además notamos que solo las dos componentes superiores de $\psi_R(x)$ son diferentes de cero y solo las componentes inferiores de $\psi_R(x)$ son diferentes de cero.

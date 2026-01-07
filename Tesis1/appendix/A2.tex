@@ -1,0 +1,209 @@
+\chapter{Propiedades de las matrices gamma}\label{aped.B}
+\markboth{Propiedades de las matrices gamma}{Propiedades de las matrices gamma}
+\lhead[\thepage]{APÉNDICE \thechapter. \rightmark}
+\rhead[APÉNDICE \thechapter. \leftmark]{\thepage}
+Las matrices gamma aparecen en la ecuación de Dirac y siguen el álgebra
+\begin{equation}
+	\left\{\gamma^\mu, \gamma^\nu\right\} = g^{\mu\nu}.
+\end{equation}
+Además la adjunta de estas satisface la relación
+\begin{equation}
+	\gamma^0 \gamma^{\mu^\dagger}\gamma^0 = \gamma^\mu
+\end{equation}
+de la que se obtienen
+\begin{equation}
+	(\gamma^0)^\dagger = \gamma^0,\quad (\gamma^k)^\dagger = - \gamma^k.
+\end{equation}
+En este capítulo se desarrollarán algunas de sus propiedades en los espacio-tiempo 3+1 y 2+1 dimensional con el fin de hallar sus posibles representaciones matriciales.
+
+\section{Álgebra de las matrices gamma}
+\lhead[\thepage]{\thesection. Álgebra de las matrices gamma}\label{B.1.}
+A partir del álgebra de las matrices gamma se puede generar el grupo
+\begin{equation}
+	\begin{aligned}[c]
+		G_{3+1} = & \{\pm I, \pm\gamma^0, \pm\gamma^1, \pm\gamma^2, \pm\gamma^3, \pm\gamma^0\gamma^1, \pm\gamma^0\gamma^2, \pm\gamma^0\gamma^3, \pm\gamma^1\gamma^2, \pm\gamma^1\gamma^3,             \\
+		          & \;\pm\gamma^2\gamma^3, \pm\gamma^0\gamma^1\gamma^2, \pm\gamma^0\gamma^1\gamma^3, \pm\gamma^0\gamma^2\gamma^3, \pm\gamma^1\gamma^2\gamma^3, \pm\gamma^0\gamma^1\gamma^2\gamma^3\}.
+	\end{aligned}
+\end{equation}
+Se pueden definir otros operadores los cuales serán miembros de este grupo:
+\begin{itemize}
+	\item Definimos $\gamma^5$ como
+	      \begin{equation}
+		      \gamma^5 \equiv \gamma_5 = i\gamma^0\gamma^1\gamma^2\gamma^3.
+	      \end{equation}
+	      De las propiedades de anticommutación hallamos
+	      \begin{equation}
+		      \begin{aligned}[c]
+			      \left\{\gamma^5, \gamma^0\right\} = i \left\{\gamma^0\gamma^1\gamma^2\gamma^3, \gamma^0\right\} = i\gamma^0\gamma^1\gamma^2\gamma^3\gamma^0 + i \gamma^0\gamma^0\gamma^1\gamma^2\gamma^3 = 0 \\
+			      \left\{\gamma^5, \gamma^1\right\} = i \left\{\gamma^0\gamma^1\gamma^2\gamma^3, \gamma^1\right\} = i\gamma^0\gamma^1\gamma^2\gamma^3\gamma^1 + i \gamma^1\gamma^0\gamma^1\gamma^2\gamma^3 = 0 \\
+			      \left\{\gamma^5, \gamma^2\right\} = i \left\{\gamma^0\gamma^1\gamma^2\gamma^3, \gamma^2\right\} = i\gamma^0\gamma^1\gamma^2\gamma^3\gamma^2 + i \gamma^2\gamma^0\gamma^1\gamma^2\gamma^3 = 0 \\
+			      \left\{\gamma^5, \gamma^3\right\} = i \left\{\gamma^0\gamma^1\gamma^2\gamma^3, \gamma^0\right\} = i\gamma^0\gamma^1\gamma^2\gamma^3\gamma^3 + i \gamma^3\gamma^0\gamma^1\gamma^2\gamma^3 = 0 \\
+		      \end{aligned}
+	      \end{equation}
+	      \begin{equation}
+		      \begin{aligned}[b]
+			      (\gamma^5)^2 & = - \gamma^0\gamma^1\gamma^2\gamma^3\gamma^0\gamma^1\gamma^2\gamma^3 \\
+			                   & = -(-1)^4(-1)^2(-1)(\gamma^0)^2(\gamma^1)(\gamma^2)^2(\gamma^3)^2    \\
+			                   & = I
+		      \end{aligned}
+	      \end{equation}
+	      \begin{equation}
+		      \begin{aligned}[b]
+			      (\gamma^5)^\dagger & = -i \gamma^{3^\dagger}\gamma^{2^\dagger}\gamma^{1^\dagger}\gamma^{0^\dagger} \\
+			                         & = -i (-\gamma^3)(-\gamma^2)(-\gamma^1)\gamma^0                                \\
+			                         & = i(-1)^3(-1)^2(-1)\gamma^0\gamma^1\gamma^2\gamma^3                           \\
+			                         & = \gamma^5
+		      \end{aligned}
+	      \end{equation}
+	\item Definiendo $\sigma^{\mu\nu}$ como
+	      \begin{equation}
+		      \sigma^{\mu\nu} \equiv \frac{i}{2}\left[\gamma^\mu,\gamma^\nu\right]
+	      \end{equation}
+	      obtenemos las relaciones
+	      \begin{equation}
+		      \begin{aligned}[b]
+			      \left[\gamma^5,\sigma^{\mu\nu}\right] & = \frac{i}{2}\left[\gamma^5, \gamma^\mu\gamma^\nu\right] - \frac{i}{2}\left[\gamma^5, \gamma^\nu\gamma^\mu\right]                                    \\
+			                                            & = \frac{i}{2}\left(\gamma^5\gamma^\mu\gamma^\nu - \gamma^\mu\gamma^\nu\gamma^5 - \gamma^5 \gamma^\nu\gamma^\mu + \gamma^\nu\gamma^\mu\gamma^5\right) \\
+			                                            & = \frac{i}{2}\left(-\gamma^\mu\gamma^5\gamma^\nu + \gamma^\mu\gamma^5\gamma^\nu + \gamma^\nu\gamma^5\gamma^\mu - \gamma^\nu\gamma^5\gamma^\mu\right) \\
+			                                            & = 0,
+		      \end{aligned}
+	      \end{equation}
+	      \begin{equation}
+		      \begin{aligned}[b]
+			      \gamma^0(\sigma^{\mu\nu})^\dagger\gamma^0 & = \gamma^0\left(\frac{i}{2}\gamma^\mu\gamma^\nu - \frac{i}{2}\gamma^\nu\gamma^\mu\right)^\dagger\gamma^0                                                              \\
+			                                                & = \gamma^0\left(-\frac{i}{2}\gamma^{\nu^\dagger}\gamma^{\mu^\dagger} + \frac{i}{2}\gamma^{\mu^\dagger}\gamma^{\nu^\dagger}\right)\gamma^0                             \\
+			                                                & = \frac{i}{2}\gamma^0\bigg(-(\gamma^0\gamma^{\nu}\gamma^0)(\gamma^0\gamma^{\mu}\gamma^0) + (\gamma^0\gamma^{\mu}\gamma^0)(\gamma^0\gamma^{\nu}\gamma^0)\bigg)\gamma^0 \\
+			                                                & = \frac{i}{2}(\gamma^\mu\gamma^\nu - \gamma^\nu\gamma^\mu)                                                                                                            \\
+			                                                & = \sigma^{\mu\nu}.
+		      \end{aligned}
+	      \end{equation}
+	\item Definiendo $\Sigma^k$ como
+	      \begin{equation}
+		      \Sigma^k \equiv \frac{1}{2}\sum_{j,l}\epsilon^{kjl}\sigma^{jl} = \gamma^0\gamma^k \gamma^5
+	      \end{equation}
+	      obtenemos que
+	      \begin{equation}
+		      \begin{aligned}[b]
+			      \sum_l\epsilon^{jkl}\Sigma^l & = \frac{1}{2}\sum_{l,m,n}\epsilon^{jkl}\epsilon^{lmn}\sigma^{mn}                                                                         \\
+			                                   & = \frac{1}{2}\left(\epsilon^{pjk}\epsilon^{pjk}\sigma^{jk} + \epsilon^{pjk}\epsilon^{pkj}\sigma^{kj}\right)\quad \text{donde }p \neq j,k \\
+			                                   & = \sigma^{jk},
+		      \end{aligned}
+	      \end{equation}
+	      \begin{equation}
+		      \begin{aligned}[b]
+			      \left[\Sigma^k, \Sigma^j\right] & = \left[\gamma^0\gamma^k\gamma^5, \gamma^0\gamma^j\gamma^5\right]                                     \\
+			                                      & = \gamma^0\gamma^k\gamma^5\gamma^0\gamma^j\gamma^5 - \gamma^0\gamma^j\gamma^5\gamma^0\gamma^k\gamma^5 \\
+			                                      & = -(\gamma^0)^2\gamma^k\gamma^j(\gamma^5)^2 + (\gamma^0)^2\gamma^j\gamma^k(\gamma^5)^2                \\
+			                                      & = 2i \sigma^{kj}                                                                                      \\
+			                                      & = 2i\sum_l\epsilon^{kjl}\Sigma^l,
+		      \end{aligned}
+	      \end{equation}
+	      \begin{equation}
+		      \begin{aligned}[b]
+			      \left\{\Sigma^k, \Sigma^j\right\} & = \left\{\gamma^0\gamma^k\gamma^5,\gamma^0\gamma^j\gamma^5\right\}                                    \\
+			                                        & = \gamma^0\gamma^k\gamma^5\gamma^0\gamma^j\gamma^5 + \gamma^0\gamma^j\gamma^5\gamma^0\gamma^k\gamma^5 \\
+			                                        & = -(\gamma^0)^2\gamma^k\gamma^j(\gamma^5)^2 - (\gamma^0)^2\gamma^j\gamma^k(\gamma^5)^2                \\
+			                                        & = 2\delta_{kj},\label{eq:AntiSigma}
+		      \end{aligned}
+	      \end{equation}
+	      \begin{equation}
+		      \begin{aligned}[b]
+			      (\Sigma^k)^\dagger & = (\gamma^5)^\dagger(\gamma^k)^\dagger(\gamma^0)^\dagger \\
+			                         & = -\gamma^5\gamma^k\gamma^0                              \\
+			                         & = \gamma^0\gamma^k\gamma^5                               \\
+			                         & = \Sigma^k.
+		      \end{aligned}
+	      \end{equation}
+\end{itemize}
+\section{Representaciones de las matrices gamma}
+Se sabe que para un grupo finito no abeliano $G$ se cumple que
+\begin{equation}
+	\abs{G} = \sum_{\lambda=1}^N(n_\lambda)^2\label{ap2:dimenRep}
+\end{equation}
+donde $\abs{G}$ es el número de elementos de $G$, $N$ es el número de representaciones irreducibles inequivalentes de $G$ y $n_\lambda$ es la dimensión de la representación.
+
+Además el número de representaciones irreducibles inequivalentes es el mismo que el número de clases conjugadas. Por ello hallamos las clases conjugadas del grupo $G_{3+1}$:
+\begin{equation}
+	\begin{aligned}[c]
+		\left\{I\right\},\left\{-I\right\},\left\{\gamma^0,-\gamma^0\right\},\left\{\gamma^1,-\gamma^1\right\},\left\{\gamma^2,-\gamma^2\right\},\left\{\gamma^3,-\gamma^3\right\},\left\{\gamma^0\gamma^1,-\gamma^0\gamma^1\right\},                                            \\
+		\left\{\gamma^0\gamma^2,-\gamma^0\gamma^2\right\},\left\{\gamma^1\gamma^2,-\gamma^1\gamma^2\right\},\left\{\gamma^1\gamma^3,-\gamma^1\gamma^3\right\},\left\{\gamma^2\gamma^3,-\gamma^2\gamma^3\right\},                                                                 \\
+		\left\{\gamma^0\gamma^1\gamma^2,-\gamma^0\gamma^1\gamma^2\right\},\left\{\gamma^0\gamma^1\gamma^3,-\gamma^0\gamma^1\gamma^3\right\},\left\{\gamma^0\gamma^2\gamma^3,-\gamma^0\gamma^2\gamma^3\right\},\left\{\gamma^1\gamma^2\gamma^3,-\gamma^1\gamma^2\gamma^3\right\}, \\
+		\left\{\gamma^0\gamma^1\gamma^2\gamma^3,-\gamma^0\gamma^1\gamma^2\gamma^3\right\},
+	\end{aligned}
+\end{equation}
+entonces
+\begin{equation}
+	32 = \sum_{\lambda=1}^{17}(n_\lambda)^2 = 4^2 + \underbrace{1 + 1\dots + 1}_{\text{$16$ veces}}.
+\end{equation}
+Esto quiere decir que existe solo una representación irreducibles que no es trivial, la cual tiene dimensión 4.
+
+Tomando esto en cuenta ahora se muestran algunas de las representaciones, las cuales son equivalentes, de las matrices gamma.
+\subsection{Representación de Dirac}\label{ssec:DiracRep}
+La representación de las matrices $\gamma$ es
+\begin{equation}
+	\gamma^0 = \begin{pmatrix}
+		I & 0  \\
+		0 & -I
+	\end{pmatrix},\quad \gamma^k = \begin{pmatrix}
+		0         & \sigma^k \\
+		-\sigma^k & 0
+	\end{pmatrix}.
+\end{equation}
+Entonces el operador $\gamma^5$ es representado como
+\begin{equation}
+	\gamma^5 = \begin{pmatrix}
+		0 & I \\
+		I & 0
+	\end{pmatrix},
+\end{equation}
+el operador $\sigma^{\mu\nu}$ como
+\begin{equation}
+	\sigma^{0k} = i \begin{pmatrix}
+		\sigma_k & 0          \\
+		0        & - \sigma_k
+	\end{pmatrix},\quad \sigma^{kj}= \sum_l \epsilon^{kjl}\begin{pmatrix}
+		\sigma_l & 0        \\
+		0        & \sigma_l
+	\end{pmatrix}
+\end{equation}
+y el operador $\vec{\Sigma}$ como
+\begin{equation}
+	\vec{\Sigma} = \begin{pmatrix}
+		\vec{\sigma} & 0            \\
+		0            & \vec{\sigma}
+	\end{pmatrix}.
+\end{equation}
+\subsection{Representación quiral}\label{ssec:QuiralRep}
+\begin{equation}
+	\gamma^0 = \begin{pmatrix}
+		0  & -I \\
+		-I & 0
+	\end{pmatrix},\quad \gamma^k = \begin{pmatrix}
+		0         & \sigma^k \\
+		-\sigma^k & 0
+	\end{pmatrix}.
+\end{equation}
+Entonces el operador $\gamma^5$ es representado como
+\begin{equation}
+	\gamma^5 = \begin{pmatrix}
+		I & 0  \\
+		0 & -I
+	\end{pmatrix},
+\end{equation}
+el operador $\sigma^{\mu\nu}$ como
+\begin{equation}
+	\sigma^{0k} = i \begin{pmatrix}
+		\sigma_k & 0        \\
+		0        & \sigma_k
+	\end{pmatrix},\quad \sigma^{kj} = \sum_l \epsilon^{kjl}\begin{pmatrix}
+		\sigma^l & 0        \\
+		0        & \sigma^l
+	\end{pmatrix}
+\end{equation}
+y el operador $\vec{\Sigma}$ como
+\begin{equation}
+	\vec{\Sigma} = \begin{pmatrix}
+		\vec{\sigma} & 0            \\
+		0            & \vec{\sigma}
+	\end{pmatrix}.
+\end{equation}

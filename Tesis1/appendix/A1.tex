@@ -1,0 +1,95 @@
+\chapter{Transformaciones de Galileo sobre la ecuación de Schrödinger}\label{aped.A}
+\markboth{Transformaciones de Galileo sobre la ecuación de Schrödinger}{Transformaciones de Galileo sobre la ecuación de Schrödinger}
+\lhead[\thepage]{APÉNDICE \thechapter. \rightmark}
+\rhead[APÉNDICE \thechapter. \leftmark]{\thepage}
+
+% \section{Notación}
+% \lhead[\thepage]{\thesection. Notación}\label{A.1.1}
+Un requisito de las leyes físicas es que si cambiamos el punto de vista con el que se observan los fenómenos físicos, las leyes de la naturaleza no deben cambiar. Como las leyes de la naturaleza están dadas por ecuaciones, en el caso de la mecánica cuántica no relativista es la ecuación de Schrödinger, el principio de simetría requiere que esta sean invariante para puntos de vista diferentes.
+
+El análisis de las simetrías de la ecuación de Schrödinger se realiza para el caso de la partícula libre, es decir que en el sistema de referencia $\mathcal{R}$ la función de onda de la partícula $\psi(\vec{x},t)$ satisface
+\begin{equation}
+	i\hbar \frac{\partial}{\partial t}\psi(\vec{x},t) = - \frac{\hbar^2}{2m}\Delta \psi(\vec{x},t).\label{eq:schrodinger}
+\end{equation}
+Si se realiza el cambio de referencia a el sistema de referencia $\mathcal{R}'$ por medio de la transformación
+\begin{equation}
+	x'^i = \sum_{k=1}^{3}R^{ij}x^j + v^i t + a^i, \quad		t' = t +b,\label{eq:galilean}
+\end{equation}
+donde $R^{ij}$ es un elemento de la matriz de rotación, el estado de la partícula será descrito por $\psi'(\vec{x}\,',t')$.
+
+Debido a que dos funciones de onda son equivalentes bajo un factor $e^{if}$, donde $f \in \mathbb{R}$, se tiene que este término multiplicativo no afecta a la descripción del estado. A partir esto asumiremos que la nueva función de onda está relacionada con la anterior mediante
+\begin{equation}
+	\psi(\vec{x},t) = e^{if(\vec{x}\,',t')}\psi'(\vec{x}\,',t').\label{eq:factorGal}
+\end{equation}
+Para determinar si existe una función real $f(\vec{x}\,',t')$, de modo que $\psi'(\vec{x}\,',t')$ satisfaga la ecuación de Schrödinger, es decir que sea valida la relación \eqref{eq:factorGal}, se nota que:
+\begin{align}
+	\frac{\partial }{\partial x^i} & = \sum_{j=1}^{3}\frac{\partial x'^j}{\partial x^i}\frac{\partial }{\partial x'^j} + \frac{\partial t'}{\partial x^i}\frac{\partial }{\partial t'} = \sum_{j=1}^{3}R^{ji}\frac{\partial }{\partial x'^j},                                                                                     \\
+	\Delta                         & = \sum_{i=1}^{3}\left(\sum_{j=1}^{3}R^{ji}\frac{\partial }{\partial x'^j}\right)\left(\sum_{k=1}^{3}R^{ki}\frac{\partial }{\partial x'^k}\right) = \sum_{i,j,k=1}^{3}R^{ji}(R^{-1})^{ik}\frac{\partial}{\partial x'^j}\frac{\partial}{\partial x'^k}                                         \\
+	                               & = \sum_{j,k=1}^{3}\delta_{j,k}\frac{\partial}{\partial x'^j}\frac{\partial}{\partial x'^k} =        \Delta'                                                                                                                                                                                  \\
+	\frac{\partial }{\partial t}   & = \sum_{i=1}^{3}\frac{\partial x'^i}{\partial t}\frac{\partial }{\partial x'^i} + \frac{\partial t'}{\partial t}\frac{\partial }{\partial t'} = \sum_{i=1}^{3}v^i \frac{\partial }{\partial x'^i} + \frac{\partial }{\partial t'} = \vec{v}\cdot \gradient' + \frac{\partial }{\partial t'}.
+\end{align}
+Por lo que al reemplazar en \eqref{eq:schrodinger} se obtiene que
+\begin{equation}
+	\left(i\hbar\frac{\partial }{\partial t'} + i\hbar \vec{v}\cdot\gradient' + \frac{\hbar^2}{2m}\Delta' \right)\left(e^{if(\vec{x}\,',t')}\psi'(\vec{x}\,',t')\right) = 0.
+\end{equation}
+Expandiendo esta expresión:
+\begin{equation}
+	\begin{aligned}[b]
+		0 & = - \hbar\frac{\partial f(\vec{x}\,',t')}{\partial t'}e^{if(\vec{x}\,',t')}\psi'(\vec{x}\,',t') + i\hbar e^{if(\vec{x}\,',t')}\frac{\partial }{\partial t'}\psi'(\vec{x}\,',t') - \hbar\vec{v}\cdot(\gradient' f(\vec{x}\,',t'))e^{if(\vec{x}\,',t')} \\
+		  & \quad + \hbar i e^{if(\vec{x}\,',t')}(\vec{v}\cdot\gradient')(\psi'(\vec{x}\,',t')) + \frac{\hbar^2\Delta' e^{if(\vec{x}\,',t')}}{2m}\psi'(\vec{x}\,',t') + \frac{\hbar^2 e^{if(\vec{x}\,',t')}}{2m}(\Delta'\psi'(\vec{x}\,',t'))                     \\
+		  & \quad + \frac{i\hbar^2 e^{if(\vec{x}\,',t')}}{m}(\gradient'f(\vec{x}\,',t'))\cdot (\gradient'\psi'(\vec{x}\,',t')).
+	\end{aligned}
+\end{equation}
+Además se desarrolla
+\begin{equation}
+	\begin{aligned}[b]
+		\Delta'e^{if(\vec{x}\,',t')} & = \gradient'\cdot\left(\gradient' e^{if(\vec{x}\,',t')}\right) = \gradient'\cdot\left(e^{if(\vec{x}\,',t')}(i\gradient'f(\vec{x}\,',t'))\right)           \\
+		                             & = e^{if(\vec{x}\,',t')}\gradient'\cdot(i\gradient'f(\vec{x}\,',t')) -e^{if(\vec{x}\,',t')}(\gradient' f(\vec{x}\,',t'))\cdot(\gradient'f(\vec{x}\,',t')).
+	\end{aligned}
+\end{equation}
+Por lo que la expresión se reduce a
+\begin{equation}
+	\begin{aligned}[b]
+		0 & = \left(-\hbar\frac{\partial f(\vec{x}\,',t')}{\partial t'} + \frac{i\hbar^2}{2m}\Delta'f(\vec{x}\,',t') - \frac{\hbar^2}{2m}(\gradient'f(\vec{x}\,',t'))^2 - \hbar\vec{v}\cdot \gradient'f(\vec{x}\,',t')\right)\psi'(\vec{x}\,',t') \\
+		  & \quad + \left(i\hbar \vec{v} + \frac{i\hbar^2}{m}\gradient'f(\vec{x}\,',t')\right)\cdot(\gradient'\psi'(\vec{x}\,',t')) + \left(i\hbar\frac{\partial }{\partial t'} + \frac{\hbar^2}{2m}\Delta'\right)\psi'(\vec{x}\,',t').
+	\end{aligned}
+\end{equation}
+De esta ecuación se nota que el tercer término corresponde a la ecuación de Schrödinger en el sistema de referencia $\mathcal{R}'$. Así, para que la ecuación se satisfaga en el ambos sistemas de referencia se debe cumplir que
+\begin{align}
+	-\hbar\frac{\partial f(\vec{x}\,',t')}{\partial t'} + \frac{i\hbar^2}{2m}\Delta'f(\vec{x}\,',t') - \frac{\hbar^2}{2m}(\gradient'f(\vec{x}\,',t'))^2 - \hbar\vec{v}\cdot \gradient'f(\vec{x}\,',t') = 0,\label{eq:schrCov1} \\
+	\hbar \vec{v} + \frac{\hbar^2}{m}\gradient'f(\vec{x}\,',t') = 0.\label{eq:schrCov2}
+\end{align}
+Integrando \eqref{eq:schrCov2} se obtiene
+\begin{equation}
+	f(\vec{x}\,',t') = - \frac{m}{\hbar} \vec{v}\cdot \vec{x}\,' + C(t').
+\end{equation}
+Reemplazando esta expresión en \eqref{eq:schrCov1} se obtiene
+\begin{equation}
+	-\hbar \frac{\dd }{\dd t'}C(t') + \frac{m}{2}\vec{v}\,^2 = 0.
+\end{equation}
+Por lo que
+\begin{equation}
+	f(\vec{x}\,',t') =  \frac{1}{\hbar}\left(- m\vec{v}\cdot \vec{x}\,' + \frac{1}{2}m \vec{v}\,^2 t' + C\right),
+\end{equation}
+y en consecuencia
+\begin{equation}
+	\psi'(\vec{x}\,',t') = e^{\frac{i}{\hbar}\left(m\vec{v}\cdot \vec{x}\,' - \frac{1}{2}m \vec{v}\,^2 t' + C\right)}\psi(\vec{x},t).
+\end{equation}
+Este resultado determina que la transformación produce un factor de fase entre ambas funciones de onda, pero esto no es suficiente para garantizar que hay una simetría bajo esa transformación. Para esto es necesario que los resultados obtenidos al medir un observable sea el mismo para ambas funciones de onda.
+
+El término $C$ es aquel que contiene las constantes relacionadas con las traslaciones espaciales y temporales, así como con las rotaciones. Al no depender de $\vec{x}\,'$, no afecta los resultados de la medición de cualquier observable, lo cual permite afirmar que el sistema de la partícula libre tiene simetría de rotación y traslaciones espaciales y temporales. Los otros términos de la exponencial, al depender de la posición, no permiten afirmar directamente que existe una simetría. Para analizar estos términos, y en vista de las simetrías encontradas, nos restringimos a la transformación
+\begin{equation}
+	x'^i = x^i + v^i t, \quad		t' = t.
+\end{equation}
+Es evidente que $\gradient' = \gradient$ por lo que al aplicar el operador momento a $\psi'(\vec{x}\,',t')$ se obtiene
+\begin{equation}
+	\begin{aligned}[b]
+		\hat{\vec{p}}\,'\psi'(\vec{x}\,',t') & = e^{\frac{i}{\hbar}\left(m \vec{v}\cdot \vec{x}\,'- \frac{1}{2}m \vec{v}\,^2 t'\right)}\psi(\vec{x},t) \\
+		                                     & = m \vec{v}\psi(\vec{x},t) + \hat{\vec{p}}\psi(\vec{x},t).
+	\end{aligned}
+\end{equation}
+Entonces el valor medio del momentum está dado por
+\begin{equation}
+	\left\langle \hat{\vec{p}}\right\rangle = m \vec{v} + \left\langle \hat{\vec{p}}\right\rangle,
+\end{equation}
+por lo que no hay una simetría para esta transformación, pues el valor medio del momentum depende del sistema de referencia. Nótese que esta relación concuerda con el resultado clásico de una transformación de Galileo.

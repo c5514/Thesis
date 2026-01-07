@@ -1,0 +1,73 @@
+\chapter{Clasificación del grupo de Lorentz}\label{aped.C}
+\markboth{Clasificación del grupo de Lorentz}{Clasificación del grupo de Lorentz}
+\lhead[\thepage]{APÉNDICE \thechapter. \rightmark}
+\rhead[APÉNDICE \thechapter. \leftmark]{\thepage}
+El grupo de Lorentz puede ser divido en dos componentes
+\begin{align}
+	\mathfrak{L}_+ & = SO(1,3) = \left\{\Lambda \in \mathcal{M}_{4 \times 4}(\mathbb{R}) \mid \Lambda^{T}g\Lambda = g \wedge \text{det}(\Lambda) =1\right\} \\
+	\mathfrak{L}_- & = \left\{\Lambda \in \mathcal{M}_{4 \times 4}(\mathbb{R}) \mid \Lambda^{T}g\Lambda = g \wedge \text{det}(\Lambda) =-1\right\}.
+\end{align}
+Evidentemente $\mathfrak{L}_-$ no es grupo, pues no contiene a la identidad. Para demostrar que $\mathfrak{L}_+$ es un grupo se eligen dos elementos de este dados por $\Lambda$ y $\bar{\Lambda}$. De estos se obtiene que
+\begin{equation}
+	\text{det}(\Lambda \bar{\Lambda}) = \text{det}(\Lambda)\text{det}(\bar{\Lambda}) =1,
+\end{equation}
+es decir $\Lambda \bar{\Lambda} \in \mathfrak{L}_+$. Además, de la definición del grupo $\mathfrak{L}$ se tiene que para todo $\Lambda \in \mathfrak{L}_+$ existe $\tilde{\Lambda}$ tal que $\Lambda\tilde{\Lambda} = \tilde{\Lambda}\Lambda=I$. De la propiedad de la determinante de un producto se obtiene que $\text{det}(\tilde{\Lambda}) = 1$, por ende $\tilde{\Lambda} \in \mathfrak{L}_+$, es decir que todo elemento $\mathfrak{L}_+$ tiene una inversa. Todo esto prueba que $\mathfrak{L}_+$ es un subgrupo de $\mathfrak{L}$.
+
+Otra posible separación del grupo de Lorentz está dada por las componentes
+\begin{align}
+	\mathfrak{L}^\uparrow   & = \left\{\Lambda \in \mathcal{M}_{4 \times 4}(\mathbb{R}) \mid \Lambda^{T}g\Lambda = g \wedge \tensor{\Lambda}{^0_0}\geq 1\right\}   \\
+	\mathfrak{L}_\downarrow & = \left\{\Lambda \in \mathcal{M}_{4 \times 4}(\mathbb{R}) \mid \Lambda^{T}g\Lambda = g \wedge \tensor{\Lambda}{^0_0}\leq -1\right\}.
+\end{align}
+Para demostrar que los elementos de $O(1,3)$ con $\tensor{\Lambda}{^0_0}\geq 1$ forman un grupo se definen $\Lambda, \bar{\Lambda} \in O(1,3)$ los cuales satisfacen $\tensor{\Lambda}{^0_0},\tensor{\bar{\Lambda}}{^0_0}\geq 1$. Entonces el elemento $\tilde{\Lambda} = \Lambda \bar{\Lambda}$ satisface
+\begin{equation}
+	\tensor{\tilde{\Lambda}}{^0_0} = \tensor{\Lambda}{^0_0} \tensor{\bar{\Lambda}}{^0_0} + \sum_i\tensor{\Lambda}{^0_i} \tensor{\bar{\Lambda}}{^i_0} \label{eq:orthoProduct}
+\end{equation}
+De \eqref{eq:lorentztrans1} se obtiene que
+\begin{equation}
+	\tensor{g}{^\mu^\nu} = \tensor{\Lambda}{^\mu_\rho} \tensor{g}{^\rho^\sigma}\tensor{\Lambda}{^\nu_\sigma}
+\end{equation}
+donde $\tensor{g}{^\mu^\nu} = \tensor{g}{_\mu_\nu}$.
+Por lo que al fijar $\mu=\nu=0$ se obtiene
+\begin{equation}
+	(\tensor{\Lambda}{^0_0})^2 - \sum_i(\tensor{\Lambda}{^0_i})^2 = 1\label{eq:relaorth2}
+\end{equation}
+Si se definen los vectores $\vec{x} = \tensor{\Lambda}{^0_i} \hat{e}_i$ y $\vec{y} = \tensor{\bar{\Lambda}}{^i_0} \hat{e}_i$, al usar la desigualdad de Cauchy-Schwarz para un espacio vectorial euclideano
+\begin{equation}
+	\abs{\left(\vec{x}\cdot \vec{y}\right)} \leq \abs{\vec{x}}\abs{\vec{y}}
+\end{equation}
+se obtiene
+\begin{equation}
+	\abs{\sum_i\tensor{\Lambda}{^0_i} \tensor{\bar{\Lambda}}{^i_0}} \leq \sqrt{\sum_i\left(\tensor{\Lambda}{^0_i}\right)^2} \sqrt{\sum_i\left(\tensor{\bar{\Lambda}}{^i_0}\right)^2}.
+\end{equation}
+Al reemplazar \eqref{eq:relaorth1}, \eqref{eq:orthoProduct} y \eqref{eq:relaorth2}  en esta desigualdad se obtienen
+\begin{equation}
+	\tensor{\tilde{\Lambda}}{^0_0} \geq \tensor{\Lambda}{^0_0}\tensor{\bar{\Lambda}}{^0_0} - \sqrt{\left(\tensor{\Lambda}{^0_0}\right)^2 -1} \sqrt{\left(\tensor{\bar{\Lambda}}{^0_0}\right)^2 -1}\label{eq:orthchronusrelation1}
+\end{equation}
+y
+\begin{equation}
+	\tensor{\tilde{\Lambda}}{^0_0} \leq \tensor{\Lambda}{^0_0}\tensor{\bar{\Lambda}}{^0_0} + \sqrt{\left(\tensor{\Lambda}{^0_0}\right)^2 -1} \sqrt{\left(\tensor{\bar{\Lambda}}{^0_0}\right)^2 -1}\label{eq:orthchronusrelation2}
+\end{equation}
+Ya que $\tensor{\Lambda}{^0_0},\tensor{\bar{\Lambda}}{^0_0} \geq 1$ se obtiene que $\tensor{\tilde{\Lambda}}{^0_0} \geq 0$, pero todos los elementos de $O(1,3)$ cumplen que $\abs{\tensor{\tilde{\Lambda}}{^0_0}} \geq 1$, entonces $\tensor{\tilde{\Lambda}}{^0_0} \geq 1$.
+
+Sea $\Lambda$ sea un elemento de $O(1,3)$ tal que $\tensor{\Lambda}{^0_0} \geq 1$. Entonces existe $\bar{\Lambda} \in O(1,3)$ tal que  $\Lambda\bar{\Lambda} = \bar{\Lambda}\Lambda= I$, es decir $\bar{\Lambda}$ es el elemento inverso de $\Lambda$ en el grupo $O(1,n)$. Si $\tensor{\bar{\Lambda}}{^0_0}\leq -1$, entonces a partir de \eqref{eq:orthchronusrelation2} para $\tilde{\Lambda} = I$ se obtiene que
+\begin{equation}
+	1 \leq \tensor{\Lambda}{^0_0}\tensor{\bar{\Lambda}}{^0_0} + \sqrt{\left(\tensor{\Lambda}{^0_0}\right)^2 -1} \sqrt{\left(\tensor{\bar{\Lambda}}{^0_0}\right)^2 -1}\leq 0.
+\end{equation}
+Esto es una contradicción, por lo que $\tensor{\bar{\Lambda}}{^0_0} \geq 1$. Entonces los elementos de $O(1,3)$ con $\tensor{\Lambda}{^0_0} \geq 1$ forman un grupo, el cual será denotado por $O(1,3)^+$ o $\mathfrak{L}^{\uparrow}$.
+
+
+De este modo se puede separar el grupo de Lorentz en cuatro componentes
+\begin{align}
+	\mathfrak{L}_+^{\uparrow}   & = SO^+(1,3) = \left\{\Lambda \in O(1,3) \mid \text{det}(\Lambda) = 1 \wedge \tensor{\Lambda}{^0_0}\geq 1\right\} \\
+	\mathfrak{L}_+^{\downarrow} & = SO^-(1,3) = \left\{\Lambda \in O(1,3)\mid \text{det}(\Lambda) = 1\wedge \tensor{\Lambda}{^0_0}\leq -1\right\}  \\
+	\mathfrak{L}_-^{\uparrow}   & = \left\{\Lambda \in O(1,3)\mid \text{det}(\Lambda) = -1\wedge \tensor{\Lambda}{^0_0}\geq 1\right\}              \\
+	\mathfrak{L}_-^{\downarrow} & = \left\{\Lambda \in O(1,3)\mid \text{det}(\Lambda) = -1\wedge \tensor{\Lambda}{^0_0}\leq -1\right\}
+\end{align}
+Estos conjuntos están relacionados entre sí, en particular al grupo $SO^+(1,3)$, ya que son coconjuntos izquierdos de este. Para probar esto definimos las matrices $M \in \mathfrak{L}_+^{\downarrow}, N \in \mathfrak{L}_-^{\uparrow}, L \in \mathfrak{L}_-^{\downarrow}$. Usando la propiedad del determinante de un producto de matrices y las desigualdades \eqref{eq:orthchronusrelation1}, \eqref{eq:orthchronusrelation2} se obtiene que para $\Lambda \in\mathcal{L}_+^{\uparrow}$ se cumple $M\Lambda \in \mathfrak{L}_+^{\downarrow}$, $N\Lambda \in \mathfrak{L}_-^{\uparrow}$ y $L\Lambda \in \mathfrak{L}_-^{\downarrow}$. Esto solo demuestra que para la matriz $M$ que $M\mathfrak{L}_{+}^{\uparrow}\in \mathfrak{L}_+^{\downarrow}$. Para demostrar la igualdad nos limitamos al caso $M^2 = I$, para el cual se tiene que si $\Lambda' \in \mathfrak{L}_+^{\downarrow}$ entonces $M\Lambda' \in \mathfrak{L}_+^{\uparrow}$, es decir que existe $\bar{\Lambda} \in \mathfrak{L}_+^{\uparrow}$ tal que $M\Lambda' = \bar{\Lambda}$. Ya que $M^2= I$ se obtiene $\Lambda' = \bar{M\Lambda}$, es decir todo elemento de $\mathfrak{L}_+^{\downarrow}$ se puede expresar como un producto con $M$. De igual forma se puede demostrar esto para $N$ y $L$, imponiendo que su cuadrado sea la identidad.
+
+Esto demuestra que los otros elementos del grupo de Lorentz son coconjuntos izquierdos, es decir
+\begin{equation}
+	\mathfrak{L}_+^{\uparrow}\uplus M\mathfrak{L}_{+}^{\uparrow} \uplus N\mathfrak{L}_+^{\uparrow}\uplus L\mathfrak{L}_+^{\uparrow}.
+\end{equation}
+donde $M,N,L$ son definidas como en la demostración.
+
